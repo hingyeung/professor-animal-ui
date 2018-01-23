@@ -9,15 +9,15 @@ class Attribute extends Component {
 
   render() {
     return (
-      <div>
-        <div>
+      <div class="attribute-row">
+        <div class="attribute-cell">
           {this.name}
         </div>
-        <div>
+        <div class="attribute-cell">
           <label htmlFor={this.name + '-yes'}>YES</label>
           <input type="radio" name={this.name} value="yes" id={this.name + '-yes'}/>
         </div>
-        <div>
+        <div class="attribute-cell">
           <label htmlFor={this.name + '-no'}>NO</label>
           <input type="radio" name={this.name} value="no" id={this.name + '-no'}/>
         </div>

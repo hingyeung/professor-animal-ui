@@ -9,9 +9,16 @@ class AttributeGroup extends Component {
   }
 
   render() {
-    return this.attributes.map((attribute, index) => {
+    const attributesContent = this.attributes.map((attribute, index) => {
       return <Attribute key={index} name={attribute.name}/>
-    })
+    });
+
+    return (
+      <div>
+        <div class="attribute-type">{this.type}</div>
+        {attributesContent}
+      </div>
+    )
   }
 }
 
