@@ -1,0 +1,32 @@
+[
+  {
+    "name": "legs",
+    "type": "physical",
+    "default": false
+  },
+  {
+    "name": "fins",
+    "type": "physical",
+    "default": false
+  },
+  {
+    "name": "tail",
+    "type": "physical",
+    "default": false
+  },
+  {
+    "name": "vertebrate",
+    "type": "type",
+    "default": false
+  },
+  {
+    "name": "mammal",
+    "type": "type",
+    "default": false
+  },
+  {
+    "name": "big cat",
+    "type": "type",
+    "default": false
+  }
+]
