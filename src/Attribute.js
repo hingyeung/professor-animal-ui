@@ -4,22 +4,30 @@ class Attribute extends Component {
   constructor(props) {
     super(props);
 
+    this.props = props;
     this.name = props.name;
+    this.type = props.type;
+    this.onAttributeChange = props.onAttributeChange;
+  }
+
+  onChange(attrType, attrName, e) {
+    this.onAttributeChange(attrType, attrName, e.target.value);
   }
 
   render() {
+    // console.log(this.props.name);
     return (
-      <div class="attribute-row">
-        <div class="attribute-cell">
+      <div className="attribute-row">
+        <div className="attribute-cell">
           {this.name}
         </div>
-        <div class="attribute-cell">
+        <div className="attribute-cell">
           <label htmlFor={this.name + '-yes'}>YES</label>
-          <input type="radio" name={this.name} value="yes" id={this.name + '-yes'}/>
+          <input type="radio" name={this.name} value="yes" id={this.name + '-yes'} onChange={(e) => this.onChange(this.type, this.name, e)}/>
         </div>
-        <div class="attribute-cell">
+        <div className="attribute-cell">
           <label htmlFor={this.name + '-no'}>NO</label>
-          <input type="radio" name={this.name} value="no" id={this.name + '-no'}/>
+          <input type="radio" name={this.name} value="no" id={this.name + '-no'} onChange={(e) => this.onChange(this.type, this.name, e)}/>
         </div>
       </div>
     )
