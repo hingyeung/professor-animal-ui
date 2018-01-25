@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Attribute from './Attribute';
 
 class AttributeGroup extends Component {
@@ -11,13 +11,19 @@ class AttributeGroup extends Component {
 
   render() {
     const attributesContent = this.attributes.map((attribute, index) => {
-      return <Attribute key={index} type={this.type} name={attribute.name} onAttributeChange={this.onAttributeChange}/>
+      return <Attribute key={ index } type={ this.type } name={ attribute.name }
+                        onAttributeChange={ this.onAttributeChange }/>
     });
 
+    // make a table with header here
     return (
       <div>
-        <div className="attribute-type">{this.type}</div>
-        {attributesContent}
+        <div>
+          <div>
+          { this.type }
+          </div>
+        </div>
+        { attributesContent }
       </div>
     )
   }

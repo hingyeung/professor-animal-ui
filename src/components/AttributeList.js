@@ -38,9 +38,9 @@ class AttributeList extends Component {
     });
 
     return (
-      <div>
+      <form className="">
         { attributeGroupContent }
-      </div>
+      </form>
     );
   }
 }
