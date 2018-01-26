@@ -1,3 +1,4 @@
+import Attribute from '../models/Attribute';
 class AttributeReaderService {
   get readFile() {
     this.fileContent = require('../data/attributes.json');
@@ -17,14 +18,9 @@ class AttributeReaderService {
 
       attributeTypeMap[attribute.type] =
         attributeTypeMap[attribute.type] ?
-          attributeTypeMap[attribute.type].concat({
-            "name": attribute.name,
-            "default": attribute.default
-          }) :
-          [{
-            "name": attribute.name,
-            "default": attribute.default
-          }];
+          attributeTypeMap[attribute.type].concat(
+            new Attribute(attribute.name, attribute.default)) :
+          [new Attribute(attribute.name, attribute.default)];
 
     });
 

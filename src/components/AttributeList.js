@@ -23,7 +23,7 @@ class AttributeList extends Component {
     )
   }
 
-  areAllAttributesAreAllSet(attributeMap) {
+  static areAllAttributesAreAllSet(attributeMap) {
     const mapToCheck = {...attributeMap};
     if (!mapToCheck.animalName) return false;
     for (let attrType in mapToCheck) {
