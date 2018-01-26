@@ -65,11 +65,6 @@
     "default": false
   },
   {
-    "name": "legs",
-    "type": "physical",
-    "default": false
-  },
-  {
     "name": "zebra, buffalo, wildebeest, giraffes and antelopes",
     "type": "diet",
     "default": false
@@ -130,11 +125,6 @@
     "default": false
   },
   {
-    "name": "swim",
-    "type": "possible_behaviours",
-    "default": false
-  },
-  {
     "name": "tusks",
     "type": "physical",
     "default": false
@@ -157,11 +147,6 @@
   {
     "name": "pet",
     "type": "types",
-    "default": false
-  },
-  {
-    "name": "bark",
-    "type": "behaviours",
     "default": false
   },
   {
@@ -270,11 +255,6 @@
     "default": false
   },
   {
-    "name": "long tongue",
-    "type": "physical",
-    "default": false
-  },
-  {
     "name": "eyes that can move independently",
     "type": "physical",
     "default": false
@@ -307,11 +287,6 @@
   {
     "name": "insects, eggs and small animals",
     "type": "diet",
-    "default": false
-  },
-  {
-    "name": "be poisonous",
-    "type": "possible_behaviours",
     "default": false
   },
   {
@@ -595,11 +570,6 @@
   {
     "name": "insects and shrimp",
     "type": "diet",
-    "default": false
-  },
-  {
-    "name": "good diver",
-    "type": "types",
     "default": false
   },
   {
@@ -975,11 +945,6 @@
   {
     "name": "to be friendly to humans",
     "type": "considerations",
-    "default": false
-  },
-  {
-    "name": "jump out of the water",
-    "type": "possible_behaviours",
     "default": false
   },
   {
