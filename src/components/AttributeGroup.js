@@ -17,14 +17,16 @@ class AttributeGroup extends Component {
 
     // make a table with header here
     return (
-      <div>
-        <div>
-          <div>
-          { this.type }
-          </div>
-        </div>
-        { attributesContent }
-      </div>
+      <table className="table table-striped">
+        <thead>
+          <tr className="row">
+            <th colSpan="3" className="col-sm-12">{ this.type }</th>
+          </tr>
+        </thead>
+        <tbody>
+          { attributesContent }
+        </tbody>
+      </table>
     )
   }
 }

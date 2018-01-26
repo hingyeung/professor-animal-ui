@@ -1,0 +1,4 @@
+.attribute-list-container table thead th {
+    border: none;
+    text-transform: capitalize;
+}

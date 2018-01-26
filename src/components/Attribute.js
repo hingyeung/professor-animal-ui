@@ -17,21 +17,19 @@ class Attribute extends Component {
   render() {
     // console.log(this.props.name);
     return (
-      <div className="container">
-        <div className="attribute-row row">
-          <div className="attribute-cell col-sm">
-            {this.name}
-          </div>
-          <div className="attribute-cell form-group form-check form-check-inline col-sm">
-            <input className="form-check-label" type="radio" name={this.name} value="yes" id={this.name + '-yes'} onChange={(e) => this.onChange(this.type, this.name, e)}/>
-            <label className="form-check-label" htmlFor={this.name + '-yes'}>YES</label>
-          </div>
-          <div className="attribute-cell form-group form-check form-check-inline col-sm">
-            <input className="form-check-label" type="radio" name={this.name} value="no" id={this.name + '-no'} onChange={(e) => this.onChange(this.type, this.name, e)}/>
-            <label className="form-check-label" htmlFor={this.name + '-no'}>NO</label>
-          </div>
-        </div>
-      </div>
+      <tr className="attribute-row row">
+        <td className="attribute-cell col-sm-6">
+          {this.name}
+        </td>
+        <td className="attribute-cell col-sm-3">
+          <input className="form-check-label" type="radio" name={this.name} value="yes" id={this.name + '-yes'} onChange={(e) => this.onChange(this.type, this.name, e)}/>
+          <label className="form-check-label" htmlFor={this.name + '-yes'}>YES</label>
+        </td>
+        <td className="attribute-cell col-sm-3">
+          <input className="form-check-label" type="radio" name={this.name} value="no" id={this.name + '-no'} onChange={(e) => this.onChange(this.type, this.name, e)}/>
+          <label className="form-check-label" htmlFor={this.name + '-no'}>NO</label>
+        </td>
+      </tr>
     )
   }
 }

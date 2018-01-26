@@ -38,9 +38,16 @@ class AttributeList extends Component {
     });
 
     return (
-      <form className="">
-        { attributeGroupContent }
-      </form>
+      <div className="attribute-list-container container-fluid">
+        <div className="row">
+          <div className="col-sm-12">
+            <form className="">
+              { attributeGroupContent }
+              <div><button>Save</button></div>
+            </form>
+          </div>
+        </div>
+      </div>
     );
   }
 }
