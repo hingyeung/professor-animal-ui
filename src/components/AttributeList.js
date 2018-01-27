@@ -6,6 +6,7 @@ class AttributeList extends Component {
     super(props);
     this.attributeMap = props.attributeMap;
     this.state = {
+      animalName: undefined,
       attributeMap: props.attributeMap
     };
     this.onAttributeChange = this.onAttributeChange.bind(this);
@@ -14,26 +15,22 @@ class AttributeList extends Component {
   }
 
   updateAnimalName(animalName) {
-    const attributeMap = this.state.attributeMap;
-    attributeMap.animalName = animalName;
-    this.setState(
-      {
-        attributeMap: attributeMap
-      }
-    )
+    this.setState({
+      animalName: animalName
+    });
   }
 
   areAllAttributesAreAllSet(attributeMap) {
+    if (!this.state.animalName) return false;
     const mapToCheck = {...attributeMap};
-    if (!mapToCheck.animalName) return false;
     for (let attrType in mapToCheck) {
       // skipping animalName
-      if (typeof mapToCheck[attrType] === 'string') continue;
       const attributeThatHasNoValue = mapToCheck[attrType].find((attribute) => {
         return (attribute.value === undefined)
       });
       if (attributeThatHasNoValue) {
-        console.log(attributeThatHasNoValue);
+        console.log('attribute has no value:');
+        console.dir(attributeThatHasNoValue);
         return false;
       }
     }
@@ -42,9 +39,8 @@ class AttributeList extends Component {
 
   onFormSubmit(e) {
     if (this.areAllAttributesAreAllSet(this.state.attributeMap)) {
-      const animal = this.state.attributeMap;
-      console.dir(animal);
-      console.log(JSON.stringify(animal));
+      console.dir(this.state.attributeMap);
+      console.log(this.state.animalName);
     }
 
     e.preventDefault();
