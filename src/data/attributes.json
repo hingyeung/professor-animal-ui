@@ -1,1060 +1,858 @@
-[
-  {
-    "name": "fins",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "vertebrate",
-    "type": "types",
-    "default": false
-  },
-  {
-    "name": "mammal",
-    "type": "types",
-    "default": false
-  },
-  {
-    "name": "big cat",
-    "type": "types",
-    "default": false
-  },
-  {
-    "name": "only eat meat",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "hunt in a group",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "live in a group called pride",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "roar",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "live in Africa",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "rest for around 20 hours a day",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "mane",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "tail",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "legs",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "zebra, buffalo, wildebeest, giraffes and antelopes",
-    "type": "diet",
-    "default": false
-  },
-  {
-    "name": "fastest land animal in the world",
-    "type": "types",
-    "default": false
-  },
-  {
-    "name": "run very fast",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "run at top speed of 113 km per hour",
-    "type": "possible_behaviours",
-    "default": false
-  },
-  {
-    "name": "excellent eyesight",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "long, black lines which run from the inside of each eye to the mouth",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "gazelles, impalas and wildebeest",
-    "type": "diet",
-    "default": false
-  },
-  {
-    "name": "large animal",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "largest land-living mammal",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "only eat plants",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "live in a groups called herds",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "live in Africa or Asia",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "tusks",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "long trunk",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "large, thin ears",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "grass, leaves, fruits and small plants",
-    "type": "diet",
-    "default": false
-  },
-  {
-    "name": "pet",
-    "type": "types",
-    "default": false
-  },
-  {
-    "name": "bark",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "bone and pet food",
-    "type": "diet",
-    "default": false
-  },
-  {
-    "name": "climb tree",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "meow",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "fish and pet food",
-    "type": "diet",
-    "default": false
-  },
-  {
-    "name": "eat both plants and animals",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "hibernate in winter",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "live in caves",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "long fur",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "sharp claws",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "fruit, fish and small animals",
-    "type": "diet",
-    "default": false
-  },
-  {
-    "name": "black and white fur",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "bamboo",
-    "type": "diet",
-    "default": false
-  },
-  {
-    "name": "predator",
-    "type": "types",
-    "default": false
-  },
-  {
-    "name": "solitary animal",
-    "type": "types",
-    "default": false
-  },
-  {
-    "name": "black strip",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "unique pattern of stripes on each animal",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "deer, antelope and other large animals",
-    "type": "diet",
-    "default": false
-  },
-  {
-    "name": "reptile",
-    "type": "types",
-    "default": false
-  },
-  {
-    "name": "cold-blooded animal",
-    "type": "types",
-    "default": false
-  },
-  {
-    "name": "change colour to blend in",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "eyes that can move independently",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "insects",
-    "type": "diet",
-    "default": false
-  },
-  {
-    "name": "lay eggs",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "slither across flat surfaces without legs",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "scales",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "long body",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "insects, eggs and small animals",
-    "type": "diet",
-    "default": false
-  },
-  {
-    "name": "fish",
-    "type": "types",
-    "default": false
-  },
-  {
-    "name": "smell blood in water",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "swim very fast",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "about 300 teeth",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "many rows of teeth",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "cartilage instead of bone",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "very rough skin",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "a body that weights up to 1800 kilogram",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "a body that is up to 6 metres long",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "sharp teeth up to 6 cm long",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "large dorsal fin on its back which sticks out of the water",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "fish",
-    "type": "diet",
-    "default": false
-  },
-  {
-    "name": "seals and sea lions",
-    "type": "diet",
-    "default": false
-  },
-  {
-    "name": "bird",
-    "type": "types",
-    "default": false
-  },
-  {
-    "name": "good swimmer",
-    "type": "types",
-    "default": false
-  },
-  {
-    "name": "walk in a funny way",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "live in Antarctica",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "wings",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "white belly and a black head, back, tail and wings",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "fish, squids and krill",
-    "type": "diet",
-    "default": false
-  },
-  {
-    "name": "large bird",
-    "type": "types",
-    "default": false
-  },
-  {
-    "name": "bird of prey",
-    "type": "types",
-    "default": false
-  },
-  {
-    "name": "fly",
-    "type": "behaviours",
-    "default": false
-  }
-,
-  {
-    "name": "strong talon",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "mouse, rat and rabbit",
-    "type": "diet",
-    "default": false
-  },
-  {
-    "name": "small animal",
-    "type": "types",
-    "default": false
-  },
-  {
-    "name": "nectar from flowers and insects",
-    "type": "diet",
-    "default": false
-  },
-  {
-    "name": "invertebrate",
-    "type": "types",
-    "default": false
-  },
-  {
-    "name": "sting",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "look like an umbrellas",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "tentacles",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "plankton",
-    "type": "diet",
-    "default": false
-  },
-  {
-    "name": "tiny fish and fish eggs",
-    "type": "diet",
-    "default": false
-  },
-  {
-    "name": "poisonous",
-    "type": "possible_behaviours",
-    "default": false
-  },
-  {
-    "name": "let people ride on it",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "long legs",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "hooves",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "grass",
-    "type": "diet",
-    "default": false
-  }
-,
-  {
-    "name": "domesticated",
-    "type": "possible_behaviours",
-    "default": false
-  },
-  {
-    "name": "as helpful to humans",
-    "type": "considerations",
-    "default": false
-  }
-,
-  {
-    "name": "live in a group",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "black stripes on its body",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "lay eggs on beach",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "a hard shell",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "jellyfish",
-    "type": "diet",
-    "default": false
-  },
-  {
-    "name": "crabs and shrimp",
-    "type": "diet",
-    "default": false
-  },
-  {
-    "name": "sea grass and seaweed",
-    "type": "diet",
-    "default": false
-  },
-  {
-    "name": "the largest land predator in the world",
-    "type": "types",
-    "default": false
-  },
-  {
-    "name": "live in the Arctic Circle",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "white fur",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "seals",
-    "type": "diet",
-    "default": false
-  },
-  {
-    "name": "live in a large group",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "stand on one leg",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "pink bill",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "pink feather",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "insects and shrimp",
-    "type": "diet",
-    "default": false
-  },
-  {
-    "name": "good diver",
-    "type": "types",
-    "default": false
-  },
-  {
-    "name": "big tail fin",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "blowhole on top of its head",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "black and white colour on its body",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "sharks, squid and other fish",
-    "type": "diet",
-    "default": false
-  },
-  {
-    "name": "penguins and sea turtles",
-    "type": "diet",
-    "default": false
-  },
-  {
-    "name": "largest animal on Earth",
-    "type": "types",
-    "default": false
-  },
-  {
-    "name": "loudest animal on Earth",
-    "type": "types",
-    "default": false
-  },
-  {
-    "name": "no teeth",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "krill",
-    "type": "diet",
-    "default": false
-  },
-  {
-    "name": "insect",
-    "type": "types",
-    "default": false
-  },
-  {
-    "name": "live as caterpillar when it is young",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "bright and colourful wings",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "six legs",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "two antenna",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "nectar from flowers",
-    "type": "diet",
-    "default": false
-  },
-  {
-    "name": "live in anemone",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "lays up to 1000 eggs",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "orange and white stripes on its body",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "algae",
-    "type": "diet",
-    "default": false
-  },
-  {
-    "name": "territorial animal",
-    "type": "types",
-    "default": false
-  },
-  {
-    "name": "stay in muddy pools",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "charge directly at whatever frightens it",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "giant horns on its nose",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "thick, armour-like skin",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "has a body that weights up to 2500 kilogram",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "grass and plants",
-    "type": "diet",
-    "default": false
-  },
-  {
-    "name": "stand on two legs when looking out for danger",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "live in burrows",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "live in a big group of up to 50 members",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "long, sharp claws for digging",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "many things such as insects, small reptiles, birds, eggs, fruit and plants",
-    "type": "diet",
-    "default": false
-  },
-  {
-    "name": "marsupial",
-    "type": "types",
-    "default": false
-  },
-  {
-    "name": "spend most of its time on trees",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "sleep up to 18 hours a day",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "stay in its mother's pouch for about six months when it is a baby",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "grey fur with a cream-coloured chest",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "strong, clawed feet for climbing trees",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "a pouch where their newborns live",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "eucalyptus leaves",
-    "type": "diet",
-    "default": false
-  },
-  {
-    "name": "social animal",
-    "type": "types",
-    "default": false
-  },
-  {
-    "name": "long neck",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "long tongue",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "acacia tree and other plants",
-    "type": "diet",
-    "default": false
-  },
-  {
-    "name": "large jaw",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "many sharp teeth",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "live in swamps and rivers",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "many things including water buffalo, fish, birds and other reptiles",
-    "type": "diet",
-    "default": false
-  },
-  {
-    "name": "grow up to 6 metres long",
-    "type": "possible_behaviours",
-    "default": false
-  },
-  {
-    "name": "be found in Australia",
-    "type": "possible_behaviours",
-    "default": false
-  },
-  {
-    "name": "live in freshwater as well as salt water",
-    "type": "possible_behaviours",
-    "default": false
-  },
-  {
-    "name": "as dangerous to humans",
-    "type": "considerations",
-    "default": false
-  },
-  {
-    "name": "pouch on its tummy",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "large ears",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "hop around using two legs",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "keep its baby in its pouch",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "jump very high",
-    "type": "possible_behaviours",
-    "default": false
-  },
-  {
-    "name": "ape",
-    "type": "types",
-    "default": false
-  },
-  {
-    "name": "a highly intelligent animal",
-    "type": "types",
-    "default": false
-  },
-  {
-    "name": "dark hair",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "long arms",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "thumbs like humans",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "live in forests and swamps",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "leaves, bamboo and fruits",
-    "type": "diet",
-    "default": false
-  },
-  {
-    "name": "use tools",
-    "type": "possible_behaviours",
-    "default": false
-  },
-  {
-    "name": "live in rivers, lakes and swamps",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "spend most of their day in rivers and lakes to stay cool",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "short legs",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "huge mouth",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "as most dangerous animals in Africa",
-    "type": "considerations",
-    "default": false
-  },
-  {
-    "name": "use echolocation for finding food",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "communicate with each other by clicking and whistling",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "fish and squid",
-    "type": "diet",
-    "default": false
-  },
-  {
-    "name": "to be very intelligent",
-    "type": "considerations",
-    "default": false
-  },
-  {
-    "name": "to be friendly to humans",
-    "type": "considerations",
-    "default": false
-  },
-  {
-    "name": "jump out of the water",
-    "type": "possible_behaviours",
-    "default": false
-  },
-  {
-    "name": "nocturnal animal",
-    "type": "types",
-    "default": false
-  },
-  {
-    "name": "spend a lot of time in trees",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "rose-like markings patterns called rosettes on their fur",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "deers",
-    "type": "diet",
-    "default": false
-  },
-  {
-    "name": "impalas",
-    "type": "diet",
-    "default": false
-  },
-  {
-    "name": "gazelles",
-    "type": "diet",
-    "default": false
-  },
-  {
-    "name": "bird",
-    "type": "diet",
-    "default": false
-  },
-  {
-    "name": "swim",
-    "type": "possible_behaviours",
-    "default": false
-  },
-  {
-    "name": "long, hornlike tooth sticking out of its head",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "be referred to as the unicorn of the sea",
-    "type": "possible_behaviours",
-    "default": false
-  },
-  {
-    "name": "blue tongue",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "insects, snails and fruits",
-    "type": "diet",
-    "default": false
-  },
-  {
-    "name": "algae, clams, mussels, and shellfish",
-    "type": "diet",
-    "default": false
-  },
-  {
-    "name": "be poisonous",
-    "type": "possible_behaviours",
-    "default": false
-  },
-  {
-    "name": "enlarge its body by swallowing huge amount of water to scare off predators",
-    "type": "possible_behaviours",
-    "default": false
-  },
-  {
-    "name": "only live in Australia",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "camouflage by staying very still and upright on low perch",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "excellent hearing",
-    "type": "behaviours",
-    "default": false
-  },
-  {
-    "name": "yellow eyes",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "wide beak",
-    "type": "physical",
-    "default": false
-  },
-  {
-    "name": "insects, frogs and small animals",
-    "type": "diet",
-    "default": false
-  }
-]
+{
+  "physical": [
+    {
+      "name": "fins",
+      "default": false
+    },
+    {
+      "name": "mane",
+      "default": false
+    },
+    {
+      "name": "tail",
+      "default": false
+    },
+    {
+      "name": "legs",
+      "default": false
+    },
+    {
+      "name": "excellent eyesight",
+      "default": false
+    },
+    {
+      "name": "long, black lines which run from the inside of each eye to the mouth",
+      "default": false
+    },
+    {
+      "name": "large animal",
+      "default": false
+    },
+    {
+      "name": "largest land-living mammal",
+      "default": false
+    },
+    {
+      "name": "tusks",
+      "default": false
+    },
+    {
+      "name": "long trunk",
+      "default": false
+    },
+    {
+      "name": "large, thin ears",
+      "default": false
+    },
+    {
+      "name": "long fur",
+      "default": false
+    },
+    {
+      "name": "sharp claws",
+      "default": false
+    },
+    {
+      "name": "black and white fur",
+      "default": false
+    },
+    {
+      "name": "black strip",
+      "default": false
+    },
+    {
+      "name": "unique pattern of stripes on each animal",
+      "default": false
+    },
+    {
+      "name": "eyes that can move independently",
+      "default": false
+    },
+    {
+      "name": "scales",
+      "default": false
+    },
+    {
+      "name": "long body",
+      "default": false
+    },
+    {
+      "name": "about 300 teeth",
+      "default": false
+    },
+    {
+      "name": "many rows of teeth",
+      "default": false
+    },
+    {
+      "name": "cartilage instead of bone",
+      "default": false
+    },
+    {
+      "name": "very rough skin",
+      "default": false
+    },
+    {
+      "name": "a body that weights up to 1800 kilogram",
+      "default": false
+    },
+    {
+      "name": "a body that is up to 6 metres long",
+      "default": false
+    },
+    {
+      "name": "sharp teeth up to 6 cm long",
+      "default": false
+    },
+    {
+      "name": "large dorsal fin on its back which sticks out of the water",
+      "default": false
+    },
+    {
+      "name": "wings",
+      "default": false
+    },
+    {
+      "name": "white belly and a black head, back, tail and wings",
+      "default": false
+    },
+    {
+      "name": "strong talon",
+      "default": false
+    },
+    {
+      "name": "tentacles",
+      "default": false
+    },
+    {
+      "name": "long legs",
+      "default": false
+    },
+    {
+      "name": "hooves",
+      "default": false
+    },
+    {
+      "name": "black stripes on its body",
+      "default": false
+    },
+    {
+      "name": "a hard shell",
+      "default": false
+    },
+    {
+      "name": "white fur",
+      "default": false
+    },
+    {
+      "name": "pink bill",
+      "default": false
+    },
+    {
+      "name": "pink feather",
+      "default": false
+    },
+    {
+      "name": "big tail fin",
+      "default": false
+    },
+    {
+      "name": "blowhole on top of its head",
+      "default": false
+    },
+    {
+      "name": "black and white colour on its body",
+      "default": false
+    },
+    {
+      "name": "no teeth",
+      "default": false
+    },
+    {
+      "name": "bright and colourful wings",
+      "default": false
+    },
+    {
+      "name": "six legs",
+      "default": false
+    },
+    {
+      "name": "two antenna",
+      "default": false
+    },
+    {
+      "name": "orange and white stripes on its body",
+      "default": false
+    },
+    {
+      "name": "giant horns on its nose",
+      "default": false
+    },
+    {
+      "name": "thick, armour-like skin",
+      "default": false
+    },
+    {
+      "name": "has a body that weights up to 2500 kilogram",
+      "default": false
+    },
+    {
+      "name": "long, sharp claws for digging",
+      "default": false
+    },
+    {
+      "name": "grey fur with a cream-coloured chest",
+      "default": false
+    },
+    {
+      "name": "strong, clawed feet for climbing trees",
+      "default": false
+    },
+    {
+      "name": "a pouch where their newborns live",
+      "default": false
+    },
+    {
+      "name": "long neck",
+      "default": false
+    },
+    {
+      "name": "long tongue",
+      "default": false
+    },
+    {
+      "name": "large jaw",
+      "default": false
+    },
+    {
+      "name": "many sharp teeth",
+      "default": false
+    },
+    {
+      "name": "pouch on its tummy",
+      "default": false
+    },
+    {
+      "name": "large ears",
+      "default": false
+    },
+    {
+      "name": "dark hair",
+      "default": false
+    },
+    {
+      "name": "long arms",
+      "default": false
+    },
+    {
+      "name": "thumbs like humans",
+      "default": false
+    },
+    {
+      "name": "short legs",
+      "default": false
+    },
+    {
+      "name": "huge mouth",
+      "default": false
+    },
+    {
+      "name": "rose-like markings patterns called rosettes on their fur",
+      "default": false
+    },
+    {
+      "name": "long, hornlike tooth sticking out of its head",
+      "default": false
+    },
+    {
+      "name": "blue tongue",
+      "default": false
+    },
+    {
+      "name": "yellow eyes",
+      "default": false
+    },
+    {
+      "name": "wide beak",
+      "default": false
+    }
+  ],
+  "types": [
+    {
+      "name": "vertebrate",
+      "default": false
+    },
+    {
+      "name": "mammal",
+      "default": false
+    },
+    {
+      "name": "big cat",
+      "default": false
+    },
+    {
+      "name": "fastest land animal in the world",
+      "default": false
+    },
+    {
+      "name": "pet",
+      "default": false
+    },
+    {
+      "name": "predator",
+      "default": false
+    },
+    {
+      "name": "solitary animal",
+      "default": false
+    },
+    {
+      "name": "reptile",
+      "default": false
+    },
+    {
+      "name": "cold-blooded animal",
+      "default": false
+    },
+    {
+      "name": "fish",
+      "default": false
+    },
+    {
+      "name": "bird",
+      "default": false
+    },
+    {
+      "name": "good swimmer",
+      "default": false
+    },
+    {
+      "name": "large bird",
+      "default": false
+    },
+    {
+      "name": "bird of prey",
+      "default": false
+    },
+    {
+      "name": "small animal",
+      "default": false
+    },
+    {
+      "name": "invertebrate",
+      "default": false
+    },
+    {
+      "name": "the largest land predator in the world",
+      "default": false
+    },
+    {
+      "name": "good diver",
+      "default": false
+    },
+    {
+      "name": "largest animal on Earth",
+      "default": false
+    },
+    {
+      "name": "loudest animal on Earth",
+      "default": false
+    },
+    {
+      "name": "insect",
+      "default": false
+    },
+    {
+      "name": "territorial animal",
+      "default": false
+    },
+    {
+      "name": "marsupial",
+      "default": false
+    },
+    {
+      "name": "social animal",
+      "default": false
+    },
+    {
+      "name": "ape",
+      "default": false
+    },
+    {
+      "name": "a highly intelligent animal",
+      "default": false
+    },
+    {
+      "name": "nocturnal animal",
+      "default": false
+    }
+  ],
+  "behaviours": [
+    {
+      "name": "only eat meat",
+      "default": false
+    },
+    {
+      "name": "hunt in a group",
+      "default": false
+    },
+    {
+      "name": "live in a group called pride",
+      "default": false
+    },
+    {
+      "name": "roar",
+      "default": false
+    },
+    {
+      "name": "live in Africa",
+      "default": false
+    },
+    {
+      "name": "rest for around 20 hours a day",
+      "default": false
+    },
+    {
+      "name": "run very fast",
+      "default": false
+    },
+    {
+      "name": "only eat plants",
+      "default": false
+    },
+    {
+      "name": "live in a groups called herds",
+      "default": false
+    },
+    {
+      "name": "live in Africa or Asia",
+      "default": false
+    },
+    {
+      "name": "bark",
+      "default": false
+    },
+    {
+      "name": "climb tree",
+      "default": false
+    },
+    {
+      "name": "meow",
+      "default": false
+    },
+    {
+      "name": "eat both plants and animals",
+      "default": false
+    },
+    {
+      "name": "hibernate in winter",
+      "default": false
+    },
+    {
+      "name": "live in caves",
+      "default": false
+    },
+    {
+      "name": "change colour to blend in",
+      "default": false
+    },
+    {
+      "name": "lay eggs",
+      "default": false
+    },
+    {
+      "name": "slither across flat surfaces without legs",
+      "default": false
+    },
+    {
+      "name": "smell blood in water",
+      "default": false
+    },
+    {
+      "name": "swim very fast",
+      "default": false
+    },
+    {
+      "name": "walk in a funny way",
+      "default": false
+    },
+    {
+      "name": "live in Antarctica",
+      "default": false
+    },
+    {
+      "name": "fly",
+      "default": false
+    },
+    {
+      "name": "sting",
+      "default": false
+    },
+    {
+      "name": "look like an umbrellas",
+      "default": false
+    },
+    {
+      "name": "let people ride on it",
+      "default": false
+    },
+    {
+      "name": "live in a group",
+      "default": false
+    },
+    {
+      "name": "lay eggs on beach",
+      "default": false
+    },
+    {
+      "name": "live in the Arctic Circle",
+      "default": false
+    },
+    {
+      "name": "live in a large group",
+      "default": false
+    },
+    {
+      "name": "stand on one leg",
+      "default": false
+    },
+    {
+      "name": "live as caterpillar when it is young",
+      "default": false
+    },
+    {
+      "name": "live in anemone",
+      "default": false
+    },
+    {
+      "name": "lays up to 1000 eggs",
+      "default": false
+    },
+    {
+      "name": "stay in muddy pools",
+      "default": false
+    },
+    {
+      "name": "charge directly at whatever frightens it",
+      "default": false
+    },
+    {
+      "name": "stand on two legs when looking out for danger",
+      "default": false
+    },
+    {
+      "name": "live in burrows",
+      "default": false
+    },
+    {
+      "name": "live in a big group of up to 50 members",
+      "default": false
+    },
+    {
+      "name": "spend most of its time on trees",
+      "default": false
+    },
+    {
+      "name": "sleep up to 18 hours a day",
+      "default": false
+    },
+    {
+      "name": "stay in its mother's pouch for about six months when it is a baby",
+      "default": false
+    },
+    {
+      "name": "live in swamps and rivers",
+      "default": false
+    },
+    {
+      "name": "hop around using two legs",
+      "default": false
+    },
+    {
+      "name": "keep its baby in its pouch",
+      "default": false
+    },
+    {
+      "name": "live in forests and swamps",
+      "default": false
+    },
+    {
+      "name": "live in rivers, lakes and swamps",
+      "default": false
+    },
+    {
+      "name": "spend most of their day in rivers and lakes to stay cool",
+      "default": false
+    },
+    {
+      "name": "use echolocation for finding food",
+      "default": false
+    },
+    {
+      "name": "communicate with each other by clicking and whistling",
+      "default": false
+    },
+    {
+      "name": "spend a lot of time in trees",
+      "default": false
+    },
+    {
+      "name": "only live in Australia",
+      "default": false
+    },
+    {
+      "name": "camouflage by staying very still and upright on low perch",
+      "default": false
+    },
+    {
+      "name": "excellent hearing",
+      "default": false
+    }
+  ],
+  "diet": [
+    {
+      "name": "zebra, buffalo, wildebeest, giraffes and antelopes",
+      "default": false
+    },
+    {
+      "name": "gazelles, impalas and wildebeest",
+      "default": false
+    },
+    {
+      "name": "grass, leaves, fruits and small plants",
+      "default": false
+    },
+    {
+      "name": "bone and pet food",
+      "default": false
+    },
+    {
+      "name": "fish and pet food",
+      "default": false
+    },
+    {
+      "name": "fruit, fish and small animals",
+      "default": false
+    },
+    {
+      "name": "bamboo",
+      "default": false
+    },
+    {
+      "name": "deer, antelope and other large animals",
+      "default": false
+    },
+    {
+      "name": "insects",
+      "default": false
+    },
+    {
+      "name": "insects, eggs and small animals",
+      "default": false
+    },
+    {
+      "name": "fish",
+      "default": false
+    },
+    {
+      "name": "seals and sea lions",
+      "default": false
+    },
+    {
+      "name": "fish, squids and krill",
+      "default": false
+    },
+    {
+      "name": "mouse, rat and rabbit",
+      "default": false
+    },
+    {
+      "name": "nectar from flowers and insects",
+      "default": false
+    },
+    {
+      "name": "plankton",
+      "default": false
+    },
+    {
+      "name": "tiny fish and fish eggs",
+      "default": false
+    },
+    {
+      "name": "grass",
+      "default": false
+    },
+    {
+      "name": "jellyfish",
+      "default": false
+    },
+    {
+      "name": "crabs and shrimp",
+      "default": false
+    },
+    {
+      "name": "sea grass and seaweed",
+      "default": false
+    },
+    {
+      "name": "seals",
+      "default": false
+    },
+    {
+      "name": "insects and shrimp",
+      "default": false
+    },
+    {
+      "name": "sharks, squid and other fish",
+      "default": false
+    },
+    {
+      "name": "penguins and sea turtles",
+      "default": false
+    },
+    {
+      "name": "krill",
+      "default": false
+    },
+    {
+      "name": "nectar from flowers",
+      "default": false
+    },
+    {
+      "name": "algae",
+      "default": false
+    },
+    {
+      "name": "grass and plants",
+      "default": false
+    },
+    {
+      "name": "many things such as insects, small reptiles, birds, eggs, fruit and plants",
+      "default": false
+    },
+    {
+      "name": "eucalyptus leaves",
+      "default": false
+    },
+    {
+      "name": "acacia tree and other plants",
+      "default": false
+    },
+    {
+      "name": "many things including water buffalo, fish, birds and other reptiles",
+      "default": false
+    },
+    {
+      "name": "leaves, bamboo and fruits",
+      "default": false
+    },
+    {
+      "name": "fish and squid",
+      "default": false
+    },
+    {
+      "name": "deers",
+      "default": false
+    },
+    {
+      "name": "impalas",
+      "default": false
+    },
+    {
+      "name": "gazelles",
+      "default": false
+    },
+    {
+      "name": "bird",
+      "default": false
+    },
+    {
+      "name": "insects, snails and fruits",
+      "default": false
+    },
+    {
+      "name": "algae, clams, mussels, and shellfish",
+      "default": false
+    },
+    {
+      "name": "insects, frogs and small animals",
+      "default": false
+    }
+  ],
+  "possible_behaviours": [
+    {
+      "name": "run at top speed of 113 km per hour",
+      "default": false
+    },
+    {
+      "name": "poisonous",
+      "default": false
+    },
+    {
+      "name": "domesticated",
+      "default": false
+    },
+    {
+      "name": "grow up to 6 metres long",
+      "default": false
+    },
+    {
+      "name": "be found in Australia",
+      "default": false
+    },
+    {
+      "name": "live in freshwater as well as salt water",
+      "default": false
+    },
+    {
+      "name": "jump very high",
+      "default": false
+    },
+    {
+      "name": "use tools",
+      "default": false
+    },
+    {
+      "name": "jump out of the water",
+      "default": false
+    },
+    {
+      "name": "swim",
+      "default": false
+    },
+    {
+      "name": "be referred to as the unicorn of the sea",
+      "default": false
+    },
+    {
+      "name": "be poisonous",
+      "default": false
+    },
+    {
+      "name": "enlarge its body by swallowing huge amount of water to scare off predators",
+      "default": false
+    }
+  ],
+  "considerations": [
+    {
+      "name": "as helpful to humans",
+      "default": false
+    },
+    {
+      "name": "as dangerous to humans",
+      "default": false
+    },
+    {
+      "name": "as most dangerous animals in Africa",
+      "default": false
+    },
+    {
+      "name": "to be very intelligent",
+      "default": false
+    },
+    {
+      "name": "to be friendly to humans",
+      "default": false
+    }
+  ]
+}

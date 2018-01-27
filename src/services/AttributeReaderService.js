@@ -1,9 +1,10 @@
 import Attribute from '../models/Attribute';
+import AttributeDefinition from '../models/AttributeDefinition';
+
 class AttributeReaderService {
   get readFile() {
-    this.fileContent = require('../data/attributes.json');
-
-    return this._buildAttributeTypeMap(this.fileContent);
+    // return this._buildAttributeTypeMap(require('../data/attributes.json'));
+    return AttributeDefinition.transformFromSerialisedModel(require('../data/attributes.json'));
   }
 
   // attribute-type attributeMap
@@ -22,7 +23,6 @@ class AttributeReaderService {
           [new Attribute(attribute.name, attribute.default)];
 
     });
-
     return attributeTypeMap;
   }
 }

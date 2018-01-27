@@ -4,6 +4,10 @@ class Attribute {
     this._value = value;
   }
 
+  static transformFromSerialisedModel(attrObj) {
+    return new Attribute(attrObj.name, attrObj.default);
+  }
+
   get name() {
     return this._name;
   }
