@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 class Attribute extends Component {
   constructor(props) {
     super(props);
 
     this.props = props;
-    this.name = props.name;
+    this.attribute = props.attribute;
     this.type = props.type;
     this.onAttributeChange = props.onAttributeChange;
   }
@@ -15,19 +15,26 @@ class Attribute extends Component {
   }
 
   render() {
-    // console.log(this.props.name);
+    const yesId = this.type + '-' + this.attribute.name + '-yes',
+          noId = this.type + '-' + this.attribute.name + '-no';
+
     return (
       <tr className="attribute-row row">
         <td className="attribute-cell col-sm-6">
-          {this.name}
+          { this.attribute.name }
         </td>
         <td className="attribute-cell col-sm-3">
-          <input className="form-check-label" type="radio" name={this.type + '-' + this.name} value="yes" id={this.type + '-' + this.name + '-yes'} onChange={(e) => this.onChange(this.type, this.name, e)}/>
-          <label className="form-check-label" htmlFor={this.name + '-yes'}>YES</label>
+          <input className="form-check-label" type="radio" name={ this.type + '-' + this.attribute.name } value="yes"
+                 id={ yesId }
+                 onChange={ (e) => this.onChange(this.type, this.attribute.name, e) }
+                 defaultChecked={this.attribute.value}/>
+          <label className="form-check-label" htmlFor={ yesId }>YES</label>
         </td>
         <td className="attribute-cell col-sm-3">
-          <input className="form-check-label" type="radio" name={this.type + '-' + this.name} value="no" id={this.type + '-' + this.name + '-no'} onChange={(e) => this.onChange(this.type, this.name, e)}/>
-          <label className="form-check-label" htmlFor={this.name + '-no'}>NO</label>
+          <input className="form-check-label" type="radio" name={ this.type + '-' + this.attribute.name } value="no"
+                 id={ noId } onChange={ (e) => this.onChange(this.type, this.attribute.name, e) }
+                 defaultChecked={!this.attribute.value}/>
+          <label className="form-check-label" htmlFor={ noId }>NO</label>
         </td>
       </tr>
     )

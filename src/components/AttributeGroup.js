@@ -11,7 +11,7 @@ class AttributeGroup extends Component {
 
   render() {
     const attributesContent = this.attributes.map((attribute, index) => {
-      return <Attribute key={ index } type={ this.type } name={ attribute.name }
+      return <Attribute key={ index } type={ this.type } attribute={ attribute }
                         onAttributeChange={ this.onAttributeChange }/>
     });
 

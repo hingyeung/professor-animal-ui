@@ -3,7 +3,6 @@ class AttributeReaderService {
   get readFile() {
     this.fileContent = require('../data/attributes.json');
 
-    // return this.fileContent;
     return this._buildAttributeTypeMap(this.fileContent);
   }
 

@@ -1,17 +1,12 @@
 class Attribute {
-  constructor(name, defaultValue) {
+  constructor(name, value) {
     this._name = name;
-    this._defaultValue = defaultValue;
-    this._value = '';
+    this._value = value;
   }
 
   get name() {
     return this._name;
   }
-
-  get defaultValue() {
-    return this._defaultValue;
-  };
 
   get value() {
     return this._value;

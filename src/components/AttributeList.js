@@ -23,16 +23,17 @@ class AttributeList extends Component {
     )
   }
 
-  static areAllAttributesAreAllSet(attributeMap) {
+  areAllAttributesAreAllSet(attributeMap) {
     const mapToCheck = {...attributeMap};
     if (!mapToCheck.animalName) return false;
     for (let attrType in mapToCheck) {
       // skipping animalName
       if (typeof mapToCheck[attrType] === 'string') continue;
       const attributeThatHasNoValue = mapToCheck[attrType].find((attribute) => {
-        return (!attribute.hasOwnProperty('value') || (attribute.value !== 'yes' && attribute.value !== 'no'))
+        return (attribute.value === undefined)
       });
       if (attributeThatHasNoValue) {
+        console.log(attributeThatHasNoValue);
         return false;
       }
     }
@@ -43,6 +44,7 @@ class AttributeList extends Component {
     if (this.areAllAttributesAreAllSet(this.state.attributeMap)) {
       const animal = this.state.attributeMap;
       console.dir(animal);
+      console.log(JSON.stringify(animal));
     }
 
     e.preventDefault();
@@ -54,7 +56,7 @@ class AttributeList extends Component {
     const currentAttributeMap = this.state.attributeMap;
     const attributeListForType = currentAttributeMap[attributeType];
     const matchedIndex = attributeListForType.findIndex(attrObj => {return attrObj.name === attributeName});
-    attributeListForType[matchedIndex].value = value;
+    attributeListForType[matchedIndex].value = (value.toLowerCase() === 'yes');
     this.setState(
       {
         attributeMap: currentAttributeMap
@@ -81,6 +83,7 @@ class AttributeList extends Component {
         <div className="row">
           <div className="col-sm-12">
             <form className=""  onSubmit={this.onFormSubmit}>
+              <div><button className="btn btn-primary">Save</button></div>
               <div className="form-group row">
                 <label htmlFor="animal-name" className="col-sm-2 col-form-label">Animal name</label>
                 <div className="col-sm-6">
