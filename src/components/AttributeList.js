@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import AttributeGroup from './AttributeGroup.js';
+import Animal from '../models/Animal';
 
 class AttributeList extends Component {
   constructor(props) {
@@ -39,8 +40,8 @@ class AttributeList extends Component {
 
   onFormSubmit(e) {
     if (this.areAllAttributesAreAllSet(this.state.attributeMap)) {
-      console.dir(this.state.attributeMap);
-      console.log(this.state.animalName);
+      const animal = new Animal(this.state.animalName, this.state.attributeMap);
+      console.dir(animal);
     }
 
     e.preventDefault();
