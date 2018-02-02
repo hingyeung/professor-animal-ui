@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 // import attributeData from './data/attributes.json';
 import AttributeList from './components/AttributeList';
 import AttributeReaderService from './services/AttributeReaderService';
@@ -7,12 +7,26 @@ import './App.css';
 import './components/AttributeList.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.onNewAnimalSubmitted = this.onNewAnimalSubmitted.bind(this);
+
+    // TODO read the animal definition file animals.json location from user:
+    this.animalDefinition = require('./data/animals.json');
+  }
+
+  onNewAnimalSubmitted(newAnimal) {
+    this.animalDefinition.push(newAnimal);
+    console.log(JSON.stringify(this.animalDefinition));
+  }
+
   render() {
     let a = new AttributeReaderService();
     const attributeMap = a.readFile;
 
     return (
-      <AttributeList attributeMap={attributeMap} />
+      <AttributeList attributeMap={ attributeMap } onNewAnimalSubmitted={this.onNewAnimalSubmitted}/>
     );
   }
 }

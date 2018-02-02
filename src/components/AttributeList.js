@@ -6,6 +6,7 @@ class AttributeList extends Component {
   constructor(props) {
     super(props);
     this.attributeMap = props.attributeMap;
+    this.onNewAnimalSubmitted = props.onNewAnimalSubmitted;
     this.state = {
       animalName: undefined,
       attributeMap: props.attributeMap
@@ -39,12 +40,12 @@ class AttributeList extends Component {
   }
 
   onFormSubmit(e) {
+    e.preventDefault();
+
     if (this.areAllAttributesAreAllSet(this.state.attributeMap)) {
       const animal = new Animal(this.state.animalName, this.state.attributeMap);
-      console.dir(animal);
+      this.onNewAnimalSubmitted(animal);
     }
-
-    e.preventDefault();
   }
 
   onAttributeChange(attributeType, attributeName, value) {
