@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Attribute from './Attribute';
+import NewAttributeValue from './NewAttributeValue';
 
 class AttributeGroup extends Component {
   constructor(props) {
@@ -7,6 +8,7 @@ class AttributeGroup extends Component {
     this.type = props.type;
     this.attributes = props.attributes;
     this.onAttributeChange = props.onAttributeChange;
+    this.onAddNewAttribute = props.onAddNewAttribute;
   }
 
   render() {
@@ -25,6 +27,7 @@ class AttributeGroup extends Component {
         </thead>
         <tbody>
           { attributesContent }
+          <NewAttributeValue type={ this.type } newAttributeIndex={Object.keys(this.attributes).length} onAdd={this.onAddNewAttribute}/>
         </tbody>
       </table>
     )

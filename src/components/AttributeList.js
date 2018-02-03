@@ -14,6 +14,7 @@ class AttributeList extends Component {
     this.onAttributeChange = this.onAttributeChange.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
     this.updateAnimalName = this.updateAnimalName.bind(this);
+    this.onAddNewAttribute = this.onAddNewAttribute.bind(this);
   }
 
   updateAnimalName(animalName) {
@@ -53,7 +54,9 @@ class AttributeList extends Component {
     // change attribute value in attributeMap in state
     const currentAttributeMap = this.state.attributeMap;
     const attributeListForType = currentAttributeMap[attributeType];
-    const matchedIndex = attributeListForType.findIndex(attrObj => {return attrObj.name === attributeName});
+    const matchedIndex = attributeListForType.findIndex(attrObj => {
+      return attrObj.name === attributeName
+    });
     attributeListForType[matchedIndex].value = (value.toLowerCase() === 'yes');
     this.setState(
       {
@@ -62,6 +65,15 @@ class AttributeList extends Component {
     )
   }
 
+  onAddNewAttribute(attributeType, attribute) {
+    console.log(attributeType, attribute);
+    const currentAttributeMap = this.state.attributeMap;
+    currentAttributeMap[attributeType].push(attribute);
+    console.log(currentAttributeMap);
+    this.setState({
+      attributeMap: currentAttributeMap
+    })
+  }
 
   render() {
     // const content = this.attributeMap.map((attribute, index) => {
@@ -73,23 +85,29 @@ class AttributeList extends Component {
       if (typeof this.attributeMap[attrType] === 'string') return;
       attributeGroupContent.push(<AttributeGroup key={ index } type={ attrType }
                                                  attributes={ this.attributeMap[attrType] }
-                                                 onAttributeChange={ this.onAttributeChange }/>)
+                                                 onAttributeChange={ this.onAttributeChange }
+                                                 onAddNewAttribute={ this.onAddNewAttribute }/>)
     });
 
     return (
       <div className="attribute-list-container container-fluid">
         <div className="row">
           <div className="col-sm-12">
-            <form className=""  onSubmit={this.onFormSubmit}>
-              <div><button className="btn btn-primary">Save</button></div>
+            <form className="" onSubmit={ this.onFormSubmit }>
+              <div>
+                <button className="btn btn-primary">Save</button>
+              </div>
               <div className="form-group row">
                 <label htmlFor="animal-name" className="col-sm-2 col-form-label">Animal name</label>
                 <div className="col-sm-6">
-                  <input id="animal-name" className="form-control" type="text" name="animalName" onChange={(e) => this.updateAnimalName(e.target.value)}/>
+                  <input id="animal-name" className="form-control" type="text" name="animalName"
+                         onChange={ (e) => this.updateAnimalName(e.target.value) }/>
                 </div>
               </div>
               { attributeGroupContent }
-              <div><button className="btn btn-primary">Save</button></div>
+              <div>
+                <button className="btn btn-primary">Save</button>
+              </div>
             </form>
           </div>
         </div>
