@@ -14,9 +14,14 @@ class NewAttributeValue extends Component {
     };
   }
 
-  onAddClicked(attributeType, attributeName) {
+  onAddClicked(attributeName) {
+    if (!attributeName) return;
+
     const attribute = new Attribute(attributeName, true);
-    this.onAdd(attributeType, attribute);
+    this.onAdd(attribute);
+    this.setState({
+      newAttributeName: ''
+    });
   }
 
   render() {
@@ -28,7 +33,7 @@ class NewAttributeValue extends Component {
                  onChange={ (e) => this.setState({newAttributeName: e.target.value}) }/>
         </td>
         <td className="attribute-cell col-sm-6">
-          <button className="btn btn-primary" onClick={() => this.onAddClicked(this.attributeType, this.state.newAttributeName) }>Add</button>
+          <button className="btn btn-primary" onClick={() => this.onAddClicked(this.state.newAttributeName) }>Add</button>
         </td>
       </tr>
     )

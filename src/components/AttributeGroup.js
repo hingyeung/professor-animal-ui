@@ -8,7 +8,12 @@ class AttributeGroup extends Component {
     this.type = props.type;
     this.attributes = props.attributes;
     this.onAttributeChange = props.onAttributeChange;
-    this.onAddNewAttribute = props.onAddNewAttribute;
+    this.onAddNewAttributeFromParent = props.onAddNewAttribute;
+    this._onAddNewAttribute = this._onAddNewAttribute.bind(this);
+  }
+
+  _onAddNewAttribute(attribute) {
+    this.onAddNewAttributeFromParent(this.type, attribute);
   }
 
   render() {
@@ -21,13 +26,14 @@ class AttributeGroup extends Component {
     return (
       <table className="table table-striped">
         <thead>
-          <tr className="row">
-            <th colSpan="3" className="col-sm-12">{ this.type }</th>
-          </tr>
+        <tr className="row">
+          <th colSpan="3" className="col-sm-12">{ this.type }</th>
+        </tr>
         </thead>
         <tbody>
-          { attributesContent }
-          <NewAttributeValue type={ this.type } newAttributeIndex={Object.keys(this.attributes).length} onAdd={this.onAddNewAttribute}/>
+        { attributesContent }
+        <NewAttributeValue newAttributeIndex={ Object.keys(this.attributes).length }
+                           onAdd={ this._onAddNewAttribute }/>
         </tbody>
       </table>
     )
