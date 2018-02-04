@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import AttributeGroup from './AttributeGroup.js';
-import Animal from '../models/Animal';
+import AttributeGroup from './AttributeGroup';
+import Animal from 'models/Animal';
 
 class AttributeList extends Component {
   constructor(props) {

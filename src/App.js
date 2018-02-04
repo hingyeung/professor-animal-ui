@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 // import attributeData from './data/attributes.json';
 import AttributeList from './components/AttributeList';
 import AttributeReaderService from './services/AttributeReaderService';
-import './lib/css/bootstrap.min.css';
-import './App.css';
-import './components/AttributeList.css';
+import 'lib/css/bootstrap.min.css';
+import 'App.css';
+import 'components/AttributeList/AttributeList.css';
 
 class App extends Component {
   constructor(props) {

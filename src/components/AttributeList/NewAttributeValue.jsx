@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Attribute from '../models/Attribute';
+import Attribute from 'models/Attribute';
 
 class NewAttributeValue extends Component {
   constructor(props) {
