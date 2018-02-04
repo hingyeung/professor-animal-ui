@@ -131,14 +131,6 @@
     {
       "name": "huge mouth",
       "default": false
-    },
-    {
-      "name": "blue tongue",
-      "default": false
-    },
-    {
-      "name": "yellow eyes",
-      "default": false
     }
   ],
   "types": [
@@ -233,15 +225,19 @@
       "default": false
     },
     {
+      "name": "only eat plants",
+      "default": false
+    },
+    {
+      "name": "eat both plants and animals",
+      "default": false
+    },
+    {
       "name": "hunt in a group",
       "default": false
     },
     {
       "name": "roar",
-      "default": false
-    },
-    {
-      "name": "only eat plants",
       "default": false
     },
     {
@@ -254,10 +250,6 @@
     },
     {
       "name": "meow",
-      "default": false
-    },
-    {
-      "name": "eat both plants and animals",
       "default": false
     },
     {
@@ -285,15 +277,7 @@
       "default": false
     },
     {
-      "name": "lay eggs on beach",
-      "default": false
-    },
-    {
       "name": "live in a large group",
-      "default": false
-    },
-    {
-      "name": "stand on two legs when looking out for danger",
       "default": false
     },
     {
@@ -302,10 +286,6 @@
     },
     {
       "name": "only live in Australia",
-      "default": false
-    },
-    {
-      "name": "excellent hearing",
       "default": false
     }
   ],
