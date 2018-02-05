@@ -1,5 +1,9 @@
 import Attribute from './Attribute';
 
+// This is the model for the form for selecting attributes of an animal.
+// It has boolean value for each attribute name. This is different from the
+// Animal model used to export animal definition to Professor Animal, where
+// the attributes are stored as a list of strings (i.e. no values).
 class AttributeDefinition {
   constructor(physical, types, behaviours, possible_behaviours, diet, considerations) {
 
@@ -19,6 +23,10 @@ class AttributeDefinition {
       attrDef.possible_behaviours.map((attr) => Attribute.transformFromSerialisedModel(attr)),
       attrDef.diet.map((attr) => Attribute.transformFromSerialisedModel(attr)),
       attrDef.considerations.map((attr) => Attribute.transformFromSerialisedModel(attr)));
+  }
+
+  static get DEFAULT() {
+    return new AttributeDefinition([]. [], [], [], [], []);
   }
 }
 
