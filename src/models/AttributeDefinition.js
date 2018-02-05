@@ -26,7 +26,7 @@ class AttributeDefinition {
   }
 
   static get DEFAULT() {
-    return new AttributeDefinition([]. [], [], [], [], []);
+    return new AttributeDefinition([], [], [], [], [], []);
   }
 }
 

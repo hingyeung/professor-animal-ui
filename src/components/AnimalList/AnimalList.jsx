@@ -4,9 +4,15 @@ function AnimalList(props) {
   const animals = props.animals;
 
   return (
-    <ol>
-      {animals.map((animal) => <li key={animal.name}>{animal.name}</li>)}
-    </ol>
+    <div className="container">
+      <div className="row">
+        <div className="col-2">
+          <ul className="nav">
+            { animals.map((animal) => <li className="nav-item" key={ animal.name }>{ animal.name }</li>) }
+          </ul>
+        </div>
+      </div>
+    </div>
   )
 }
 

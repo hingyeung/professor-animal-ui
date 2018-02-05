@@ -6,7 +6,6 @@ import AnimalList from 'components/AnimalList';
 import fileDownload from 'js-file-download';
 import 'lib/css/bootstrap.min.css';
 import 'App.css';
-import 'components/AttributeList/AttributeList.css';
 
 class App extends Component {
   constructor(props) {
@@ -31,9 +30,15 @@ class App extends Component {
     const attributeMap = a.readFile;
 
     return (
-      <div>
-        <AnimalList animals={this.state.animalDefinition}/>
-        <AttributeList attributeMap={ attributeMap } onNewAnimalSubmitted={this.onNewAnimalSubmitted}/>
+      <div className="container">
+        <div className="row">
+          <div className="col-3 left-container">
+            <AnimalList animals={ this.state.animalDefinition }/>
+          </div>
+          <div className="col-9 right-container">
+            <AttributeList attributeMap={ attributeMap } onNewAnimalSubmitted={ this.onNewAnimalSubmitted }/>
+          </div>
+        </div>
       </div>
     );
   }
