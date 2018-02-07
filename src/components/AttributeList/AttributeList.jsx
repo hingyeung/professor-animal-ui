@@ -1,7 +1,10 @@
+import './AttributeList.css';
+
 import React, {Component} from 'react';
 import AttributeGroup from './AttributeGroup';
+import AnimalList from './AnimalList';
 import Animal from 'models/Animal';
-import './AttributeList.css';
+
 
 class AttributeList extends Component {
   constructor(props) {
@@ -16,6 +19,18 @@ class AttributeList extends Component {
     this.onFormSubmit = this.onFormSubmit.bind(this);
     this.updateAnimalName = this.updateAnimalName.bind(this);
     this.onAddNewAttribute = this.onAddNewAttribute.bind(this);
+    this.onNewAnimalSubmittedWrapper = this.onNewAnimalSubmittedWrapper.bind(this);
+
+    // TODO read the animal definition file animals.json location from user:
+    this.state = {
+      animalDefinition: require('data/animals.json')
+    }
+  }
+
+  onNewAnimalSubmittedWrapper(newAnimal) {
+    this.setState({
+      animalDefinition: this.state.animalDefinition.concat(newAnimal)
+    }, () => this.onNewAnimalSubmitted(this.state.animalDefinition));
   }
 
   updateAnimalName(animalName) {
@@ -93,7 +108,10 @@ class AttributeList extends Component {
     return (
       <div className="attribute-list-container container-fluid">
         <div className="row">
-          <div className="col-sm-12">
+          <div className="col-sm-3 left-container">
+            <AnimalList animals={ this.state.animalDefinition }/>
+          </div>
+          <div className="col-sm-9 right-container">
             <form className="" onSubmit={ this.onFormSubmit }>
               <div>
                 <button className="btn btn-primary">Save</button>
