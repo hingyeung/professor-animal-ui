@@ -1,4 +1,7 @@
 import React from 'react';
+import {
+  Link
+} from 'react-router-dom';
 
 function AnimalList(props) {
   const animals = props.animals;
@@ -9,7 +12,7 @@ function AnimalList(props) {
           <ul className="nav flex-column">
             { animals.map((animal) =>
               <li className="nav-item" key={ animal.name }>
-                <a className={'nav-link'} href={ '/animal/' + animal.id }>{ animal.name }</a>
+                <Link className={'nav-link'} to={ '/animal/' + animal.id }>{ animal.name }</Link>
               </li>
             ) }
           </ul>

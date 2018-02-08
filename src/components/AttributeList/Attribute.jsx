@@ -1,36 +1,69 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-function Attribute(props) {
-  const attribute = props.attribute;
-  const type = props.type;
-  const onAttributeChange = props.onAttributeChange;
-  const yesId = type + '-' + attribute.name + '-yes',
-    noId = type + '-' + attribute.name + '-no';
+class Attribute extends Component {
+  constructor(props) {
+    super(props);
 
-  function onChange(attrType, attrName, e) {
-    onAttributeChange(attrType, attrName, e.target.value);
+    this.attribute = props.attribute;
+    this.type = props.type;
+    this.onAttributeChange = props.onAttributeChange;
+
+    this.state = {
+      attributeValue: props.attribute.value
+    };
   }
 
-  return (
-    <tr className="attribute-row row">
-      <td className="attribute-cell col-sm-6">
-        { attribute.name }
-      </td>
-      <td className="attribute-cell col-sm-3">
-        <input className="form-check-label" type="radio" name={ type + '-' + attribute.name } value="yes"
-               id={ yesId }
-               onChange={ (e) => onChange(type, attribute.name, e) }
-               defaultChecked={ attribute.value }/>
-        <label className="form-check-label" htmlFor={ yesId }>YES</label>
-      </td>
-      <td className="attribute-cell col-sm-3">
-        <input className="form-check-label" type="radio" name={ type + '-' + attribute.name } value="no"
-               id={ noId } onChange={ (e) => onChange(type, attribute.name, e) }
-               defaultChecked={ !attribute.value }/>
-        <label className="form-check-label" htmlFor={ noId }>NO</label>
-      </td>
-    </tr>
-  )
+  componentWillReceiveProps(nextProps, nextState) {
+    this.setState({
+      attributeValue: nextProps.attribute.value
+    });
+  }
+
+  onChange(attrType, attrName, e) {
+    const selectedValue = e.target.value;
+    console.log(e.target.value);
+
+    this.setState({
+      attributeValue: selectedValue === 'yes'
+    });
+    this.onAttributeChange(attrType, attrName, selectedValue);
+  }
+
+  render() {
+    const attributeName = this.attribute.name,
+      yesId = this.type + '-' + attributeName + '-yes',
+      noId = this.type + '-' + attributeName + '-no',
+      // Initially this.state.attributeValue is undefined (before animals are loaded),
+      // and it makes the radio button "uncontrolled", then later when this.state.attributeValue
+      // is populated with either true or false and the radio button becomes "controlled".
+      // ReactJS doesn't like it and would give warning. Making sure its value is either true
+      // or false prevents the problem.
+      // https://github.com/facebook/react/issues/6779#issuecomment-222162404
+      yesIsChecked = this.state.attributeValue ? this.state.attributeValue : false;
+
+    return (
+      <tr className="attribute-row row">
+        <td className="attribute-cell col-sm-6">
+          { attributeName }
+        </td>
+        <td className="attribute-cell col-sm-3">
+          <input className="form-check-label" type="radio" value="yes"
+                 id={ yesId }
+                 onChange={ (e) => this.onChange(this.type, attributeName, e) }
+                 checked={ yesIsChecked }
+          />
+          <label className="form-check-label" htmlFor={ yesId }>YES { this.state.attributeValue }</label>
+        </td>
+        <td className="attribute-cell col-sm-3">
+          <input className="form-check-label" type="radio" value="no"
+                 id={ noId } onChange={ (e) => this.onChange(this.type, attributeName, e) }
+                 checked={ !yesIsChecked }
+          />
+          <label className="form-check-label" htmlFor={ noId }>NO</label>
+        </td>
+      </tr>
+    )
+  }
 }
 
 export default Attribute;

@@ -15,7 +15,6 @@ import {
 class AttributeList extends Component {
   constructor(props) {
     super(props);
-    this.attributeMap = props.attributeMap;
     this.onNewAnimalSubmitted = props.onNewAnimalSubmitted;
     // this.animalDefinition = props.animalDefinition;
 
@@ -24,6 +23,8 @@ class AttributeList extends Component {
     this.updateAnimalName = this.updateAnimalName.bind(this);
     this.onAddNewAttribute = this.onAddNewAttribute.bind(this);
     this.onNewAnimalSubmittedWrapper = this.onNewAnimalSubmittedWrapper.bind(this);
+    this.makeAttributeGroupContentForNewAnimal = this.makeAttributeGroupContentForNewAnimal.bind(this);
+    this.makeAttributeGroupContentForExistingAnimal = this.makeAttributeGroupContentForExistingAnimal.bind(this);
 
     this.state = {
       animalName: undefined,
@@ -77,7 +78,6 @@ class AttributeList extends Component {
   }
 
   onAttributeChange(attributeType, attributeName, value) {
-    // console.log(attributeName + ' changed to ' + value);
     // change attribute value in attributeMap in state
     const currentAttributeMap = this.state.attributeMap;
     const attributeListForType = currentAttributeMap[attributeType];
@@ -103,39 +103,92 @@ class AttributeList extends Component {
   }
 
   render() {
-    // const content = this.attributeMap.map((attribute, index) => {
-    //   return <Attribute key={index} name={attribute.name} />
-    // });
-    let attributeGroupContent = [];
-    Object.keys(this.attributeMap).forEach((attrType, index) => {
-      // skipping the animalName field
-      if (typeof this.attributeMap[attrType] === 'string') return;
-      attributeGroupContent.push(<AttributeGroup key={ index } type={ attrType }
-                                                 attributes={ this.attributeMap[attrType] }
-                                                 onAttributeChange={ this.onAttributeChange }
-                                                 onAddNewAttribute={ this.onAddNewAttribute }/>)
-    });
+
 
     return (
       <Router>
         <div className="attribute-list-container container-fluid">
           <div className="row">
             <div className="col-sm-3 left-container">
-                <Link to="/new">New</Link>
+              <Link to="/new">New</Link>
               <AnimalList animals={ this.state.animalDefinition }/>
             </div>
             <div className="col-sm-9 right-container">
-              <Route exact path="/new" render={() =>
-                <NewAnimalForm
-                  onFormSubmit={this.onFormSubmit}
-                  updateAnimalName={this.updateAnimalName}
-                  attributeGroupContent={attributeGroupContent}/>
+              <Route exact path="/new" render={ (routeProps) => {
+                let attributeGroupContent = this.makeAttributeGroupContentForNewAnimal(routeProps);
+
+                return (<NewAnimalForm
+                  location={routeProps.location}
+                  onFormSubmit={ this.onFormSubmit }
+                  updateAnimalName={ this.updateAnimalName }
+                  attributeGroupContent={ attributeGroupContent }/>);
+              }
+              }/>
+              <Route path={ '/animal/:id' } render={ (routeProps) => {
+                let attributeGroupContent = this.makeAttributeGroupContentForExistingAnimal(routeProps, routeProps.match.params.id);
+                console.log(routeProps.location);
+                return (<NewAnimalForm
+                  location={routeProps.location}
+                  onFormSubmit={ this.onFormSubmit }
+                  updateAnimalName={ this.updateAnimalName }
+                  attributeGroupContent={ attributeGroupContent }/>)
+              }
               }/>
             </div>
           </div>
         </div>
       </Router>
-  );
+    );
+  }
+
+  makeAttributeGroupContentForExistingAnimal(routeProps, id) {
+    let attributeGroupContent = [];
+
+    const animalBeingEdit = this.state.animalDefinition.find(animal => {
+      return animal.id === id;
+    });
+
+    if (!animalBeingEdit) {
+      return attributeGroupContent;
+    }
+
+    Object.keys(this.state.attributeMap).forEach((attrType, index) => {
+      // skipping the animalName and id field. TODO there must be a better way to do it.
+      if (typeof this.state.attributeMap[attrType] === 'string') return;
+      attributeGroupContent.push(<AttributeGroup key={ index } type={ attrType }
+                                                 attributes={
+                                                   // loop through the attributeMap (all default fields)
+                                                   // and set their values according to the current animal
+                                                   // definition
+                                                   this.state.attributeMap[attrType].map(attribute => {
+                                                     attribute.value = animalBeingEdit[attrType] &&
+                                                       animalBeingEdit[attrType].includes(attribute.name);
+                                                     return attribute;
+                                                   })
+                                                 }
+                                                 onAttributeChange={ this.onAttributeChange }
+                                                 onAddNewAttribute={ this.onAddNewAttribute }
+                                                 location={routeProps.location}/>)
+    });
+
+    // TODO: set new attributes (attributes that are created after the animal was defined)
+    // TODO: load custom attributes
+
+    return attributeGroupContent;
+  }
+
+  makeAttributeGroupContentForNewAnimal(routeProps) {
+    let attributeGroupContent = [];
+    Object.keys(this.state.attributeMap).forEach((attrType, index) => {
+      // skipping the animalName and id field. TODO there must be a better way to do it.
+      if (typeof this.state.attributeMap[attrType] === 'string') return;
+      attributeGroupContent.push(<AttributeGroup key={ index } type={ attrType }
+                                                 attributes={ this.state.attributeMap[attrType] }
+                                                 onAttributeChange={ this.onAttributeChange }
+                                                 onAddNewAttribute={ this.onAddNewAttribute }
+                                                 location={routeProps.location}/>)
+    });
+    return attributeGroupContent;
   }
 }
 
