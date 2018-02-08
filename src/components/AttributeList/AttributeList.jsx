@@ -4,6 +4,12 @@ import React, {Component} from 'react';
 import AttributeGroup from './AttributeGroup';
 import AnimalList from './AnimalList';
 import Animal from 'models/Animal';
+import NewAnimalForm from './NewAnimalForm'
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom';
 
 
 class AttributeList extends Component {
@@ -11,10 +17,7 @@ class AttributeList extends Component {
     super(props);
     this.attributeMap = props.attributeMap;
     this.onNewAnimalSubmitted = props.onNewAnimalSubmitted;
-    this.state = {
-      animalName: undefined,
-      attributeMap: props.attributeMap
-    };
+
     this.onAttributeChange = this.onAttributeChange.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
     this.updateAnimalName = this.updateAnimalName.bind(this);
@@ -23,8 +26,11 @@ class AttributeList extends Component {
 
     // TODO read the animal definition file animals.json location from user:
     this.state = {
+      animalName: undefined,
+      attributeMap: props.attributeMap,
+      // TODO and I think the animal definition should be passed into this component
       animalDefinition: require('data/animals.json')
-    }
+    };
   }
 
   onNewAnimalSubmittedWrapper(newAnimal) {
@@ -61,7 +67,7 @@ class AttributeList extends Component {
 
     if (this.areAllAttributesAreAllSet(this.state.attributeMap)) {
       const animal = new Animal(this.state.animalName, this.state.attributeMap);
-      this.onNewAnimalSubmitted(animal);
+      this.onNewAnimalSubmittedWrapper(animal);
     }
   }
 
@@ -106,32 +112,25 @@ class AttributeList extends Component {
     });
 
     return (
-      <div className="attribute-list-container container-fluid">
-        <div className="row">
-          <div className="col-sm-3 left-container">
-            <AnimalList animals={ this.state.animalDefinition }/>
-          </div>
-          <div className="col-sm-9 right-container">
-            <form className="" onSubmit={ this.onFormSubmit }>
-              <div>
-                <button className="btn btn-primary">Save</button>
-              </div>
-              <div className="form-group row">
-                <label htmlFor="animal-name" className="col-sm-2 col-form-label">Animal name</label>
-                <div className="col-sm-6">
-                  <input id="animal-name" className="form-control" type="text" name="animalName"
-                         onChange={ (e) => this.updateAnimalName(e.target.value) }/>
-                </div>
-              </div>
-              { attributeGroupContent }
-              <div>
-                <button className="btn btn-primary">Save</button>
-              </div>
-            </form>
+      <Router>
+        <div className="attribute-list-container container-fluid">
+          <div className="row">
+            <div className="col-sm-3 left-container">
+                <Link to="/new">New</Link>
+              <AnimalList animals={ this.state.animalDefinition }/>
+            </div>
+            <div className="col-sm-9 right-container">
+              <Route exact path="/new" render={() =>
+                <NewAnimalForm
+                  onFormSubmit={this.onFormSubmit}
+                  updateAnimalName={this.updateAnimalName}
+                  attributeGroupContent={attributeGroupContent}/>
+              }/>
+            </div>
           </div>
         </div>
-      </div>
-    );
+      </Router>
+  );
   }
 }
 
