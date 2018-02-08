@@ -103,8 +103,6 @@ class AttributeList extends Component {
   }
 
   render() {
-
-
     return (
       <Router>
         <div className="attribute-list-container container-fluid">
@@ -115,10 +113,10 @@ class AttributeList extends Component {
             </div>
             <div className="col-sm-9 right-container">
               <Route exact path="/new" render={ (routeProps) => {
-                let attributeGroupContent = this.makeAttributeGroupContentForNewAnimal(routeProps);
+                let attributeGroupContent = this.makeAttributeGroupContentForNewAnimal();
 
                 return (<NewAnimalForm
-                  location={routeProps.location}
+                  // location={routeProps.location}
                   onFormSubmit={ this.onFormSubmit }
                   updateAnimalName={ this.updateAnimalName }
                   attributeGroupContent={ attributeGroupContent }/>);
@@ -136,11 +134,10 @@ class AttributeList extends Component {
                   return <div/>;
                 }
 
-                let attributeGroupContent = this.makeAttributeGroupContentForExistingAnimal(routeProps, animalBeingEdit);
-                console.log(routeProps.location);
+                let attributeGroupContent = this.makeAttributeGroupContentForExistingAnimal(animalBeingEdit);
                 return (<NewAnimalForm
-                  name={animalBeingEdit.name}
-                  location={routeProps.location}
+                  name={ animalBeingEdit.name }
+                  // location={routeProps.location}
                   onFormSubmit={ this.onFormSubmit }
                   updateAnimalName={ this.updateAnimalName }
                   attributeGroupContent={ attributeGroupContent }/>)
@@ -153,7 +150,7 @@ class AttributeList extends Component {
     );
   }
 
-  makeAttributeGroupContentForExistingAnimal(routeProps, animalBeingEdit) {
+  makeAttributeGroupContentForExistingAnimal(animalBeingEdit) {
     let attributeGroupContent = [];
 
     if (!animalBeingEdit) {
@@ -163,22 +160,25 @@ class AttributeList extends Component {
     Object.keys(this.state.attributeMap).forEach((attrType, index) => {
       // skipping the animalName and id field. TODO there must be a better way to do it.
       if (typeof this.state.attributeMap[attrType] === 'string') return;
-      attributeGroupContent.push(<AttributeGroup key={ index } type={ attrType }
-                                                 attributes={
-                                                   // loop through the attributeMap (all default fields)
-                                                   // and set their values according to the current animal
-                                                   // definition
-                                                   this.state.attributeMap[attrType].map(attribute => {
-                                                     // "!!" (NOT-NOT and it isn't an operator) cast
-                                                     // value to boolean.
-                                                     attribute.value = !!(animalBeingEdit[attrType] &&
-                                                       animalBeingEdit[attrType].includes(attribute.name));
-                                                     return attribute;
-                                                   })
-                                                 }
-                                                 onAttributeChange={ this.onAttributeChange }
-                                                 onAddNewAttribute={ this.onAddNewAttribute }
-                                                 location={routeProps.location}/>)
+      attributeGroupContent.push(
+        <AttributeGroup key={ index } type={ attrType }
+                        attributes={
+                          // loop through the attributeMap (all default fields)
+                          // and set their values according to the current animal
+                          // definition
+                          this.state.attributeMap[attrType].map(attribute => {
+                            // "!!" (NOT-NOT and it isn't an operator) cast
+                            // value to boolean.
+                            attribute.value = !!(animalBeingEdit[attrType] &&
+                              animalBeingEdit[attrType].includes(attribute.name));
+                            return attribute;
+                          })
+                        }
+                        onAttributeChange={ this.onAttributeChange }
+                        onAddNewAttribute={ this.onAddNewAttribute }
+          // location={ routeProps.location }
+        />);
+
     });
 
     // TODO: set new attributes (attributes that are created after the animal was defined)
@@ -187,16 +187,18 @@ class AttributeList extends Component {
     return attributeGroupContent;
   }
 
-  makeAttributeGroupContentForNewAnimal(routeProps) {
+  makeAttributeGroupContentForNewAnimal() {
     let attributeGroupContent = [];
     Object.keys(this.state.attributeMap).forEach((attrType, index) => {
       // skipping the animalName and id field. TODO there must be a better way to do it.
       if (typeof this.state.attributeMap[attrType] === 'string') return;
-      attributeGroupContent.push(<AttributeGroup key={ index } type={ attrType }
-                                                 attributes={ this.state.attributeMap[attrType] }
-                                                 onAttributeChange={ this.onAttributeChange }
-                                                 onAddNewAttribute={ this.onAddNewAttribute }
-                                                 location={routeProps.location}/>)
+      attributeGroupContent.push(
+        <AttributeGroup key={ index } type={ attrType }
+                        attributes={ this.state.attributeMap[attrType] }
+                        onAttributeChange={ this.onAttributeChange }
+                        onAddNewAttribute={ this.onAddNewAttribute }
+          // location={ routeProps.location }
+        />)
     });
     return attributeGroupContent;
   }
