@@ -125,9 +125,21 @@ class AttributeList extends Component {
               }
               }/>
               <Route path={ '/animal/:id' } render={ (routeProps) => {
-                let attributeGroupContent = this.makeAttributeGroupContentForExistingAnimal(routeProps, routeProps.match.params.id);
+                const idOfAnimalBeingEdit = routeProps.match.params.id;
+                const animalBeingEdit = this.state.animalDefinition.find(animal => {
+                  return animal.id === idOfAnimalBeingEdit;
+                });
+
+                // it is possible that we try to render form for an animal before
+                // loading the animal definition (bookmarked url with animal uuid)
+                if (!animalBeingEdit) {
+                  return <div/>;
+                }
+
+                let attributeGroupContent = this.makeAttributeGroupContentForExistingAnimal(routeProps, animalBeingEdit);
                 console.log(routeProps.location);
                 return (<NewAnimalForm
+                  name={animalBeingEdit.name}
                   location={routeProps.location}
                   onFormSubmit={ this.onFormSubmit }
                   updateAnimalName={ this.updateAnimalName }
@@ -141,12 +153,8 @@ class AttributeList extends Component {
     );
   }
 
-  makeAttributeGroupContentForExistingAnimal(routeProps, id) {
+  makeAttributeGroupContentForExistingAnimal(routeProps, animalBeingEdit) {
     let attributeGroupContent = [];
-
-    const animalBeingEdit = this.state.animalDefinition.find(animal => {
-      return animal.id === id;
-    });
 
     if (!animalBeingEdit) {
       return attributeGroupContent;
@@ -161,8 +169,10 @@ class AttributeList extends Component {
                                                    // and set their values according to the current animal
                                                    // definition
                                                    this.state.attributeMap[attrType].map(attribute => {
-                                                     attribute.value = animalBeingEdit[attrType] &&
-                                                       animalBeingEdit[attrType].includes(attribute.name);
+                                                     // "!!" (NOT-NOT and it isn't an operator) cast
+                                                     // value to boolean.
+                                                     attribute.value = !!(animalBeingEdit[attrType] &&
+                                                       animalBeingEdit[attrType].includes(attribute.name));
                                                      return attribute;
                                                    })
                                                  }

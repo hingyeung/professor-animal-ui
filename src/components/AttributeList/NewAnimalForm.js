@@ -10,7 +10,7 @@ function NewAnimalForm(props) {
         <label htmlFor="animal-name" className="col-sm-2 col-form-label">Animal name</label>
         <div className="col-sm-6">
           <input id="animal-name" className="form-control" type="text" name="animalName"
-                 onChange={ (e) => props.updateAnimalName(e.target.value) }/>
+                 onChange={ (e) => props.updateAnimalName(e.target.value) } value={props.name}/>
         </div>
       </div>
       { props.attributeGroupContent }

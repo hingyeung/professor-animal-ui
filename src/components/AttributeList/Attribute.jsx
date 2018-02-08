@@ -47,7 +47,7 @@ class Attribute extends Component {
           { attributeName }
         </td>
         <td className="attribute-cell col-sm-3">
-          <input className="form-check-label" type="radio" value="yes"
+          <input type="radio" value="yes"
                  id={ yesId }
                  onChange={ (e) => this.onChange(this.type, attributeName, e) }
                  checked={ yesIsChecked }
@@ -55,7 +55,7 @@ class Attribute extends Component {
           <label className="form-check-label" htmlFor={ yesId }>YES { this.state.attributeValue }</label>
         </td>
         <td className="attribute-cell col-sm-3">
-          <input className="form-check-label" type="radio" value="no"
+          <input type="radio" value="no"
                  id={ noId } onChange={ (e) => this.onChange(this.type, attributeName, e) }
                  checked={ !yesIsChecked }
           />
