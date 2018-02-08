@@ -11,7 +11,7 @@
 .left-container, .right-container {
     overflow-y: scroll;
     position: absolute;
-    top: 0;
+    top: 30px;
     bottom: 0;
 }
 

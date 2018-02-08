@@ -17,6 +17,7 @@ class AttributeList extends Component {
     super(props);
     this.attributeMap = props.attributeMap;
     this.onNewAnimalSubmitted = props.onNewAnimalSubmitted;
+    // this.animalDefinition = props.animalDefinition;
 
     this.onAttributeChange = this.onAttributeChange.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
@@ -24,13 +25,17 @@ class AttributeList extends Component {
     this.onAddNewAttribute = this.onAddNewAttribute.bind(this);
     this.onNewAnimalSubmittedWrapper = this.onNewAnimalSubmittedWrapper.bind(this);
 
-    // TODO read the animal definition file animals.json location from user:
     this.state = {
       animalName: undefined,
       attributeMap: props.attributeMap,
-      // TODO and I think the animal definition should be passed into this component
-      animalDefinition: require('data/animals.json')
+      animalDefinition: props.animalDefinition
     };
+  }
+
+  componentWillReceiveProps(nextProps, nextState) {
+    this.setState({
+      animalDefinition: nextProps.animalDefinition
+    });
   }
 
   onNewAnimalSubmittedWrapper(newAnimal) {

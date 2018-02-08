@@ -6,11 +6,13 @@ function AnimalList(props) {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-2">
-          <ul className="nav">
-            { animals.map((animal) => <li className="nav-item" key={ animal.name }>{ animal.name }</li>) }
+          <ul className="nav flex-column">
+            { animals.map((animal) =>
+              <li className="nav-item" key={ animal.name }>
+                <a className={'nav-link'} href={ '/animal/' + animal.id }>{ animal.name }</a>
+              </li>
+            ) }
           </ul>
-        </div>
       </div>
     </div>
   )
