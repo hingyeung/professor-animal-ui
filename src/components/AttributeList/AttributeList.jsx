@@ -16,7 +16,6 @@ class AttributeList extends Component {
   constructor(props) {
     super(props);
     this.onNewAnimalSubmitted = props.onNewAnimalSubmitted;
-    // this.animalDefinition = props.animalDefinition;
 
     this.onAttributeChange = this.onAttributeChange.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
@@ -28,8 +27,16 @@ class AttributeList extends Component {
 
     this.state = {
       animalName: undefined,
+      // The attribute definition loaded from file as the base template for new animal form.
+      // e.g. { physical: [{_name: "fins", _value: true}]}
       attributeMap: props.attributeMap,
-      animalDefinition: props.animalDefinition
+      // animal definition initially loaded from file. This should be updated using values in attributeMap
+      // on form submit.
+      // e.g. [{ name: "Lion", physical: ["legs"], ... }]
+      animalDefinition: props.animalDefinition,
+      // This is the state of the current form. It has the same structure as attributeMap.
+      // This should be updated on attribute value change
+      currentAttributeMapForForm: {}
     };
   }
 
@@ -52,7 +59,11 @@ class AttributeList extends Component {
   }
 
   areAllAttributesAreAllSet(attributeMap) {
-    if (!this.state.animalName) return false;
+    if (!this.state.animalName) {
+      console.log('animal name has no value');
+      return false;
+    }
+
     const mapToCheck = {...attributeMap};
     for (let attrType in mapToCheck) {
       // skipping animalName
@@ -150,6 +161,36 @@ class AttributeList extends Component {
     );
   }
 
+  // merge attributeMapTemplate and the definition of the selected animal
+  // return final "attributes" in a map
+  mergeAttributeMapAndAnimalDefinition(definitionOfAnimalBeingEdit, attributeType) {
+    // const ATTRIBUTE_TYPES = ['physical', 'types', 'behaviours', 'diet', 'possible_behaviours', 'considerations']
+    const attributeMapTemplate = this.state.attributeMap;
+    // animalDefinition = this.state.animalDefinition;
+
+    // build a new, empty attributeMap
+    let newAttributeMap = {};
+
+    // loop through the attributeMapTemplate and use the value from there if
+    // the same attribute doesn't also exist in the animalDefinition. Otherwise,
+    // use the one from animalDefinition instead.
+    // first use values from attributeMapTemplate
+    attributeMapTemplate[attributeType].forEach(attribute => {
+      newAttributeMap[attribute.name] = attribute.value;
+    });
+
+    // then overwrite with values from animalDefinition
+    // TODO it would help if AnimalDefinition was a class
+    // the current animal may not have all the attributeType in the attribute template
+    definitionOfAnimalBeingEdit[attributeType] &&
+      definitionOfAnimalBeingEdit[attributeType].forEach(attribute => {
+      // "attribute" from animalDefinition is just a string
+      newAttributeMap[attribute] = true;
+    });
+
+    return newAttributeMap;
+  }
+
   makeAttributeGroupContentForExistingAnimal(animalBeingEdit) {
     let attributeGroupContent = [];
 
@@ -163,25 +204,18 @@ class AttributeList extends Component {
       attributeGroupContent.push(
         <AttributeGroup key={ index } type={ attrType }
                         attributes={
-                          // loop through the attributeMap (all default fields)
-                          // and set their values according to the current animal
-                          // definition
-                          this.state.attributeMap[attrType].map(attribute => {
-                            // "!!" (NOT-NOT and it isn't an operator) cast
-                            // value to boolean.
-                            attribute.value = !!(animalBeingEdit[attrType] &&
-                              animalBeingEdit[attrType].includes(attribute.name));
-                            return attribute;
-                          })
+                          // merge the attributeMap (attribute template loaded from file) with
+                          // animalDefinition (also loaded from file) to generate a map that contains
+                          // all existing attributes of the animal as well as the new attributes that
+                          // only exist in the attributeMap.
+                          this.mergeAttributeMapAndAnimalDefinition(animalBeingEdit, attrType)
                         }
                         onAttributeChange={ this.onAttributeChange }
                         onAddNewAttribute={ this.onAddNewAttribute }
-          // location={ routeProps.location }
         />);
 
     });
 
-    // TODO: set new attributes (attributes that are created after the animal was defined)
     // TODO: load custom attributes
 
     return attributeGroupContent;
@@ -197,7 +231,6 @@ class AttributeList extends Component {
                         attributes={ this.state.attributeMap[attrType] }
                         onAttributeChange={ this.onAttributeChange }
                         onAddNewAttribute={ this.onAddNewAttribute }
-          // location={ routeProps.location }
         />)
     });
     return attributeGroupContent;

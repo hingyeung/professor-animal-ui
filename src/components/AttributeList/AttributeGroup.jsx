@@ -1,5 +1,6 @@
 import React from 'react';
 import Attribute from './Attribute';
+import AttributeModel from 'models/Attribute';
 import NewAttributeValue from './NewAttributeValue';
 
 function AttributeGroup(props) {
@@ -12,8 +13,13 @@ function AttributeGroup(props) {
     onAddNewAttributeFromParent(type, attribute);
   }
 
-  const attributesContent = attributes.map((attribute, index) => {
-    return <Attribute key={ index } type={ type } attribute={ attribute }
+  // const attributesContent = attributes.map((attribute, index) => {
+  //   return <Attribute key={ index } type={ type } attribute={ attribute }
+  //                     onAttributeChange={ onAttributeChange }/>
+  // });
+  const attributesContent = Object.keys(attributes).map((attributeName, index) => {
+    return <Attribute key={ index } type={ type }
+                      attribute = { new AttributeModel(attributeName, attributes[attributeName]) }
                       onAttributeChange={ onAttributeChange }/>
   });
 
