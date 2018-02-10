@@ -14,6 +14,7 @@ class Animal {
   }
 
   setAttribute(attributeKey) {
+    // TODO this doesn't work with the new currentAttributeMapForForm map-within-map structure
     return attributeKey.filter((attribute) => {
       return attribute.value === true;
     })

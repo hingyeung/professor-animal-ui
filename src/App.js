@@ -46,12 +46,12 @@ class App extends Component {
 
   render() {
     let a = new AttributeReaderService();
-    const attributeMap = a.readFile;
+    const attributeDefinition = a.readFile;
 
     return (
       <div>
         <input type="file" id="all-animals-load-control" onChange={ this.loadAllAnimalsFromFile }/>
-        <AttributeList animalDefinition={ this.state.animalDefinition } attributeMap={ attributeMap } onNewAnimalSubmitted={ this.onNewAnimalSubmitted }/>
+        <AttributeList animalDefinition={ this.state.animalDefinition } attributeDefinition={ attributeDefinition } onNewAnimalSubmitted={ this.onNewAnimalSubmitted }/>
       </div>
     );
   }

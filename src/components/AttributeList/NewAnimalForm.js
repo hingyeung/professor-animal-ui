@@ -19,22 +19,29 @@ class NewAnimalForm extends Component {
   }
 
   componentWillReceiveProps(newProps) {
-    console.log('new: ' + newProps.attributeMapForForm.id);
-    console.log('old: ' + this.props.attributeMapForForm.id);
-    this.updateParent(newProps.attributeMapForForm.id);
+    console.log('new: ' + newProps.attributeMapForForm.id, newProps.attributeMapForForm.name);
+    console.log('old: ' + this.props.attributeMapForForm.id, this.props.attributeMapForForm.name);
+    this.updateParent(newProps.attributeMapForForm);
   }
 
   updateParentIfNeeded(attributeMapForForm) {
     if (this.props.onRefresh) {
-      this.props.onRefresh(this.props.attributeMapForForm)
+      console.log('updating parent', attributeMapForForm);
+      this.props.onRefresh(attributeMapForForm)
     }
   }
 
-  updateParent(newAnimalId = undefined) {
-    if (newAnimalId === undefined || this.state.currentAnimalId !== newAnimalId) {
+  // This hack is to update parent with the current form content, specifically for immediately after
+  // route change to show show existing animal (e.g. /animal/xyz).
+  // The state of the form is controlled by parent and it needs to be updated (pre-fill the form)
+  // whenever a different animal is chosen by the user. However, route change doesn't allow setState()
+  // in the parent. So what I do is pass the pre-populated form object down here, then update the parent
+  // with the same form object it just gave me in componentWillReceiveProps() and componentDidMount().
+  updateParent(newAttributeMapForForm = undefined) {
+    if (newAttributeMapForForm === undefined || this.state.currentAnimalId !== newAttributeMapForForm.id) {
       this.setState({
-        currentAnimalId: newAnimalId
-      }, this.updateParentIfNeeded(this.props.attributeMapForForm));
+        currentAnimalId: newAttributeMapForForm ? newAttributeMapForForm.id : undefined
+      }, this.updateParentIfNeeded(newAttributeMapForForm ? newAttributeMapForForm : this.props.attributeMapForForm));
     }
   }
 
@@ -45,11 +52,6 @@ class NewAnimalForm extends Component {
       attributeGroupContent.push(
         <AttributeGroup key={ index } type={ attrType }
                         attributes={
-                          // TODO update the following outdated comment
-                          // merge the attributeMap (attribute template loaded from file) with
-                          // animalDefinition (also loaded from file) to generate a map that contains
-                          // all existing attributes of the animal as well as the new attributes that
-                          // only exist in the attributeMap.
                           this.props.attributeMapForForm[attrType]
                         }
                         onAttributeChange={ this.props.onAttributeChange }
