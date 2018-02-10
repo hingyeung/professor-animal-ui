@@ -13,6 +13,7 @@ import {
 
 
 class AttributeList extends Component {
+  ATTRIBUTE_TYPES = ['physical', 'types', 'behaviours', 'diet', 'possible_behaviours', 'considerations'];
   constructor(props) {
     super(props);
     this.onNewAnimalSubmitted = props.onNewAnimalSubmitted;
@@ -23,12 +24,14 @@ class AttributeList extends Component {
     this.onAddNewAttribute = this.onAddNewAttribute.bind(this);
     this.onNewAnimalSubmittedWrapper = this.onNewAnimalSubmittedWrapper.bind(this);
     this.makeAttributeGroupContentForNewAnimal = this.makeAttributeGroupContentForNewAnimal.bind(this);
-    this.makeAttributeGroupContentForExistingAnimal = this.makeAttributeGroupContentForExistingAnimal.bind(this);
+    // this.makeAttributeGroupContentForExistingAnimal = this.makeAttributeGroupContentForExistingAnimal.bind(this);
+    this.updateCurrentAttributeMapForForm = this.updateCurrentAttributeMapForForm.bind(this);
 
     this.state = {
       animalName: undefined,
       // The attribute definition loaded from file as the base template for new animal form.
       // e.g. { physical: [{_name: "fins", _value: true}]}
+      // TODO: rename attributeMap to something like attributeDefinition
       attributeMap: props.attributeMap,
       // animal definition initially loaded from file. This should be updated using values in attributeMap
       // on form submit.
@@ -124,13 +127,19 @@ class AttributeList extends Component {
             </div>
             <div className="col-sm-9 right-container">
               <Route exact path="/new" render={ (routeProps) => {
-                let attributeGroupContent = this.makeAttributeGroupContentForNewAnimal();
+                // let attributeGroupContent = this.makeAttributeGroupContentForNewAnimal();
+                let newAttributeMapForForm = this.convertAttributeDefinitionToAttributeMapForForm();
 
                 return (<NewAnimalForm
                   // location={routeProps.location}
                   onFormSubmit={ this.onFormSubmit }
                   updateAnimalName={ this.updateAnimalName }
-                  attributeGroupContent={ attributeGroupContent }/>);
+                  onAttributeChange={ this.onAttributeChange }
+                  onAddNewAttribute={ this.onAddNewAttribute }
+                  // onRefresh = {this.updateCurrentAttributeMapForForm}
+                  attributeMapForForm = {newAttributeMapForForm}
+                  // attributeGroupContent={ attributeGroupContent }
+                />);
               }
               }/>
               <Route path={ '/animal/:id' } render={ (routeProps) => {
@@ -145,13 +154,17 @@ class AttributeList extends Component {
                   return <div/>;
                 }
 
-                let attributeGroupContent = this.makeAttributeGroupContentForExistingAnimal(animalBeingEdit);
+                // let attributeGroupContent = this.makeAttributeGroupContentForExistingAnimal(animalBeingEdit);
+                let newAttributeMapForForm = this.mergeAttributeMapAndAnimalDefinition(animalBeingEdit);
                 return (<NewAnimalForm
                   name={ animalBeingEdit.name }
                   // location={routeProps.location}
                   onFormSubmit={ this.onFormSubmit }
                   updateAnimalName={ this.updateAnimalName }
-                  attributeGroupContent={ attributeGroupContent }/>)
+                  attributeMapForForm = { newAttributeMapForForm }
+                  onRefresh = {this.updateCurrentAttributeMapForForm}
+                  // attributeGroupContent={ attributeGroupContent }
+                />)
               }
               }/>
             </div>
@@ -161,22 +174,44 @@ class AttributeList extends Component {
     );
   }
 
+  updateCurrentAttributeMapForForm(currentAttributeMapForForm) {
+    this.setState({
+      currentAttributeMapForForm: currentAttributeMapForForm
+    });
+    console.log('parent updated', currentAttributeMapForForm.id);
+  }
+
   // merge attributeMapTemplate and the definition of the selected animal
   // return final "attributes" in a map
-  mergeAttributeMapAndAnimalDefinition(definitionOfAnimalBeingEdit, attributeType) {
-    // const ATTRIBUTE_TYPES = ['physical', 'types', 'behaviours', 'diet', 'possible_behaviours', 'considerations']
+  mergeAttributeMapAndAnimalDefinition(definitionOfAnimalBeingEdit) {
+    // const ATTRIBUTE_TYPES = ['physical', 'types', 'behaviours', 'diet', 'possible_behaviours', 'considerations'];
+    let newAttributeMap = {};
+    this.ATTRIBUTE_TYPES.forEach(ATTRIBUTE_TYPE => {
+      newAttributeMap[ATTRIBUTE_TYPE] =
+        this.mergeAttributeMapAndAnimalDefinitionForAttributeType(
+          definitionOfAnimalBeingEdit, ATTRIBUTE_TYPE);
+    });
+    // add name and id
+    newAttributeMap.name = definitionOfAnimalBeingEdit.name;
+    newAttributeMap.id = definitionOfAnimalBeingEdit.id;
+    return newAttributeMap;
+  }
+
+  // merge attributeMapTemplate and the definition of the selected attribute type of an selected animal
+  // return final "attributes" in a map
+  mergeAttributeMapAndAnimalDefinitionForAttributeType(definitionOfAnimalBeingEdit, attributeType) {
     const attributeMapTemplate = this.state.attributeMap;
     // animalDefinition = this.state.animalDefinition;
 
     // build a new, empty attributeMap
-    let newAttributeMap = {};
+    let newAttributeMapForAttributeType = {};
 
     // loop through the attributeMapTemplate and use the value from there if
     // the same attribute doesn't also exist in the animalDefinition. Otherwise,
     // use the one from animalDefinition instead.
     // first use values from attributeMapTemplate
     attributeMapTemplate[attributeType].forEach(attribute => {
-      newAttributeMap[attribute.name] = attribute.value;
+      newAttributeMapForAttributeType[attribute.name] = attribute.value;
     });
 
     // then overwrite with values from animalDefinition
@@ -185,41 +220,58 @@ class AttributeList extends Component {
     definitionOfAnimalBeingEdit[attributeType] &&
       definitionOfAnimalBeingEdit[attributeType].forEach(attribute => {
       // "attribute" from animalDefinition is just a string
-      newAttributeMap[attribute] = true;
+      newAttributeMapForAttributeType[attribute] = true;
+    });
+
+    return newAttributeMapForAttributeType;
+  }
+
+  convertAttributeDefinitionToAttributeMapForForm() {
+    const attributeMapTemplate = this.state.attributeMap;
+    // animalDefinition = this.state.animalDefinition;
+
+    // build a new, empty attributeMap
+    let newAttributeMap = {};
+
+    this.ATTRIBUTE_TYPES.forEach(attributeType => {
+      newAttributeMap[attributeType] = {};
+      attributeMapTemplate[attributeType].forEach(attribute => {
+        newAttributeMap[attributeType][attribute.name] = attribute.value;
+      });
     });
 
     return newAttributeMap;
   }
 
-  makeAttributeGroupContentForExistingAnimal(animalBeingEdit) {
-    let attributeGroupContent = [];
-
-    if (!animalBeingEdit) {
-      return attributeGroupContent;
-    }
-
-    Object.keys(this.state.attributeMap).forEach((attrType, index) => {
-      // skipping the animalName and id field. TODO there must be a better way to do it.
-      if (typeof this.state.attributeMap[attrType] === 'string') return;
-      attributeGroupContent.push(
-        <AttributeGroup key={ index } type={ attrType }
-                        attributes={
-                          // merge the attributeMap (attribute template loaded from file) with
-                          // animalDefinition (also loaded from file) to generate a map that contains
-                          // all existing attributes of the animal as well as the new attributes that
-                          // only exist in the attributeMap.
-                          this.mergeAttributeMapAndAnimalDefinition(animalBeingEdit, attrType)
-                        }
-                        onAttributeChange={ this.onAttributeChange }
-                        onAddNewAttribute={ this.onAddNewAttribute }
-        />);
-
-    });
-
-    // TODO: load custom attributes
-
-    return attributeGroupContent;
-  }
+  // makeAttributeGroupContentForExistingAnimal(animalBeingEdit) {
+  //   let attributeGroupContent = [];
+  //
+  //   if (!animalBeingEdit) {
+  //     return attributeGroupContent;
+  //   }
+  //
+  //   Object.keys(this.state.attributeMap).forEach((attrType, index) => {
+  //     // skipping the animalName and id field. TODO there must be a better way to do it.
+  //     if (typeof this.state.attributeMap[attrType] === 'string') return;
+  //     attributeGroupContent.push(
+  //       <AttributeGroup key={ index } type={ attrType }
+  //                       attributes={
+  //                         // merge the attributeMap (attribute template loaded from file) with
+  //                         // animalDefinition (also loaded from file) to generate a map that contains
+  //                         // all existing attributes of the animal as well as the new attributes that
+  //                         // only exist in the attributeMap.
+  //                         this.mergeAttributeMapAndAnimalDefinitionForAttributeType(animalBeingEdit, attrType)
+  //                       }
+  //                       onAttributeChange={ this.onAttributeChange }
+  //                       onAddNewAttribute={ this.onAddNewAttribute }
+  //       />);
+  //
+  //   });
+  //
+  //   // TODO: load custom attributes
+  //
+  //   return attributeGroupContent;
+  // }
 
   makeAttributeGroupContentForNewAnimal() {
     let attributeGroupContent = [];
