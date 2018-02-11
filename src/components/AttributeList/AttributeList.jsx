@@ -94,11 +94,7 @@ class AttributeList extends Component {
     // TODO this doesn't work with the new currentAttributeMapForForm map-within-map structure
     // change attribute value in attributeDefinition in state
     const currentAttributeMapForForm = this.state.currentAttributeMapForForm;
-    const attributeListForType = currentAttributeMapForForm[attributeType];
-    const matchedIndex = attributeListForType.findIndex(attrObj => {
-      return attrObj.name === attributeName
-    });
-    attributeListForType[matchedIndex].value = (value.toLowerCase() === 'yes');
+    currentAttributeMapForForm[attributeType][attributeName] = (value.toLowerCase() === 'yes');
     this.setState(
       {
         currentAttributeMapForForm: currentAttributeMapForForm
@@ -155,13 +151,18 @@ class AttributeList extends Component {
                   return <div/>;
                 }
 
-                // let attributeGroupContent = this.makeAttributeGroupContentForExistingAnimal(animalBeingEdit);
+                // TODO this line is resetting the content of currentAttributeMapForForm the essentially what
+                // is in the animalDefinition, discarding all the unsaved changes made on the form.
+                // Since <NewAnimalForm> is re-rendered after each change to attribute, the change is immediately
+                // discarded, making any change impossible.
                 let newAttributeMapForForm = this.mergeAttributeMapAndAnimalDefinition(animalBeingEdit);
                 return (<NewAnimalForm
                   name={ animalBeingEdit.name }
                   // location={routeProps.location}
                   onFormSubmit={ this.onFormSubmit }
                   updateAnimalName={ this.updateAnimalName }
+                  onAttributeChange={ this.onAttributeChange }
+                  onAddNewAttribute={ this.onAddNewAttribute }
                   attributeMapForForm = { newAttributeMapForForm }
                   onRefresh = {this.updateCurrentAttributeMapForForm}
                   // attributeGroupContent={ attributeGroupContent }
