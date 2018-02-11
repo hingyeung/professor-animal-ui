@@ -4,21 +4,17 @@ import AttributeModel from 'models/Attribute';
 import NewAttributeValue from './NewAttributeValue';
 
 function AttributeGroup(props) {
-  const type = props.type;
+  const attributeType = props.attributeType;
   const attributes = props.attributes;
   const onAttributeChange = props.onAttributeChange;
   const onAddNewAttributeFromParent = props.onAddNewAttribute;
 
   function _onAddNewAttribute(attribute) {
-    onAddNewAttributeFromParent(type, attribute);
+    onAddNewAttributeFromParent(attributeType, attribute);
   }
 
-  // const attributesContent = attributes.map((attribute, index) => {
-  //   return <Attribute key={ index } type={ type } attribute={ attribute }
-  //                     onAttributeChange={ onAttributeChange }/>
-  // });
   const attributesContent = Object.keys(attributes).map((attributeName, index) => {
-    return <Attribute key={ index } type={ type }
+    return <Attribute key={ index } type={ attributeType }
                       attribute = { new AttributeModel(attributeName, attributes[attributeName]) }
                       onAttributeChange={ onAttributeChange }/>
   });
@@ -28,7 +24,7 @@ function AttributeGroup(props) {
     <table className="table table-striped">
       <thead>
       <tr className="row">
-        <th colSpan="3" className="col-sm-12">{ type }</th>
+        <th colSpan="3" className="col-sm-12">{ attributeType }</th>
       </tr>
       </thead>
       <tbody>

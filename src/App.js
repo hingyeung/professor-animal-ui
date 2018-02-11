@@ -33,7 +33,20 @@ class App extends Component {
     fileDownload(JSON.stringify(allAnimals), 'test.json');
   }
 
-    render() {
+  // tmp(oldAttributeDefinition) {
+  //   let newAttributeDefinition = {};
+  //   Object.keys(oldAttributeDefinition).forEach(attributeGroup => {
+  //     newAttributeDefinition[attributeGroup] = {};
+  //     const attributeListInAttributeGroup = oldAttributeDefinition[attributeGroup];
+  //     attributeListInAttributeGroup.forEach(attributeObj => {
+  //       newAttributeDefinition[attributeGroup][attributeObj.name] = attributeObj.value;
+  //     });
+  //   });
+  //   console.log(JSON.stringify(newAttributeDefinition));
+  // }
+
+  render() {
+    // this.tmp(this.state.attributeDefinition);
     return (
       <div>
         <AttributeList animalDefinition={ this.state.animalDefinition }

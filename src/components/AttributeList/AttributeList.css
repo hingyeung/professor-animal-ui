@@ -11,14 +11,16 @@
 .left-container, .right-container {
     overflow-y: scroll;
     position: absolute;
-    top: 30px;
+    top: 0;
     bottom: 0;
 }
 
 .left-container {
     left: 0;
+    background-color: #80bdff;
 }
 
 .right-container {
     right: 0;
+    background-color: thistle;
 }

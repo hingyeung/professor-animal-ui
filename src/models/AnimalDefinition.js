@@ -5,6 +5,7 @@ class AnimalDefinition {
     let animalDefinitionMap = {};
     animalDefinitionFromFile.forEach(animalFromFile => {
       animalDefinitionMap[animalFromFile.id] = {
+        id: animalFromFile.id,
         name: animalFromFile.name,
         attributeMap: {
           physical: this.convertFromArrayOfString(animalFromFile.physical),

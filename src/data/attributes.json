@@ -1,410 +1,113 @@
 {
-  "physical": [
-    {
-      "name": "fins",
-      "default": false
-    },
-    {
-      "name": "mane",
-      "default": false
-    },
-    {
-      "name": "tail",
-      "default": false
-    },
-    {
-      "name": "legs",
-      "default": false
-    },
-    {
-      "name": "large animal",
-      "default": false
-    },
-    {
-      "name": "tusks",
-      "default": false
-    },
-    {
-      "name": "long trunk",
-      "default": false
-    },
-    {
-      "name": "sharp claws",
-      "default": false
-    },
-    {
-      "name": "scales",
-      "default": false
-    },
-    {
-      "name": "long body",
-      "default": false
-    },
-    {
-      "name": "wings",
-      "default": false
-    },
-    {
-      "name": "strong talon",
-      "default": false
-    },
-    {
-      "name": "tentacles",
-      "default": false
-    },
-    {
-      "name": "long legs",
-      "default": false
-    },
-    {
-      "name": "hooves",
-      "default": false
-    },
-    {
-      "name": "black stripes on its body",
-      "default": false
-    },
-    {
-      "name": "a hard shell",
-      "default": false
-    },
-    {
-      "name": "no teeth",
-      "default": false
-    },
-    {
-      "name": "six legs",
-      "default": false
-    },
-    {
-      "name": "two antenna",
-      "default": false
-    },
-    {
-      "name": "thick, armour-like skin",
-      "default": false
-    },
-    {
-      "name": "pouch on its tummy",
-      "default": false
-    },
-    {
-      "name": "a pouch where their newborns live",
-      "default": false
-    },
-    {
-      "name": "long neck",
-      "default": false
-    },
-    {
-      "name": "long tongue",
-      "default": false
-    },
-    {
-      "name": "large jaw",
-      "default": false
-    },
-    {
-      "name": "many sharp teeth",
-      "default": false
-    },
-    {
-      "name": "large ears",
-      "default": false
-    },
-    {
-      "name": "dark hair",
-      "default": false
-    },
-    {
-      "name": "long arms",
-      "default": false
-    },
-    {
-      "name": "thumbs like humans",
-      "default": false
-    },
-    {
-      "name": "short legs",
-      "default": false
-    },
-    {
-      "name": "huge mouth",
-      "default": false
-    }
-  ],
-  "types": [
-    {
-      "name": "vertebrate",
-      "default": false
-    },
-    {
-      "name": "mammal",
-      "default": false
-    },
-    {
-      "name": "big cat",
-      "default": false
-    },
-    {
-      "name": "pet",
-      "default": false
-    },
-    {
-      "name": "predator",
-      "default": false
-    },
-    {
-      "name": "solitary animal",
-      "default": false
-    },
-    {
-      "name": "reptile",
-      "default": false
-    },
-    {
-      "name": "cold-blooded animal",
-      "default": false
-    },
-    {
-      "name": "fish",
-      "default": false
-    },
-    {
-      "name": "bird",
-      "default": false
-    },
-    {
-      "name": "large bird",
-      "default": false
-    },
-    {
-      "name": "bird of prey",
-      "default": false
-    },
-    {
-      "name": "small animal",
-      "default": false
-    },
-    {
-      "name": "invertebrate",
-      "default": false
-    },
-    {
-      "name": "insect",
-      "default": false
-    },
-    {
-      "name": "territorial animal",
-      "default": false
-    },
-    {
-      "name": "marsupial",
-      "default": false
-    },
-    {
-      "name": "social animal",
-      "default": false
-    },
-    {
-      "name": "ape",
-      "default": false
-    },
-    {
-      "name": "a highly intelligent animal",
-      "default": false
-    },
-    {
-      "name": "nocturnal animal",
-      "default": false
-    }
-  ],
-  "behaviours": [
-    {
-      "name": "only eat meat",
-      "default": false
-    },
-    {
-      "name": "only eat plants",
-      "default": false
-    },
-    {
-      "name": "eat both plants and animals",
-      "default": false
-    },
-    {
-      "name": "hunt in a group",
-      "default": false
-    },
-    {
-      "name": "roar",
-      "default": false
-    },
-    {
-      "name": "bark",
-      "default": false
-    },
-    {
-      "name": "climb tree",
-      "default": false
-    },
-    {
-      "name": "meow",
-      "default": false
-    },
-    {
-      "name": "hibernate in winter",
-      "default": false
-    },
-    {
-      "name": "lay eggs",
-      "default": false
-    },
-    {
-      "name": "slither across flat surfaces without legs",
-      "default": false
-    },
-    {
-      "name": "fly",
-      "default": false
-    },
-    {
-      "name": "sting",
-      "default": false
-    },
-    {
-      "name": "live in a group",
-      "default": false
-    },
-    {
-      "name": "live in a large group",
-      "default": false
-    },
-    {
-      "name": "live in burrows",
-      "default": false
-    },
-    {
-      "name": "only live in Australia",
-      "default": false
-    }
-  ],
-  "diet": [
-    {
-      "name": "bone",
-      "default": false
-    },
-    {
-      "name": "fish",
-      "default": false
-    },
-    {
-      "name": "pet food",
-      "default": false
-    },
-    {
-      "name": "insects",
-      "default": false
-    },
-    {
-      "name": "plankton",
-      "default": false
-    },
-    {
-      "name": "tiny fish and fish eggs",
-      "default": false
-    },
-    {
-      "name": "grass",
-      "default": false
-    },
-    {
-      "name": "jellyfish",
-      "default": false
-    },
-    {
-      "name": "sea grass and seaweed",
-      "default": false
-    },
-    {
-      "name": "seals",
-      "default": false
-    },
-    {
-      "name": "krill",
-      "default": false
-    },
-    {
-      "name": "nectar from flowers",
-      "default": false
-    },
-    {
-      "name": "algae",
-      "default": false
-    },
-    {
-      "name": "grass and plants",
-      "default": false
-    },
-    {
-      "name": "bird",
-      "default": false
-    }
-  ],
-  "possible_behaviours": [
-    {
-      "name": "domesticated",
-      "default": false
-    },
-    {
-      "name": "live in freshwater as well as salt water",
-      "default": false
-    },
-    {
-      "name": "jump very high",
-      "default": false
-    },
-    {
-      "name": "use tools",
-      "default": false
-    },
-    {
-      "name": "jump out of the water",
-      "default": false
-    },
-    {
-      "name": "swim",
-      "default": false
-    },
-    {
-      "name": "be poisonous",
-      "default": false
-    },
-    {
-      "name": "enlarge its body by swallowing huge amount of water to scare off predators",
-      "default": false
-    }
-  ],
-  "considerations": [
-    {
-      "name": "as helpful to humans",
-      "default": false
-    },
-    {
-      "name": "as dangerous to humans",
-      "default": false
-    },
-    {
-      "name": "as most dangerous animals in Africa",
-      "default": false
-    },
-    {
-      "name": "to be very intelligent",
-      "default": false
-    },
-    {
-      "name": "to be friendly to humans",
-      "default": false
-    }
-  ]
+  "physical": {
+    "fins": false,
+    "mane": false,
+    "tail": false,
+    "legs": false,
+    "large animal": false,
+    "tusks": false,
+    "long trunk": false,
+    "sharp claws": false,
+    "scales": false,
+    "long body": false,
+    "wings": false,
+    "strong talon": false,
+    "tentacles": false,
+    "long legs": false,
+    "hooves": false,
+    "black stripes on its body": false,
+    "a hard shell": false,
+    "no teeth": false,
+    "six legs": false,
+    "two antenna": false,
+    "thick, armour-like skin": false,
+    "pouch on its tummy": false,
+    "a pouch where their newborns live": false,
+    "long neck": false,
+    "long tongue": false,
+    "large jaw": false,
+    "many sharp teeth": false,
+    "large ears": false,
+    "dark hair": false,
+    "long arms": false,
+    "thumbs like humans": false,
+    "short legs": false,
+    "huge mouth": false
+  },
+  "types": {
+    "vertebrate": false,
+    "mammal": false,
+    "big cat": false,
+    "pet": false,
+    "predator": false,
+    "solitary animal": false,
+    "reptile": false,
+    "cold-blooded animal": false,
+    "fish": false,
+    "bird": false,
+    "large bird": false,
+    "bird of prey": false,
+    "small animal": false,
+    "invertebrate": false,
+    "insect": false,
+    "territorial animal": false,
+    "marsupial": false,
+    "social animal": false,
+    "ape": false,
+    "a highly intelligent animal": false,
+    "nocturnal animal": false
+  },
+  "behaviours": {
+    "only eat meat": false,
+    "only eat plants": false,
+    "eat both plants and animals": false,
+    "hunt in a group": false,
+    "roar": false,
+    "bark": false,
+    "climb tree": false,
+    "meow": false,
+    "hibernate in winter": false,
+    "lay eggs": false,
+    "slither across flat surfaces without legs": false,
+    "fly": false,
+    "sting": false,
+    "live in a group": false,
+    "live in a large group": false,
+    "live in burrows": false,
+    "only live in Australia": false
+  },
+  "possible_behaviours": {
+    "domesticated": false,
+    "live in freshwater as well as salt water": false,
+    "jump very high": false,
+    "use tools": false,
+    "jump out of the water": false,
+    "swim": false,
+    "be poisonous": false,
+    "enlarge its body by swallowing huge amount of water to scare off predators": false
+  },
+  "diet": {
+    "bone": false,
+    "fish": false,
+    "pet food": false,
+    "insects": false,
+    "plankton": false,
+    "tiny fish and fish eggs": false,
+    "grass": false,
+    "jellyfish": false,
+    "sea grass and seaweed": false,
+    "seals": false,
+    "krill": false,
+    "nectar from flowers": false,
+    "algae": false,
+    "grass and plants": false,
+    "bird": false
+  },
+  "considerations": {
+    "as helpful to humans": false,
+    "as dangerous to humans": false,
+    "as most dangerous animals in Africa": false,
+    "to be very intelligent": false,
+    "to be friendly to humans": false
+  }
 }
