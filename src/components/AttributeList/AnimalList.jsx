@@ -9,13 +9,18 @@ function AnimalList(props) {
   return (
     <div className="container">
       <div className="row">
-          <ul className="nav flex-column">
-            { animals.map((animal) =>
-              <li className="nav-item" key={ animal.name }>
-                <Link className={'nav-link'} to={ '/animal/' + animal.id }>{ animal.name }</Link>
-              </li>
-            ) }
-          </ul>
+        <ul className="nav flex-column">
+          {
+            Object.keys(animals).map(animalId => {
+              let animal = animals[animalId];
+              return (
+                <li className="nav-item" key={ animal.name }>
+                  <Link className={ 'nav-link' } to={ '/animal/' + animal.id }>{ animal.name }</Link>
+                </li>
+              )
+            })
+          }
+        </ul>
       </div>
     </div>
   )
