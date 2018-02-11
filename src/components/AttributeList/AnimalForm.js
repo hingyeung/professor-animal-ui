@@ -13,6 +13,8 @@ class AnimalForm extends Component {
     Object.keys(currentAnimal.attributeMap).forEach(attributeType => {
       attributeGroupContent.push(
         <AttributeGroup key={ attributeType + currentAnimal.id }
+                        animalId={ currentAnimal.id }
+                        onAttributeChange={ this.props.onAttributeChange }
                         attributeType={ attributeType }
                         attributes={ currentAnimal.attributeMap[attributeType] }/>
       );

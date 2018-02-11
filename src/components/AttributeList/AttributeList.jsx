@@ -31,6 +31,15 @@ class AttributeList extends Component {
     };
 
     this.renderAttributeGroupsForThisAnimal = this.renderAttributeGroupsForThisAnimal.bind(this);
+    this.onAttributeChange = this.onAttributeChange.bind(this);
+  }
+
+  onAttributeChange(animalId, attributeType, attributeName, attributeValue) {
+    let newAnimalDefinition = this.state.animalDefinition;
+    newAnimalDefinition[animalId]['attributeMap'][attributeType][attributeName] = ('yes' === attributeValue.toLowerCase());
+    this.setState({
+      animalDefinition: newAnimalDefinition
+    })
   }
 
   // When the animal definition is loaded from file, each animal definition only contains attributes that it has,
@@ -59,14 +68,12 @@ class AttributeList extends Component {
       })
     });
 
-    console.log(hydratedAnimalDefinition);
     return hydratedAnimalDefinition;
   }
 
   renderAttributeGroupsForThisAnimal(animalId) {
     let hydratedAnimalDefinition = this.addUnusedAttributeToAnimals();
-    console.log(hydratedAnimalDefinition);
-    return <AnimalForm animal={ hydratedAnimalDefinition[animalId] }/>
+    return <AnimalForm animal={ hydratedAnimalDefinition[animalId] } onAttributeChange={ this.onAttributeChange }/>
   }
 
   render() {
