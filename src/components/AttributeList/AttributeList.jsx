@@ -2,7 +2,8 @@ import './AttributeList.css';
 
 import React, {Component} from 'react';
 import AnimalList from './AnimalList';
-import AnimalForm from './AnimalForm'
+import AnimalForm from './AnimalForm';
+import update from 'immutability-helper';
 import {
   BrowserRouter as Router,
   Route,
@@ -61,19 +62,30 @@ class AttributeList extends Component {
   }
 
   onAttributeChange(animalId, attributeType, attributeName, attributeValue) {
-    let newAnimalDefinition = this.state.animalDefinition;
-    newAnimalDefinition[animalId]['attributeMap'][attributeType][attributeName] = ('yes' === attributeValue.toLowerCase());
     this.setState({
-      animalDefinition: newAnimalDefinition
-    }, console.log(this.state.animalDefinition));
+      animalDefinition: update(this.state.animalDefinition,
+        this.updateObjectForAttribute(animalId, attributeType,
+          attributeName, ('yes' === attributeValue.toLowerCase())))
+    })
   }
 
   onNewAttributeAdded(animalId, attributeType, attribute) {
-    let newAnimalDefinition = this.state.animalDefinition;
-    newAnimalDefinition[animalId]['attributeMap'][attributeType][attribute.name] = attribute.value;
     this.setState({
-      animalDefinition: newAnimalDefinition
+      animalDefinition: update(this.state.animalDefinition,
+        this.updateObjectForAttribute(animalId, attributeType, attribute.name, attribute.value))
     });
+  }
+
+  updateObjectForAttribute(animalId, attributeType, attributeName, attributeValue) {
+    return {
+      [animalId]: {
+        attributeMap: {
+          [attributeType]: {
+            [attributeName]: {$set: attributeValue}
+          }
+        }
+      }
+    }
   }
 
   renderAttributeGroupsForThisAnimal(animalId) {
