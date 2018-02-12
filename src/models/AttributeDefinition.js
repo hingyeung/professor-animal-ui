@@ -1,4 +1,3 @@
-import Attribute from './Attribute';
 
 // This is the model for the form for selecting attributes of an animal.
 // It has boolean value for each attribute name. This is different from the

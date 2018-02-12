@@ -13,11 +13,11 @@ function AttributeGroup(props) {
     onAddNewAttributeFromParent(attributeType, attribute);
   }
 
-  const attributesContent = Object.keys(attributes).map((attributeName, index) => {
+  const attributesContent = Object.keys(attributes).sort().map((attributeName, index) => {
     return <Attribute key={ index } type={ attributeType }
                       attribute={ new AttributeModel(attributeName, attributes[attributeName]) }
                       animalId={ props.animalId }
-                      onAttributeChange={ props.onAttributeChange }/>
+                      onAttributeChange={ onAttributeChange }/>
   });
 
   // make a table with header here

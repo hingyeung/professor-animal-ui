@@ -1,14 +1,11 @@
 import './AttributeList.css';
 
 import React, {Component} from 'react';
-import AttributeGroup from './AttributeGroup';
 import AnimalList from './AnimalList';
-import Animal from 'models/Animal';
 import AnimalForm from './AnimalForm'
 import {
   BrowserRouter as Router,
   Route,
-  Link
 } from 'react-router-dom';
 
 class AttributeList extends Component {
