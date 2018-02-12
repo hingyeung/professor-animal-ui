@@ -4,14 +4,31 @@ import {
 } from 'react-router-dom';
 
 function AnimalList(props) {
+  let compareAnimalName = (a, b) => {
+    let lowerCasedNameA = a.name.toLowerCase(),
+      lowerCasedNameB = b.name.toLowerCase();
+
+    if (lowerCasedNameA < lowerCasedNameB) {
+      return -1;
+    } else if (lowerCasedNameB < lowerCasedNameA) {
+      return 1;
+    } else {
+      return 0;
+    }
+  };
+
   const animals = props.animals;
+  let animalListSortedByName = [];
+  Object.keys(animals).forEach(animalId => {
+    animalListSortedByName.push(animals[animalId]);
+  });
+  animalListSortedByName.sort(compareAnimalName);
 
   return (
     <div className="row">
       <ul className="nav flex-column">
         {
-          Object.keys(animals).map(animalId => {
-            let animal = animals[animalId];
+          animalListSortedByName.map(animal => {
             return (
               <li className="nav-item" key={ animal.name }>
                 <Link className={ 'nav-link' } to={ '/animal/' + animal.id }>{ animal.name }</Link>
