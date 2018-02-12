@@ -57,6 +57,7 @@ class AttributeList extends Component {
 
     this.renderAttributeGroupsForThisAnimal = this.renderAttributeGroupsForThisAnimal.bind(this);
     this.onAttributeChange = this.onAttributeChange.bind(this);
+    this.onNewAttributeAdded = this.onNewAttributeAdded.bind(this);
   }
 
   onAttributeChange(animalId, attributeType, attributeName, attributeValue) {
@@ -64,13 +65,22 @@ class AttributeList extends Component {
     newAnimalDefinition[animalId]['attributeMap'][attributeType][attributeName] = ('yes' === attributeValue.toLowerCase());
     this.setState({
       animalDefinition: newAnimalDefinition
-    })
+    }, console.log(this.state.animalDefinition));
   }
 
-
+  onNewAttributeAdded(animalId, attributeType, attribute) {
+    let newAnimalDefinition = this.state.animalDefinition;
+    newAnimalDefinition[animalId]['attributeMap'][attributeType][attribute.name] = attribute.value;
+    this.setState({
+      animalDefinition: newAnimalDefinition
+    });
+  }
 
   renderAttributeGroupsForThisAnimal(animalId) {
-    return <AnimalForm animal={ this.state.animalDefinition[animalId] } onAttributeChange={ this.onAttributeChange }/>
+    return <AnimalForm
+      animal={ this.state.animalDefinition[animalId] }
+      onNewAttributeAdded={ this.onNewAttributeAdded }
+      onAttributeChange={ this.onAttributeChange }/>
   }
 
   render() {

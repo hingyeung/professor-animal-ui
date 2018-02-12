@@ -5,35 +5,33 @@ class NewAttributeValue extends Component {
   constructor(props) {
     super(props);
 
-    this.onAdd = props.onAdd;
+    this.onNewAttributeAdded = props.onNewAttributeAdded;
     this.attributeType = props.type;
     this.newAttributeIndex = props.newAttributeIndex;
     this.onAddClicked = this.onAddClicked.bind(this);
-    this.state = {
-      newAttributeName: ''
-    };
   }
 
-  onAddClicked(attributeName) {
+  onAddClicked(e) {
+    e.preventDefault();
+
+    const attributeName = this.input.value;
     if (!attributeName) return;
 
-    const attribute = new Attribute(attributeName, true);
-    this.onAdd(attribute);
-    this.setState({
-      newAttributeName: ''
-    });
+    this.onNewAttributeAdded(new Attribute(attributeName, true));
   }
 
   render() {
+    // TODO enter doesn't work
     return (
       <tr className="attribute-row row">
         <td className="attribute-cell col-sm-6">
           <input type="text" name={ this.attributeType + '-' + this.newAttributeIndex }
-                 value={ this.state.newAttributeName } className="form-control"
+                 className="form-control"
+                 ref={ref => this.input = ref}
                  onChange={ (e) => this.setState({newAttributeName: e.target.value}) }/>
         </td>
         <td className="attribute-cell col-sm-6">
-          <button className="btn btn-primary" onClick={() => this.onAddClicked(this.state.newAttributeName) }>Add</button>
+          <button className="btn btn-primary" onClick={ this.onAddClicked }>Add</button>
         </td>
       </tr>
     )

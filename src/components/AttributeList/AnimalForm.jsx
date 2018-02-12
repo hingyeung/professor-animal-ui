@@ -5,7 +5,8 @@ function AnimalForm(props) {
   const onAttributeChange = props.onAttributeChange,
     onFormSubmit = props.onFormSubmit,
     updateAnimalName = props.updateAnimalName,
-    animal = props.animal;
+    animal = props.animal,
+    onNewAttributeAdded = props.onNewAttributeAdded;
 
   let attributeGroupContent = [];
 
@@ -14,9 +15,11 @@ function AnimalForm(props) {
     attributeGroupContent.push(
       <AttributeGroup key={ attributeType + currentAnimal.id }
                       animalId={ currentAnimal.id }
-                      onAttributeChange={ onAttributeChange }
                       attributeType={ attributeType }
-                      attributes={ currentAnimal.attributeMap[attributeType] }/>
+                      attributes={ currentAnimal.attributeMap[attributeType] }
+                      onAttributeChange={ onAttributeChange }
+                      onNewAttributeAdded={ onNewAttributeAdded }
+      />
     );
   });
 
