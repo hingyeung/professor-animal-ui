@@ -24,7 +24,7 @@ class AnimalForm extends Component {
     })
   }
 
-  onNewAttributeAdded(animalId, attributeType, attribute) {
+  onNewAttributeAdded(attributeType, attribute) {
     this.setState({
       animal: update(this.state.animal,
         this.updateObjectForAttribute(attributeType, attribute.name, attribute.value))
@@ -41,7 +41,7 @@ class AnimalForm extends Component {
   _onFormSubmit(e) {
     e.preventDefault();
 
-    this.props.onFormSubmit(this.state.animal);
+    this.props.onFormSubmit(this.state.animal, this.props.routeHistory);
   }
 
   updateObjectForAnimalName(name) {
@@ -93,7 +93,7 @@ class AnimalForm extends Component {
           <label htmlFor="animal-name" className="col-sm-2 col-form-label">Animal name</label>
           <div className="col-sm-6">
             <input id="animal-name" className="form-control" type="text" name="animalName"
-                   onChange={ this.onAnimalNameUpdate } value={ currentAnimal.name }/>
+                   onChange={ this.onAnimalNameUpdate } value={ currentAnimal.name ? currentAnimal.name : '' }/>
           </div>
         </div>
         { attributeGroupContent }

@@ -7,6 +7,7 @@ import update from 'immutability-helper';
 import {
   BrowserRouter as Router,
   Route,
+  Switch
 } from 'react-router-dom';
 
 class AttributeList extends Component {
@@ -57,19 +58,28 @@ class AttributeList extends Component {
     };
 
     this.renderAttributeGroupsForThisAnimal = this.renderAttributeGroupsForThisAnimal.bind(this);
-    // this.onAttributeChange = this.onAttributeChange.bind(this);
-    // this.onNewAttributeAdded = this.onNewAttributeAdded.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
-    // this.onAnimalNameUpdate = this.onAnimalNameUpdate.bind(this);
     this.renderAttributeGroupsForNewAnimal = this.renderAttributeGroupsForNewAnimal.bind(this);
+    this.populateAnimalForNewAnimalForm = this.populateAnimalForNewAnimalForm.bind(this);
   }
 
-  onFormSubmit(animal) {
-    // TODO this should now update the state, not exporting the file
-    // this.props.onSave(this.state.animalDefinition);
-    this.setState({
-      animalDefinition: update(this.state.animalDefinition, this.updateObjectForAnimal(animal))
-    })
+  onFormSubmit(animal, routeHistory) {
+    const invalidFields = this.findInvalidFields(animal);
+    if (invalidFields.length === 0) {
+      this.setState({
+        animalDefinition: update(this.state.animalDefinition, this.updateObjectForAnimal(animal))
+      }, routeHistory.push("/"));
+    } else {
+      console.log('Invalid field: ', [...invalidFields])
+    }
+  }
+
+  findInvalidFields(animal) {
+    if (!!animal.name) {
+      return [];
+    } else {
+      return ['animalName'];
+    }
   }
 
   updateObjectForAnimal(animal) {
@@ -80,26 +90,35 @@ class AttributeList extends Component {
     }
   }
 
-  renderAttributeGroupsForNewAnimal() {
+  // populate animal object with attributeDefinition for new animal form
+  populateAnimalForNewAnimalForm() {
+    return {
+      name: undefined,
+      id: AttributeList.guid(),
+      attributeMap: this.state.attributeDefinition
+    }
+  };
+
+
+  renderAttributeGroupsForNewAnimal(routeHistory) {
     // TODO I don't think the current state model would work with "new" animal form.
     // The current state model updates the state in AttributeList whenever some value
     // changes. It's okay for animals that already exist, but the state wouldn't know
     // anything about the new animal yet. How do we update the state?
     // May be we need to store local state in form and only update the top container
     // AttributeList on sumbit of the form.
-    // return <AnimalForm
-    //   animal={undefined} // new animal
-    //   onFormSubmit={this.onFormSubmit}
-    // />
+    return <AnimalForm
+      animal={ this.populateAnimalForNewAnimalForm() } // new animal
+      routeHistory={ routeHistory }
+      onFormSubmit={ this.onFormSubmit }
+    />
   }
 
-  renderAttributeGroupsForThisAnimal(animalId) {
+  renderAttributeGroupsForThisAnimal(animalId, routeHistory) {
     return <AnimalForm
       animal={ this.state.animalDefinition[animalId] }
-      onFormSubmit={ this.onFormSubmit }
-      onAnimalNameUpdate={ this.onAnimalNameUpdate }
-      onNewAttributeAdded={ this.onNewAttributeAdded }
-      onAttributeChange={ this.onAttributeChange }/>
+      routeHistory={ routeHistory }
+      onFormSubmit={ this.onFormSubmit }/>
   }
 
   static guid() {
@@ -108,11 +127,15 @@ class AttributeList extends Component {
       .toString(16)
       .substring(1);
     }
+
     return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
       s4() + '-' + s4() + s4() + s4();
   }
 
+
   render() {
+    const BlankPage = () => <div className="blank-page"/>;
+
     return (
       <Router>
         <div>
@@ -120,10 +143,15 @@ class AttributeList extends Component {
             <AnimalList animals={ this.state.animalDefinition }/>
           </div>
           <div className={ 'animal-form-container right-container col-9' }>
-            <Route exact path="/new"
-                   render={ routeProps => this.renderAttributeGroupsForNewAnimal()}/>
-            <Route path="/animal/:id"
-                   render={ routeProps => this.renderAttributeGroupsForThisAnimal(routeProps.match.params.id) }/>
+            <a className="btn btn-primary" href="/new">New</a>
+            <Switch>
+              <Route exact path="/" component={ BlankPage }/>
+              <Route exact path="/new"
+                     render={ routeProps => this.renderAttributeGroupsForNewAnimal(routeProps.history) }/>
+              <Route path="/animal/:id"
+                     render={ routeProps => this.renderAttributeGroupsForThisAnimal(routeProps.match.params.id, routeProps.history) }/>
+              <Route component={ BlankPage }/>
+            </Switch>
           </div>
         </div>
       </Router>

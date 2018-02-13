@@ -8,12 +8,12 @@ class AnimalDefinition {
         id: animalFromFile.id,
         name: animalFromFile.name,
         attributeMap: {
-          physical: this.convertFromArrayOfString(animalFromFile.physical),
-          types: this.convertFromArrayOfString(animalFromFile.types),
-          behaviours: this.convertFromArrayOfString(animalFromFile.behaviours),
-          diet: this.convertFromArrayOfString(animalFromFile.diet),
-          possible_behaviours: this.convertFromArrayOfString(animalFromFile.possible_behaviours),
-          considerations: this.convertFromArrayOfString(animalFromFile.considerations)
+          physical: AnimalDefinition.convertFromArrayOfString(animalFromFile.physical),
+          types: AnimalDefinition.convertFromArrayOfString(animalFromFile.types),
+          behaviours: AnimalDefinition.convertFromArrayOfString(animalFromFile.behaviours),
+          diet: AnimalDefinition.convertFromArrayOfString(animalFromFile.diet),
+          possible_behaviours: AnimalDefinition.convertFromArrayOfString(animalFromFile.possible_behaviours),
+          considerations: AnimalDefinition.convertFromArrayOfString(animalFromFile.considerations)
         }
       };
     });
@@ -30,12 +30,12 @@ class AnimalDefinition {
       const animalForFile = {
         id: animalFromApp.id,
         name: animalFromApp.name,
-        physical: this.convertFromMap(animalFromApp.attributeMap.physical),
-        types: this.convertFromMap(animalFromApp.attributeMap.types),
-        behaviours: this.convertFromMap(animalFromApp.attributeMap.behaviours),
-        diet: this.convertFromMap(animalFromApp.attributeMap.diet),
-        possible_behaviours: this.convertFromMap(animalFromApp.attributeMap.possible_behaviours),
-        considerations: this.convertFromMap(animalFromApp.attributeMap.considerations)
+        physical: AnimalDefinition.convertFromMap(animalFromApp.attributeMap.physical),
+        types: AnimalDefinition.convertFromMap(animalFromApp.attributeMap.types),
+        behaviours: AnimalDefinition.convertFromMap(animalFromApp.attributeMap.behaviours),
+        diet: AnimalDefinition.convertFromMap(animalFromApp.attributeMap.diet),
+        possible_behaviours: AnimalDefinition.convertFromMap(animalFromApp.attributeMap.possible_behaviours),
+        considerations: AnimalDefinition.convertFromMap(animalFromApp.attributeMap.considerations)
       };
       animalDefinitionListInFileModel.push(animalForFile);
     });
