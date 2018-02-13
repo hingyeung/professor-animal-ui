@@ -3,6 +3,7 @@ import './AttributeList.css';
 import React, {Component} from 'react';
 import AnimalList from './AnimalList';
 import AnimalForm from './AnimalForm';
+import {guid} from 'services/GUID';
 import update from 'immutability-helper';
 import {
   BrowserRouter as Router,
@@ -77,7 +78,7 @@ class AttributeList extends Component {
   populateAnimalForNewAnimalForm() {
     return {
       name: undefined,
-      id: AttributeList.guid(),
+      id: guid(),
       attributeMap: this.state.attributeDefinition
     }
   };
@@ -94,7 +95,7 @@ class AttributeList extends Component {
   renderAttributeGroupsForThisAnimal(animalId, routeHistory) {
     let animal = this.state.animalDefinition[animalId];
     if (!animal) {
-      routeHistory.push(AttributeList.HOME)
+      routeHistory.push(AttributeList.HOME);
       return null;
     }
     return <AnimalForm
@@ -108,23 +109,9 @@ class AttributeList extends Component {
     this.props.onExport(this.state.animalDefinition);
   }
 
-  // TODO move this out of the component
-  static guid() {
-    function s4() {
-      return Math.floor((1 + Math.random()) * 0x10000)
-      .toString(16)
-      .substring(1);
-    }
-
-    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
-      s4() + '-' + s4() + s4() + s4();
-  }
-
-
   render() {
     const BlankPage = () => <div className="blank-page"/>;
 
-    // TODO fix broken page with unknown ID. e.g. http://localhost:3000/animal/<unknown ID>
     return (
       <Router>
         <div>

@@ -15,14 +15,18 @@ class NewAttributeValue extends Component {
     e.preventDefault();
 
     const attributeName = this.input.value;
-    if (!attributeName) return;
+
+    if (!attributeName) {
+      // TODO make the field red
+      console.log('Empty attribute name');
+      return;
+    }
 
     this.onNewAttributeAdded(new Attribute(attributeName, true));
   }
 
   render() {
     // TODO enter doesn't work when new attribute field is in focus
-    // TODO adding empty new attribute crashes the app
     return (
       <tr className="attribute-row row">
         <td className="attribute-cell col-sm-6">
