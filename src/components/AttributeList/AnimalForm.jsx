@@ -4,7 +4,7 @@ import AttributeGroup from "./AttributeGroup";
 function AnimalForm(props) {
   const onAttributeChange = props.onAttributeChange,
     onFormSubmit = props.onFormSubmit,
-    updateAnimalName = props.updateAnimalName,
+    onAnimalNameUpdate = props.onAnimalNameUpdate,
     animal = props.animal,
     onNewAttributeAdded = props.onNewAttributeAdded;
 
@@ -23,8 +23,18 @@ function AnimalForm(props) {
     );
   });
 
+  function _onFormSubmit(e) {
+    e.preventDefault();
+
+    onFormSubmit(animal.id);
+  }
+
+  function _onAnimalNameUpdate(e) {
+    onAnimalNameUpdate(animal.id, e.target.value)
+  }
+
   return (
-    <form onSubmit={ onFormSubmit }>
+    <form onSubmit={ _onFormSubmit }>
       <div>
         <button className="btn btn-primary">Save</button>
       </div>
@@ -32,7 +42,7 @@ function AnimalForm(props) {
         <label htmlFor="animal-name" className="col-sm-2 col-form-label">Animal name</label>
         <div className="col-sm-6">
           <input id="animal-name" className="form-control" type="text" name="animalName"
-                 onChange={ (e) => updateAnimalName(e.target.value) } value={ currentAnimal.name }/>
+                 onChange={ _onAnimalNameUpdate } value={ currentAnimal.name }/>
         </div>
       </div>
       { attributeGroupContent }

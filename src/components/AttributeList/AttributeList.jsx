@@ -59,6 +59,14 @@ class AttributeList extends Component {
     this.renderAttributeGroupsForThisAnimal = this.renderAttributeGroupsForThisAnimal.bind(this);
     this.onAttributeChange = this.onAttributeChange.bind(this);
     this.onNewAttributeAdded = this.onNewAttributeAdded.bind(this);
+    this.onFormSubmit = this.onFormSubmit.bind(this);
+    this.onAnimalNameUpdate = this.onAnimalNameUpdate.bind(this);
+  }
+
+  onFormSubmit(animalId) {
+    this.setState({
+      animalDefinition: update(this.state.animalDefinition, this.updateObjectForAnimal(animalId))
+    });
   }
 
   onAttributeChange(animalId, attributeType, attributeName, attributeValue) {
@@ -76,6 +84,30 @@ class AttributeList extends Component {
     });
   }
 
+  onAnimalNameUpdate(animalId, name) {
+    this.setState({
+      animalDefinition: update(this.state.animalDefinition, this.updateObjectForAnimalName(animalId, name))
+    });
+  }
+
+  updateObjectForAnimalName(animalId, name) {
+    return {
+      [animalId]: {
+        name: {$set: name}
+      }
+    }
+  }
+
+  updateObjectForAnimal(animalId) {
+    return {
+      [animalId]: {
+        attributeMap: {
+          $set: this.state.animalDefinition[animalId]
+        }
+      }
+    }
+  }
+
   updateObjectForAttribute(animalId, attributeType, attributeName, attributeValue) {
     return {
       [animalId]: {
@@ -91,6 +123,8 @@ class AttributeList extends Component {
   renderAttributeGroupsForThisAnimal(animalId) {
     return <AnimalForm
       animal={ this.state.animalDefinition[animalId] }
+      onFormSubmit={ this.onFormSubmit }
+      onAnimalNameUpdate={ this.onAnimalNameUpdate }
       onNewAttributeAdded={ this.onNewAttributeAdded }
       onAttributeChange={ this.onAttributeChange }/>
   }
