@@ -16,7 +16,7 @@ class App extends Component {
       attributeDefinition: this.loadAttributeDefinition()
     };
 
-    this.onSave = this.onSave.bind(this);
+    this.onExport = this.onExport.bind(this);
   }
 
   loadAnimalDefinition() {
@@ -29,7 +29,7 @@ class App extends Component {
     return attributeDefinitionReaderService.readFile;
   }
 
-  onSave(allAnimals) {
+  onExport(allAnimals) {
     fileDownload(
       JSON.stringify(AnimalDefinition.convertFromAppModelToFileModel(allAnimals)),
       'test.json');
@@ -41,7 +41,7 @@ class App extends Component {
       <div>
         <AttributeList animalDefinition={ this.state.animalDefinition }
                        attributeDefinition={ this.state.attributeDefinition }
-                       onSave={ this.onSave }/>
+                       onExport={ this.onExport }/>
       </div>
     );
   }

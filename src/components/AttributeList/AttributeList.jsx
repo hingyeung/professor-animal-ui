@@ -74,6 +74,7 @@ class AttributeList extends Component {
     }
   }
 
+  // TODO validation should be done in AnimalForm
   findInvalidFields(animal) {
     if (!!animal.name) {
       return [];
@@ -101,12 +102,6 @@ class AttributeList extends Component {
 
 
   renderAttributeGroupsForNewAnimal(routeHistory) {
-    // TODO I don't think the current state model would work with "new" animal form.
-    // The current state model updates the state in AttributeList whenever some value
-    // changes. It's okay for animals that already exist, but the state wouldn't know
-    // anything about the new animal yet. How do we update the state?
-    // May be we need to store local state in form and only update the top container
-    // AttributeList on sumbit of the form.
     return <AnimalForm
       animal={ this.populateAnimalForNewAnimalForm() } // new animal
       routeHistory={ routeHistory }
@@ -121,6 +116,12 @@ class AttributeList extends Component {
       onFormSubmit={ this.onFormSubmit }/>
   }
 
+  onExport(e) {
+    e.preventDefault();
+    this.props.onExport(this.state.animalDefinition);
+  }
+
+  // TODO move this out of the component
   static guid() {
     function s4() {
       return Math.floor((1 + Math.random()) * 0x10000)
@@ -136,6 +137,7 @@ class AttributeList extends Component {
   render() {
     const BlankPage = () => <div className="blank-page"/>;
 
+    // TODO fix broken page with unknown ID. e.g. http://localhost:3000/animal/<unknown ID>
     return (
       <Router>
         <div>
@@ -144,6 +146,7 @@ class AttributeList extends Component {
           </div>
           <div className={ 'animal-form-container right-container col-9' }>
             <a className="btn btn-primary" href="/new">New</a>
+            <button className="btn btn-primary" onClick={(e) => this.onExport(e)}>Export</button>
             <Switch>
               <Route exact path="/" component={ BlankPage }/>
               <Route exact path="/new"
