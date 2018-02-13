@@ -1,7 +1,6 @@
 import React from 'react';
 
 function Attribute(props) {
-  const animalId = props.animalId;
   const attribute = props.attribute;
   const type = props.type;
   const onAttributeChange = props.onAttributeChange;
@@ -16,7 +15,7 @@ function Attribute(props) {
     yesIsChecked = props.attribute.value ? props.attribute.value : false;
 
   function onChange(e) {
-    onAttributeChange(animalId, type, attribute.name, e.target.value);
+    onAttributeChange(type, attribute.name, e.target.value);
   }
 
   return (

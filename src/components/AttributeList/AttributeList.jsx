@@ -57,55 +57,40 @@ class AttributeList extends Component {
     };
 
     this.renderAttributeGroupsForThisAnimal = this.renderAttributeGroupsForThisAnimal.bind(this);
-    this.onAttributeChange = this.onAttributeChange.bind(this);
-    this.onNewAttributeAdded = this.onNewAttributeAdded.bind(this);
+    // this.onAttributeChange = this.onAttributeChange.bind(this);
+    // this.onNewAttributeAdded = this.onNewAttributeAdded.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
-    this.onAnimalNameUpdate = this.onAnimalNameUpdate.bind(this);
+    // this.onAnimalNameUpdate = this.onAnimalNameUpdate.bind(this);
+    this.renderAttributeGroupsForNewAnimal = this.renderAttributeGroupsForNewAnimal.bind(this);
   }
 
-  onFormSubmit() {
-    this.props.onSave(this.state.animalDefinition);
-  }
-
-  onAttributeChange(animalId, attributeType, attributeName, attributeValue) {
+  onFormSubmit(animal) {
+    // TODO this should now update the state, not exporting the file
+    // this.props.onSave(this.state.animalDefinition);
     this.setState({
-      animalDefinition: update(this.state.animalDefinition,
-        this.updateObjectForAttribute(animalId, attributeType,
-          attributeName, ('yes' === attributeValue.toLowerCase())))
+      animalDefinition: update(this.state.animalDefinition, this.updateObjectForAnimal(animal))
     })
   }
 
-  onNewAttributeAdded(animalId, attributeType, attribute) {
-    this.setState({
-      animalDefinition: update(this.state.animalDefinition,
-        this.updateObjectForAttribute(animalId, attributeType, attribute.name, attribute.value))
-    });
-  }
-
-  onAnimalNameUpdate(animalId, name) {
-    this.setState({
-      animalDefinition: update(this.state.animalDefinition, this.updateObjectForAnimalName(animalId, name))
-    });
-  }
-
-  updateObjectForAnimalName(animalId, name) {
+  updateObjectForAnimal(animal) {
     return {
-      [animalId]: {
-        name: {$set: name}
+      [animal.id]: {
+        $set: animal
       }
     }
   }
 
-  updateObjectForAttribute(animalId, attributeType, attributeName, attributeValue) {
-    return {
-      [animalId]: {
-        attributeMap: {
-          [attributeType]: {
-            [attributeName]: {$set: attributeValue}
-          }
-        }
-      }
-    }
+  renderAttributeGroupsForNewAnimal() {
+    // TODO I don't think the current state model would work with "new" animal form.
+    // The current state model updates the state in AttributeList whenever some value
+    // changes. It's okay for animals that already exist, but the state wouldn't know
+    // anything about the new animal yet. How do we update the state?
+    // May be we need to store local state in form and only update the top container
+    // AttributeList on sumbit of the form.
+    // return <AnimalForm
+    //   animal={undefined} // new animal
+    //   onFormSubmit={this.onFormSubmit}
+    // />
   }
 
   renderAttributeGroupsForThisAnimal(animalId) {
@@ -117,6 +102,16 @@ class AttributeList extends Component {
       onAttributeChange={ this.onAttributeChange }/>
   }
 
+  static guid() {
+    function s4() {
+      return Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1);
+    }
+    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+      s4() + '-' + s4() + s4() + s4();
+  }
+
   render() {
     return (
       <Router>
@@ -125,8 +120,10 @@ class AttributeList extends Component {
             <AnimalList animals={ this.state.animalDefinition }/>
           </div>
           <div className={ 'animal-form-container right-container col-9' }>
+            <Route exact path="/new"
+                   render={ routeProps => this.renderAttributeGroupsForNewAnimal()}/>
             <Route path="/animal/:id"
-                   render={ (routeProps) => this.renderAttributeGroupsForThisAnimal(routeProps.match.params.id) }/>
+                   render={ routeProps => this.renderAttributeGroupsForThisAnimal(routeProps.match.params.id) }/>
           </div>
         </div>
       </Router>

@@ -4,20 +4,18 @@ import AttributeModel from 'models/Attribute';
 import NewAttributeValue from './NewAttributeValue';
 
 function AttributeGroup(props) {
-  const animalId = props.animalId;
   const attributeType = props.attributeType;
   const attributes = props.attributes;
   const onAttributeChange = props.onAttributeChange;
   const onAddNewAttributeFromParent = props.onNewAttributeAdded;
 
   function _onNewAttributeAdded(attribute) {
-    onAddNewAttributeFromParent(animalId, attributeType, attribute);
+    onAddNewAttributeFromParent(attributeType, attribute);
   }
 
   const attributesContent = Object.keys(attributes).sort().map((attributeName, index) => {
     return <Attribute key={ index } type={ attributeType }
                       attribute={ new AttributeModel(attributeName, attributes[attributeName]) }
-                      animalId={ animalId }
                       onAttributeChange={ onAttributeChange }/>
   });
 

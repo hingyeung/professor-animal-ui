@@ -1,56 +1,108 @@
-import React from 'react';
+import React, {Component} from 'react';
 import AttributeGroup from "./AttributeGroup";
+import update from 'immutability-helper';
 
-function AnimalForm(props) {
-  const onAttributeChange = props.onAttributeChange,
-    onFormSubmit = props.onFormSubmit,
-    onAnimalNameUpdate = props.onAnimalNameUpdate,
-    animal = props.animal,
-    onNewAttributeAdded = props.onNewAttributeAdded;
+class AnimalForm extends Component {
+  constructor(props) {
+    super(props);
 
-  let attributeGroupContent = [];
+    this.state = {
+      animal: props.animal
+    };
 
-  const currentAnimal = animal;
-  Object.keys(currentAnimal.attributeMap).forEach(attributeType => {
-    attributeGroupContent.push(
-      <AttributeGroup key={ attributeType + currentAnimal.id }
-                      animalId={ currentAnimal.id }
-                      attributeType={ attributeType }
-                      attributes={ currentAnimal.attributeMap[attributeType] }
-                      onAttributeChange={ onAttributeChange }
-                      onNewAttributeAdded={ onNewAttributeAdded }
-      />
-    );
-  });
+    this._onFormSubmit = this._onFormSubmit.bind(this);
+    this.onAttributeChange = this.onAttributeChange.bind(this);
+    this.onNewAttributeAdded = this.onNewAttributeAdded.bind(this);
+    this.onAnimalNameUpdate = this.onAnimalNameUpdate.bind(this);
+  }
 
-  function _onFormSubmit(e) {
+  onAttributeChange(attributeType, attributeName, attributeValue) {
+    this.setState({
+      animal: update(this.state.animal,
+        this.updateObjectForAttribute(attributeType,
+          attributeName, ('yes' === attributeValue.toLowerCase())))
+    })
+  }
+
+  onNewAttributeAdded(animalId, attributeType, attribute) {
+    this.setState({
+      animal: update(this.state.animal,
+        this.updateObjectForAttribute(attributeType, attribute.name, attribute.value))
+    });
+  }
+
+  onAnimalNameUpdate(e) {
+    this.setState({
+      animal: update(this.state.animal,
+        this.updateObjectForAnimalName(e.target.value))
+    });
+  }
+
+  _onFormSubmit(e) {
     e.preventDefault();
 
-    onFormSubmit();
+    this.props.onFormSubmit(this.state.animal);
   }
 
-  function _onAnimalNameUpdate(e) {
-    onAnimalNameUpdate(animal.id, e.target.value)
+  updateObjectForAnimalName(name) {
+    return {
+      name: {$set: name}
+    }
   }
 
-  return (
-    <form onSubmit={ _onFormSubmit }>
-      <div>
-        <button className="btn btn-primary">Save</button>
-      </div>
-      <div className="form-group row">
-        <label htmlFor="animal-name" className="col-sm-2 col-form-label">Animal name</label>
-        <div className="col-sm-6">
-          <input id="animal-name" className="form-control" type="text" name="animalName"
-                 onChange={ _onAnimalNameUpdate } value={ currentAnimal.name }/>
+  updateObjectForAttribute(attributeType, attributeName, attributeValue) {
+    return {
+      attributeMap: {
+        [attributeType]: {
+          [attributeName]: {$set: attributeValue}
+        }
+      }
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.animal.id !== this.state.animal.id) {
+      this.setState({
+        animal: nextProps.animal
+      });
+    }
+  }
+
+
+  render() {
+    let attributeGroupContent = [];
+
+    const currentAnimal = this.state.animal;
+    Object.keys(currentAnimal.attributeMap).forEach(attributeType => {
+      attributeGroupContent.push(
+        <AttributeGroup key={ attributeType + currentAnimal.id }
+                        attributeType={ attributeType }
+                        attributes={ currentAnimal.attributeMap[attributeType] }
+                        onAttributeChange={ this.onAttributeChange }
+                        onNewAttributeAdded={ this.onNewAttributeAdded }
+        />
+      );
+    });
+
+    return (
+      <form onSubmit={ this._onFormSubmit }>
+        <div>
+          <button className="btn btn-primary">Save</button>
         </div>
-      </div>
-      { attributeGroupContent }
-      <div>
-        <button className="btn btn-primary">Save</button>
-      </div>
-    </form>
-  )
+        <div className="form-group row">
+          <label htmlFor="animal-name" className="col-sm-2 col-form-label">Animal name</label>
+          <div className="col-sm-6">
+            <input id="animal-name" className="form-control" type="text" name="animalName"
+                   onChange={ this.onAnimalNameUpdate } value={ currentAnimal.name }/>
+          </div>
+        </div>
+        { attributeGroupContent }
+        <div>
+          <button className="btn btn-primary">Save</button>
+        </div>
+      </form>
+    )
+  }
 }
 
 export default AnimalForm;
