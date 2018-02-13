@@ -41,7 +41,23 @@ class AnimalForm extends Component {
   _onFormSubmit(e) {
     e.preventDefault();
 
+    const invalidFields = this.findInvalidFields(this.state.animal);
+
+    if (invalidFields.length !== 0) {
+      // TODO make the field red
+      console.log('Invalid field: ', [...invalidFields]);
+      return;
+    }
+
     this.props.onFormSubmit(this.state.animal, this.props.routeHistory);
+  }
+
+  findInvalidFields(animal) {
+    if (!!animal.name) {
+      return [];
+    } else {
+      return ['animalName'];
+    }
   }
 
   updateObjectForAnimalName(name) {
