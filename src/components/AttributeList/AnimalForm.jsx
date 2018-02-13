@@ -26,7 +26,7 @@ function AnimalForm(props) {
   function _onFormSubmit(e) {
     e.preventDefault();
 
-    onFormSubmit(animal.id);
+    onFormSubmit();
   }
 
   function _onAnimalNameUpdate(e) {

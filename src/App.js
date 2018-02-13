@@ -16,12 +16,12 @@ class App extends Component {
       attributeDefinition: this.loadAttributeDefinition()
     };
 
-    this.onNewAnimalSubmitted = this.onNewAnimalSubmitted.bind(this);
+    this.onSave = this.onSave.bind(this);
   }
 
   loadAnimalDefinition() {
     // TODO upload from file or read from url using AnimalDefinitionRaaderService
-    return AnimalDefinition.convertFromFileModel(require('data/animals.json'));
+    return AnimalDefinition.convertFromFileModelToAppModel(require('data/animals.json'));
   }
 
   loadAttributeDefinition() {
@@ -29,8 +29,10 @@ class App extends Component {
     return attributeDefinitionReaderService.readFile;
   }
 
-  onNewAnimalSubmitted(allAnimals) {
-    fileDownload(JSON.stringify(allAnimals), 'test.json');
+  onSave(allAnimals) {
+    fileDownload(
+      JSON.stringify(AnimalDefinition.convertFromAppModelToFileModel(allAnimals)),
+      'test.json');
   }
 
   // tmp(oldAttributeDefinition) {
@@ -51,7 +53,7 @@ class App extends Component {
       <div>
         <AttributeList animalDefinition={ this.state.animalDefinition }
                        attributeDefinition={ this.state.attributeDefinition }
-                       onNewAnimalSubmitted={ this.onNewAnimalSubmitted }/>
+                       onSave={ this.onSave }/>
       </div>
     );
   }

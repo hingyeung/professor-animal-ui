@@ -63,10 +63,8 @@ class AttributeList extends Component {
     this.onAnimalNameUpdate = this.onAnimalNameUpdate.bind(this);
   }
 
-  onFormSubmit(animalId) {
-    this.setState({
-      animalDefinition: update(this.state.animalDefinition, this.updateObjectForAnimal(animalId))
-    });
+  onFormSubmit() {
+    this.props.onSave(this.state.animalDefinition);
   }
 
   onAttributeChange(animalId, attributeType, attributeName, attributeValue) {
@@ -94,16 +92,6 @@ class AttributeList extends Component {
     return {
       [animalId]: {
         name: {$set: name}
-      }
-    }
-  }
-
-  updateObjectForAnimal(animalId) {
-    return {
-      [animalId]: {
-        attributeMap: {
-          $set: this.state.animalDefinition[animalId]
-        }
       }
     }
   }
