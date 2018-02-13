@@ -36,7 +36,6 @@ class App extends Component {
   }
 
   render() {
-    // this.tmp(this.state.attributeDefinition);
     return (
       <div>
         <AttributeList animalDefinition={ this.state.animalDefinition }

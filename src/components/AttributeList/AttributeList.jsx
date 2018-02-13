@@ -11,7 +11,7 @@ import {
 } from 'react-router-dom';
 
 class AttributeList extends Component {
-  ATTRIBUTE_TYPES = ['physical', 'types', 'behaviours', 'diet', 'possible_behaviours', 'considerations'];
+  static HOME = "/";
 
   constructor(props) {
     super(props);
@@ -110,6 +110,11 @@ class AttributeList extends Component {
   }
 
   renderAttributeGroupsForThisAnimal(animalId, routeHistory) {
+    let animal = this.state.animalDefinition[animalId];
+    if (!animal) {
+      routeHistory.push(AttributeList.HOME)
+      return null;
+    }
     return <AnimalForm
       animal={ this.state.animalDefinition[animalId] }
       routeHistory={ routeHistory }
@@ -146,9 +151,9 @@ class AttributeList extends Component {
           </div>
           <div className={ 'animal-form-container right-container col-9' }>
             <a className="btn btn-primary" href="/new">New</a>
-            <button className="btn btn-primary" onClick={(e) => this.onExport(e)}>Export</button>
+            <button className="btn btn-primary" onClick={ (e) => this.onExport(e) }>Export</button>
             <Switch>
-              <Route exact path="/" component={ BlankPage }/>
+              <Route exact path={ AttributeList.HOME } component={ BlankPage }/>
               <Route exact path="/new"
                      render={ routeProps => this.renderAttributeGroupsForNewAnimal(routeProps.history) }/>
               <Route path="/animal/:id"

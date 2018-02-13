@@ -21,7 +21,8 @@ class NewAttributeValue extends Component {
   }
 
   render() {
-    // TODO enter doesn't work
+    // TODO enter doesn't work when new attribute field is in focus
+    // TODO adding empty new attribute crashes the app
     return (
       <tr className="attribute-row row">
         <td className="attribute-cell col-sm-6">
