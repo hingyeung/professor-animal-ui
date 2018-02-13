@@ -1,46 +1,51 @@
 import React, {Component} from 'react';
 import Attribute from 'models/Attribute';
 
-class NewAttributeValue extends Component {
-  constructor(props) {
-    super(props);
+function NewAttributeValue(props) {
 
-    this.onNewAttributeAdded = props.onNewAttributeAdded;
-    this.attributeType = props.type;
-    this.newAttributeIndex = props.newAttributeIndex;
-    this.onAddClicked = this.onAddClicked.bind(this);
-  }
+  const onNewAttributeAdded = props.onNewAttributeAdded;
+  const attributeType = props.attributeType;
+  const newAttributeIndex = props.newAttributeIndex;
+  let input;
 
-  onAddClicked(e) {
-    e.preventDefault();
-
-    const attributeName = this.input.value;
-
+  function _addNewAttribute(attributeName) {
     if (!attributeName) {
       // TODO make the field red
       console.log('Empty attribute name');
       return;
     }
 
-    this.onNewAttributeAdded(new Attribute(attributeName, true));
+    onNewAttributeAdded(new Attribute(attributeName, true));
+    input.value = '';
   }
 
-  render() {
-    // TODO enter doesn't work when new attribute field is in focus
-    return (
-      <tr className="attribute-row row">
-        <td className="attribute-cell col-sm-6">
-          <input type="text" name={ this.attributeType + '-' + this.newAttributeIndex }
-                 className="form-control"
-                 ref={ref => this.input = ref}
-                 onChange={ (e) => this.setState({newAttributeName: e.target.value}) }/>
-        </td>
-        <td className="attribute-cell col-sm-6">
-          <button className="btn btn-primary" onClick={ this.onAddClicked }>Add</button>
-        </td>
-      </tr>
-    )
+  function _onAddClicked(e) {
+    e.preventDefault();
+    _addNewAttribute(input.value);
   }
+
+  function _handleKeyPress(e) {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      _addNewAttribute(input.value);
+    }
+  }
+
+  return (
+    <tr className="attribute-row row">
+      <td className="attribute-cell col-sm-6">
+        <input type="text" name={ attributeType + '-' + newAttributeIndex }
+               className="form-control"
+               ref={ ref => input = ref }
+               onKeyPress={ _handleKeyPress }
+          // onChange={ (e) => this.setState({newAttributeName: e.target.value}) }
+        />
+      </td>
+      <td className="attribute-cell col-sm-6">
+        <button className="btn btn-primary" onClick={ _onAddClicked }>Add</button>
+      </td>
+    </tr>
+  )
 }
 
 export default NewAttributeValue;

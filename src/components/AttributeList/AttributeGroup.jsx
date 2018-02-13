@@ -29,8 +29,10 @@ function AttributeGroup(props) {
       </thead>
       <tbody>
       { attributesContent }
-      <NewAttributeValue newAttributeIndex={ Object.keys(attributes).length }
-                         onNewAttributeAdded={ _onNewAttributeAdded }/>
+      <NewAttributeValue
+        attributeType={ attributeType }
+        newAttributeIndex={ Object.keys(attributes).length }
+        onNewAttributeAdded={ _onNewAttributeAdded }/>
       </tbody>
     </table>
   )
