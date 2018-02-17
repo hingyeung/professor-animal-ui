@@ -31,6 +31,7 @@ class AttributeList extends Component {
     this.onFormSubmit = this.onFormSubmit.bind(this);
     this.renderAttributeGroupsForNewAnimal = this.renderAttributeGroupsForNewAnimal.bind(this);
     this.populateAnimalForNewAnimalForm = this.populateAnimalForNewAnimalForm.bind(this);
+    this.renderAnimalList = this.renderAnimalList.bind(this);
   }
 
   // When the animal definition is loaded from file, each animal definition only contains attributes that it has,
@@ -83,8 +84,8 @@ class AttributeList extends Component {
     }
   };
 
-
-  renderAttributeGroupsForNewAnimal(routeHistory) {
+  renderAttributeGroupsForNewAnimal(routeProps) {
+    const routeHistory = routeProps.history;
     return <AnimalForm
       animal={ this.populateAnimalForNewAnimalForm() } // new animal
       routeHistory={ routeHistory }
@@ -92,8 +93,11 @@ class AttributeList extends Component {
     />
   }
 
-  renderAttributeGroupsForThisAnimal(animalId, routeHistory) {
-    let animal = this.state.animalDefinition[animalId];
+  renderAttributeGroupsForThisAnimal(routeProps) {
+    const animalId = routeProps.match.params.id;
+    const routeHistory = routeProps.history;
+    const animal = this.state.animalDefinition[animalId];
+
     if (!animal) {
       routeHistory.push(AttributeList.HOME);
       return null;
@@ -107,6 +111,13 @@ class AttributeList extends Component {
   onExport(e) {
     e.preventDefault();
     this.props.onExport(this.state.animalDefinition);
+  }
+
+  renderAnimalList(routeProps) {
+    const activeAnimalId = routeProps.location.state && routeProps.location.state.activeAnimalId ?
+      routeProps.location.state.activeAnimalId :
+      undefined;
+    return <AnimalList activeAnimalId={ activeAnimalId } animals={ this.state.animalDefinition }/>
   }
 
   render() {
@@ -124,17 +135,16 @@ class AttributeList extends Component {
           <div className="container">
             <div className="row">
               <div className={ ' left-container col-3 d-flex' }>
-                <AnimalList animals={ this.state.animalDefinition }/>
+                <Route path="/"
+                       render={ routeProps => this.renderAnimalList(routeProps) }/>
               </div>
               <div className={ ' right-container col-9 d-flex' }>
-                {/*<a className="btn btn-primary" href="/new">New</a>*/}
-                {/*<button className="btn btn-primary" onClick={ (e) => this.onExport(e) }>Export</button>*/}
                 <Switch>
                   <Route exact path={ AttributeList.HOME } component={ BlankPage }/>
                   <Route exact path="/new"
-                         render={ routeProps => this.renderAttributeGroupsForNewAnimal(routeProps.history) }/>
+                         render={ routeProps => this.renderAttributeGroupsForNewAnimal(routeProps) }/>
                   <Route path="/animal/:id"
-                         render={ routeProps => this.renderAttributeGroupsForThisAnimal(routeProps.match.params.id, routeProps.history) }/>
+                         render={ routeProps => this.renderAttributeGroupsForThisAnimal(routeProps) }/>
                   <Route component={ BlankPage }/>
                 </Switch>
               </div>

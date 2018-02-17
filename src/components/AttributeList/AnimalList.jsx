@@ -18,15 +18,16 @@ function AnimalList(props) {
   };
 
   const animals = props.animals;
+  const activeAnimalId = props.activeAnimalId;
+
   let animalListSortedByName = [];
   Object.keys(animals).forEach(animalId => {
     animalListSortedByName.push(animals[animalId]);
   });
   animalListSortedByName.sort(compareAnimalName);
 
-  function isActive() {
-    // TODO check if the current animal on the nav is selected
-    return false;
+  function isActive(animalId) {
+    return animalId === activeAnimalId;
   }
 
   return (
@@ -36,7 +37,10 @@ function AnimalList(props) {
           animalListSortedByName.map(animal => {
             return (
               <li className="nav-item" key={ animal.name }>
-                <Link className={'nav-link' + (isActive() ? 'active' : '')} to={ '/animal/' + animal.id }>{ animal.name }</Link>
+                <Link className={ ['nav-link', (isActive(animal.id) ? 'active' : '')].join(' ') }
+                      to={ {pathname: '/animal/' + animal.id, state: {activeAnimalId: animal.id}} }>
+                  { animal.name }
+                </Link>
               </li>
             )
           })

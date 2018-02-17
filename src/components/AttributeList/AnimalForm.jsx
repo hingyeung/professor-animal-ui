@@ -84,7 +84,6 @@ class AnimalForm extends Component {
     }
   }
 
-
   render() {
     let attributeGroupContent = [];
 
