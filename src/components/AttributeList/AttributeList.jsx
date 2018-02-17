@@ -8,11 +8,13 @@ import update from 'immutability-helper';
 import {
   BrowserRouter as Router,
   Route,
-  Switch
+  Switch,
+  Link
 } from 'react-router-dom';
 
 class AttributeList extends Component {
   static HOME = "/";
+  static NEW = "/new";
 
   constructor(props) {
     super(props);
@@ -128,7 +130,7 @@ class AttributeList extends Component {
         <div>
           <nav className="navbar navbar-expand-sm">
             <div className="navbar-nav d-flex flex-row">
-              <a className="nav-item nav-link mx-2" href="/new">New</a>
+              <Link className="nav-item nav-link mx-2" to={AttributeList.NEW}>New</Link>
               <button className="nav-item btn btn-primary mx-2" onClick={ (e) => this.onExport(e) }>Export</button>
             </div>
           </nav>
@@ -141,7 +143,7 @@ class AttributeList extends Component {
               <div className={ ' right-container col-9 d-flex' }>
                 <Switch>
                   <Route exact path={ AttributeList.HOME } component={ BlankPage }/>
-                  <Route exact path="/new"
+                  <Route exact path={AttributeList.NEW}
                          render={ routeProps => this.renderAttributeGroupsForNewAnimal(routeProps) }/>
                   <Route path="/animal/:id"
                          render={ routeProps => this.renderAttributeGroupsForThisAnimal(routeProps) }/>
@@ -154,7 +156,6 @@ class AttributeList extends Component {
       </Router>
     )
   }
-
 }
 
 export default AttributeList
