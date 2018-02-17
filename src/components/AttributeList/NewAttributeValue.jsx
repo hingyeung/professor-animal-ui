@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Attribute from 'models/Attribute';
 
 function NewAttributeValue(props) {

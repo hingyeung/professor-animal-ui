@@ -24,14 +24,19 @@ function AnimalList(props) {
   });
   animalListSortedByName.sort(compareAnimalName);
 
+  function isActive() {
+    // TODO check if the current animal on the nav is selected
+    return false;
+  }
+
   return (
-    <div className="row">
-      <ul className="nav flex-column">
+    <div className="col-12 animal-list-container">
+      <ul className="nav nav-pills flex-column">
         {
           animalListSortedByName.map(animal => {
             return (
               <li className="nav-item" key={ animal.name }>
-                <Link className={ 'nav-link' } to={ '/animal/' + animal.id }>{ animal.name }</Link>
+                <Link className={'nav-link' + (isActive() ? 'active' : '')} to={ '/animal/' + animal.id }>{ animal.name }</Link>
               </li>
             )
           })

@@ -1,26 +1,27 @@
-.attribute-list-container {
-    /*overflow: scroll;*/
-    /*height: 100%;*/
-}
+/*.attribute-list-container {*/
+    /*!*overflow: scroll;*!*/
+    /*!*height: 100%;*!*/
+/*}*/
 
-.attribute-list-container table thead th {
-    border: none;
-    text-transform: capitalize;
-}
+/*.attribute-list-container table thead th {*/
+    /*border: none;*/
+    /*text-transform: capitalize;*/
+/*}*/
 
 .left-container, .right-container {
+    height: calc(100vh - 80px);
+}
+
+/*.left-container {*/
+    /*left: 0;*/
+    /*background-color: #80bdff;*/
+/*}*/
+
+/*.right-container {*/
+    /*right: 0;*/
+    /*background-color: thistle;*/
+/*}*/
+
+.animal-list-container, .animal-form-container {
     overflow-y: scroll;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-}
-
-.left-container {
-    left: 0;
-    background-color: #80bdff;
-}
-
-.right-container {
-    right: 0;
-    background-color: thistle;
 }

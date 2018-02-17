@@ -115,20 +115,30 @@ class AttributeList extends Component {
     return (
       <Router>
         <div>
-          <div className={ 'animal-list-container left-container col-3' }>
-            <AnimalList animals={ this.state.animalDefinition }/>
-          </div>
-          <div className={ 'animal-form-container right-container col-9' }>
-            <a className="btn btn-primary" href="/new">New</a>
-            <button className="btn btn-primary" onClick={ (e) => this.onExport(e) }>Export</button>
-            <Switch>
-              <Route exact path={ AttributeList.HOME } component={ BlankPage }/>
-              <Route exact path="/new"
-                     render={ routeProps => this.renderAttributeGroupsForNewAnimal(routeProps.history) }/>
-              <Route path="/animal/:id"
-                     render={ routeProps => this.renderAttributeGroupsForThisAnimal(routeProps.match.params.id, routeProps.history) }/>
-              <Route component={ BlankPage }/>
-            </Switch>
+          <nav className="navbar navbar-expand-sm">
+            <div className="navbar-nav d-flex flex-row">
+              <a className="nav-item nav-link mx-2" href="/new">New</a>
+              <button className="nav-item btn btn-primary mx-2" onClick={ (e) => this.onExport(e) }>Export</button>
+            </div>
+          </nav>
+          <div className="container">
+            <div className="row">
+              <div className={ ' left-container col-3 d-flex' }>
+                <AnimalList animals={ this.state.animalDefinition }/>
+              </div>
+              <div className={ ' right-container col-9 d-flex' }>
+                {/*<a className="btn btn-primary" href="/new">New</a>*/}
+                {/*<button className="btn btn-primary" onClick={ (e) => this.onExport(e) }>Export</button>*/}
+                <Switch>
+                  <Route exact path={ AttributeList.HOME } component={ BlankPage }/>
+                  <Route exact path="/new"
+                         render={ routeProps => this.renderAttributeGroupsForNewAnimal(routeProps.history) }/>
+                  <Route path="/animal/:id"
+                         render={ routeProps => this.renderAttributeGroupsForThisAnimal(routeProps.match.params.id, routeProps.history) }/>
+                  <Route component={ BlankPage }/>
+                </Switch>
+              </div>
+            </div>
           </div>
         </div>
       </Router>

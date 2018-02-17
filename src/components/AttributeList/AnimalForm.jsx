@@ -101,15 +101,16 @@ class AnimalForm extends Component {
     });
 
     return (
+      <div className="animal-form-container container">
       <form onSubmit={ this._onFormSubmit }>
-        <div>
-          <button className="btn btn-primary">Save</button>
-        </div>
         <div className="form-group row">
           <label htmlFor="animal-name" className="col-sm-2 col-form-label">Animal name</label>
           <div className="col-sm-6">
             <input id="animal-name" className="form-control" type="text" name="animalName"
                    onChange={ this.onAnimalNameUpdate } value={ currentAnimal.name ? currentAnimal.name : '' }/>
+          </div>
+          <div className="col-sm-4">
+            <button className="btn btn-primary ml-5">Save</button>
           </div>
         </div>
         { attributeGroupContent }
@@ -117,6 +118,7 @@ class AnimalForm extends Component {
           <button className="btn btn-primary">Save</button>
         </div>
       </form>
+      </div>
     )
   }
 }
