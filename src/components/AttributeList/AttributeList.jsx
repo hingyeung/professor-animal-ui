@@ -1,8 +1,6 @@
 import './AttributeList.css';
 
 import React, {Component} from 'react';
-import AnimalList from './AnimalList';
-import AnimalForm from './AnimalForm';
 import {guid} from 'services/GUID';
 import update from 'immutability-helper';
 import {
@@ -11,6 +9,26 @@ import {
   Switch,
   Link
 } from 'react-router-dom';
+import Loadable from 'react-loadable';
+import Loading from 'components/common/Loading';
+
+// If I did:
+// let a = 'components/AttributeList/AnimalForm';
+// import(a);
+// I would get "Critical dependency: the request of a dependency is an expression"
+// and it import can't resolve the module anyway. It looks like the path-to-module
+// must not be an expression (i.e. must be hard-coded string!).
+// I think this blog is trying to explain it:
+// https://qiita.com/inuscript/items/ac458e5adc3a6e110a1c
+const AnimalList = Loadable({
+  loader: () => import('components/AttributeList/AnimalList'),
+  loading: Loading,
+});
+
+const AnimalForm = Loadable({
+  loader: () => import('components/AttributeList/AnimalForm'),
+  loading: Loading,
+});
 
 class AttributeList extends Component {
   static HOME = "/";
