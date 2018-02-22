@@ -9,6 +9,7 @@ import {
   Switch,
   Link
 } from 'react-router-dom';
+import Greeting from 'components/common/Greeting';
 import AnimalDefinitionLoader from 'components/AttributeList/AnimalDefinitionLoader';
 import {asyncImport} from 'services/AsyncImport';
 import AnimalDefinition from "models/AnimalDefinition";
@@ -21,6 +22,7 @@ class AttributeList extends Component {
   static HOME = "/";
   static NEW = "/new";
   static LOADFILE = "/load";
+  static ANIMAL_UPDATED = "/updated";
 
   constructor(props) {
     super(props);
@@ -76,7 +78,7 @@ class AttributeList extends Component {
   onFormSubmit(animal, routeHistory) {
     this.setState({
       animalDefinition: update(this.state.animalDefinition, this.updateObjectForAnimal(animal))
-    }, routeHistory.push("/"));
+    }, routeHistory.push(AttributeList.ANIMAL_UPDATED));
   }
 
   updateObjectForAnimal(animal) {
@@ -111,7 +113,7 @@ class AttributeList extends Component {
     const animal = this.state.animalDefinition[animalId];
 
     if (!animal) {
-      routeHistory.push(AttributeList.HOME);
+      routeHistory.push(AttributeList.LOADFILE);
       return null;
     }
     return <AnimalForm
@@ -166,12 +168,12 @@ class AttributeList extends Component {
           <div className="container">
             <div className="row">
               <div className={ ' left-container col-3 d-flex' }>
-                <Route path="/"
+                <Route path={ AttributeList.HOME }
                        render={ routeProps => this.renderAnimalList(routeProps) }/>
               </div>
               <div className={ ' right-container col-9 d-flex' }>
                 <Switch>
-                  <Route exact path={ AttributeList.HOME } component={ BlankPage }/>
+                  <Route exact path={ AttributeList.HOME } component={ Greeting }/>
                   <Route exact path={ AttributeList.LOADFILE }
                          render={ routeProps => this.renderAnimalDefinitionLoader(routeProps) }/>
                   <Route exact path={ AttributeList.NEW }
