@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Link
 } from 'react-router-dom';
+import AttributeList from 'components/AttributeList';
 
 function AnimalList(props) {
   let compareAnimalName = (a, b) => {
@@ -33,6 +34,9 @@ function AnimalList(props) {
   return (
     <div className="col-12 animal-list-container">
       <ul className="nav nav-pills flex-column">
+        <li>
+          <Link className="nav-link" to={AttributeList.NEW}>+ Add a new animal</Link>
+        </li>
         {
           animalListSortedByName.map(animal => {
             return (

@@ -28,12 +28,10 @@ class AttributeList extends Component {
     this.state = {
       // The attribute definition loaded from file as the base template for new animal form.
       // e.g. { physical: [{_name: "fins", _value: true}]}
-      // attributeDefinition: props.attributeDefinition,
       attributeDefinition: {},
       // This is the state of the current animal definition. This should be updated when an attribute of
       // an animal is changed, a new attribute is added to an animal, or when a new animal is added.
       // e.g. {id: {name: "Lion", attributeMap: {physical: {tail: true, legs: true}}}}
-      // animalDefinition: AttributeList.addUnusedAttributeToAnimals(props.animalDefinition, props.attributeDefinition)
       animalDefinition: {}
     };
 
@@ -156,16 +154,12 @@ class AttributeList extends Component {
 
   render() {
     const BlankPage = () => <div className="blank-page"/>;
-    // const AnimalDefinitionLoader = () =>
-    //   <div><form><input className="form-control"/><button className="btn btn-primary">Fetch</button></form></div>;
-
     return (
       <Router>
         <div>
           <nav className="navbar navbar-expand-sm">
             <div className="navbar-nav d-flex flex-row">
               <Link className="nav-item nav-link mx-2" to={AttributeList.LOADFILE}>Load</Link>
-              <Link className="nav-item nav-link mx-2" to={AttributeList.NEW}>New</Link>
               <button className="nav-item btn btn-primary mx-2" onClick={ (e) => this.onExport(e) }>Export</button>
             </div>
           </nav>

@@ -1,32 +1,23 @@
 import 'lib/css/bootstrap.min.css';
 import 'App.css';
 
-import React, {Component} from 'react';
+import React from 'react';
 import AttributeList from './components/AttributeList';
-import AttributeDefinitionReaderService from './services/AttributeDefinitionReaderService';
 import fileDownload from 'js-file-download';
 import AnimalDefinition from 'models/AnimalDefinition';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.onExport = this.onExport.bind(this);
-  }
-
-  onExport(allAnimals) {
+const App = function (props) {
+  function onExport(allAnimals) {
     fileDownload(
       JSON.stringify(AnimalDefinition.convertFromAppModelToFileModel(allAnimals)),
       'test.json');
   }
 
-  render() {
-    return (
-      <div>
-        <AttributeList onExport={ this.onExport }/>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <AttributeList onExport={ onExport }/>
+    </div>
+  );
+};
 
 export default App;
