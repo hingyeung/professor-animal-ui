@@ -11,22 +11,7 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      animalDefinition: this.loadAnimalDefinition(),
-      attributeDefinition: this.loadAttributeDefinition()
-    };
-
     this.onExport = this.onExport.bind(this);
-  }
-
-  loadAnimalDefinition() {
-    // TODO upload from file or read from url using AnimalDefinitionRaaderService
-    return AnimalDefinition.convertFromFileModelToAppModel(require('data/animals.json'));
-  }
-
-  loadAttributeDefinition() {
-    let attributeDefinitionReaderService = new AttributeDefinitionReaderService();
-    return attributeDefinitionReaderService.readFile;
   }
 
   onExport(allAnimals) {
@@ -38,9 +23,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <AttributeList animalDefinition={ this.state.animalDefinition }
-                       attributeDefinition={ this.state.attributeDefinition }
-                       onExport={ this.onExport }/>
+        <AttributeList onExport={ this.onExport }/>
       </div>
     );
   }
