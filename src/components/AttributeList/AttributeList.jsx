@@ -14,6 +14,7 @@ import AnimalDefinitionLoader from 'components/AttributeList/AnimalDefinitionLoa
 import {asyncImport} from 'services/AsyncImport';
 import AnimalDefinition from "models/AnimalDefinition";
 import AttributeDefinitionReaderService from 'services/AttributeDefinitionReaderService';
+import PropTypes from 'prop-types';
 
 const AnimalList = asyncImport('AnimalList');
 const AnimalForm = asyncImport('AnimalForm');
@@ -113,8 +114,10 @@ class AttributeList extends Component {
     const animal = this.state.animalDefinition[animalId];
 
     if (!animal) {
-      routeHistory.push(AttributeList.LOADFILE);
-      return null;
+      // cannot push anything to routeHistory as it will call
+      // setState() eventually and it is not allowed during render().
+      // routeHistory.push(AttributeList.LOADFILE);
+      return <Greeting/>;
     }
     return <AnimalForm
       animal={ this.state.animalDefinition[animalId] }
@@ -190,5 +193,9 @@ class AttributeList extends Component {
     )
   }
 }
+
+AttributeList.propTypes = {
+  onExport: PropTypes.func.isRequired
+};
 
 export default AttributeList

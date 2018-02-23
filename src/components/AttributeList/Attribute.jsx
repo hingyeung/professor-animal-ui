@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function Attribute(props) {
   const attribute = props.attribute;
@@ -39,5 +40,11 @@ function Attribute(props) {
     </tr>
   )
 }
+
+Attribute.propTypes = {
+  attribute: PropTypes.object.isRequired,
+  type: PropTypes.string.isRequired,
+  onAttributeChange: PropTypes.func.isRequired
+};
 
 export default Attribute;

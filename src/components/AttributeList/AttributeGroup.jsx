@@ -2,6 +2,7 @@ import React from 'react';
 import Attribute from './Attribute';
 import AttributeModel from 'models/Attribute';
 import NewAttributeValue from './NewAttributeValue';
+import PropTypes from 'prop-types';
 
 function AttributeGroup(props) {
   const attributeType = props.attributeType;
@@ -37,5 +38,12 @@ function AttributeGroup(props) {
     </table>
   )
 }
+
+AttributeGroup.propTypes = {
+  attributeType: PropTypes.string.isRequired,
+  attributes: PropTypes.object.isRequired,
+  onAttributeChange: PropTypes.func.isRequired,
+  onNewAttributeAdded: PropTypes.func.isRequired
+};
 
 export default AttributeGroup;

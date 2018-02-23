@@ -3,6 +3,7 @@ import {
   Link
 } from 'react-router-dom';
 import AttributeList from 'components/AttributeList';
+import PropTypes from 'prop-types';
 
 function AnimalList(props) {
   let compareAnimalName = (a, b) => {
@@ -53,5 +54,10 @@ function AnimalList(props) {
     </div>
   )
 }
+
+AttributeList.propTypes = {
+  animal: PropTypes.object.isRequired,
+  activeAnimalId: PropTypes.string.isRequired
+};
 
 export default AnimalList;

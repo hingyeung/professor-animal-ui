@@ -1,5 +1,6 @@
 import React from 'react';
 import Attribute from 'models/Attribute';
+import PropTypes from 'prop-types';
 
 function NewAttributeValue(props) {
 
@@ -47,5 +48,11 @@ function NewAttributeValue(props) {
     </tr>
   )
 }
+
+NewAttributeValue.propTypes = {
+  onNewAttributeAdded: PropTypes.func.isRequired,
+  attributeType: PropTypes.string.isRequired,
+  newAttributeIndex: PropTypes.number.isRequired
+};
 
 export default NewAttributeValue;

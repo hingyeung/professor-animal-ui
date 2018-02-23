@@ -15,7 +15,7 @@ const App = function (props) {
 
   return (
     <div>
-      <AttributeList onExport={ onExport }/>
+      <AttributeList onExport={ onExport } x="y"/>
     </div>
   );
 };

@@ -57,7 +57,7 @@ class AnimalDefinition {
   static convertFromArrayOfString(attributeListOfAGroup) {
     let attributeMapForAGroup = {};
     if (!Array.isArray(attributeListOfAGroup)) {
-      return [];
+      return {};
     }
 
     attributeListOfAGroup.forEach(attributeStr => {

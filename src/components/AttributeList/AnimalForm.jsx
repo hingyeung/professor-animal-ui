@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import AttributeGroup from "./AttributeGroup";
 import update from 'immutability-helper';
+import PropTypes from 'prop-types';
 
 class AnimalForm extends Component {
   constructor(props) {
@@ -121,5 +122,9 @@ class AnimalForm extends Component {
     )
   }
 }
+
+AnimalForm.propTypes = {
+  animal: PropTypes.object.isRequired
+};
 
 export default AnimalForm;

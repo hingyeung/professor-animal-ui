@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const AnimalDefinitionLoader = (props) => {
   function onChange(event) {
@@ -23,6 +24,10 @@ const AnimalDefinitionLoader = (props) => {
       </form>
     </div>
   );
+};
+
+AnimalDefinitionLoader.propTypes = {
+  onFileLoaded: PropTypes.func.isRequired
 };
 
 export default AnimalDefinitionLoader;
