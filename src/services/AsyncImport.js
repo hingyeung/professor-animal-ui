@@ -1,5 +1,5 @@
 import Loadable from 'react-loadable';
-import Loading from 'components/common/Loading';
+import Loading from 'components/Loading';
 
 const asyncImport = function(mod) {
   switch (mod) {

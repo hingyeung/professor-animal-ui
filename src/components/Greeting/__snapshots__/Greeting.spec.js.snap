@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Greeting should render correctly 1`] = `
+<h1>
+  Click Load to load an existing animal definition.
+</h1>
+`;

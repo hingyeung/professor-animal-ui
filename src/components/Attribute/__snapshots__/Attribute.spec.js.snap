@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Attribute should render properly 1`] = `
+<tr
+  className="attribute-row row"
+>
+  <td
+    className="attribute-cell col-sm-6"
+  >
+    name
+  </td>
+  <td
+    className="attribute-cell col-sm-3"
+  >
+    <input
+      checked={true}
+      className="form-check-label"
+      id="type-name-yes"
+      name="type-name"
+      onChange={[Function]}
+      type="radio"
+      value="yes"
+    />
+    <label
+      className="form-check-label"
+      htmlFor="type-name-yes"
+    >
+      YES
+    </label>
+  </td>
+  <td
+    className="attribute-cell col-sm-3"
+  >
+    <input
+      checked={false}
+      className="form-check-label"
+      id="type-name-no"
+      name="type-name"
+      onChange={[Function]}
+      type="radio"
+      value="no"
+    />
+    <label
+      className="form-check-label"
+      htmlFor="type-name-no"
+    >
+      NO
+    </label>
+  </td>
+</tr>
+`;

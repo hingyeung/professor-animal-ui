@@ -9,7 +9,7 @@ import {
   Switch,
   Link
 } from 'react-router-dom';
-import Greeting from 'components/common/Greeting';
+import Greeting from 'components/Greeting';
 import AnimalDefinitionLoader from 'components/AnimalDefinitionLoader';
 import {asyncImport} from 'services/AsyncImport';
 import AnimalDefinition from "models/AnimalDefinition";
