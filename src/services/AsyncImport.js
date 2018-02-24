@@ -22,14 +22,14 @@ const asyncImport = function(mod) {
   // https://github.com/webpack/webpack-dev-server/issues/212#issuecomment-242449586
   function importAnimalList() {
     return Loadable({
-      loader: () => import('components/AttributeList/AnimalList'),
+      loader: () => import('components/AnimalList'),
       loading: Loading,
     });
   }
 
   function importAnimalForm() {
     return Loadable({
-      loader: () => import('components/AttributeList/AnimalForm'),
+      loader: () => import('components/AnimalForm'),
       loading: Loading,
     });
   }

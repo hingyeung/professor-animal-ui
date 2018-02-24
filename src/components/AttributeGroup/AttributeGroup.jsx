@@ -1,7 +1,7 @@
 import React from 'react';
-import Attribute from './Attribute';
+import Attribute from 'components/Attribute';
 import AttributeModel from 'models/Attribute';
-import NewAttributeValue from './NewAttributeValue';
+import NewAttributeValue from 'components/NewAttributeValue';
 import PropTypes from 'prop-types';
 
 function AttributeGroup(props) {

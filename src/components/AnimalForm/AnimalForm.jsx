@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import AttributeGroup from "./AttributeGroup";
+import AttributeGroup from "components/AttributeGroup";
 import update from 'immutability-helper';
 import PropTypes from 'prop-types';
 

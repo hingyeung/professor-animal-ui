@@ -10,7 +10,7 @@ import {
   Link
 } from 'react-router-dom';
 import Greeting from 'components/common/Greeting';
-import AnimalDefinitionLoader from 'components/AttributeList/AnimalDefinitionLoader';
+import AnimalDefinitionLoader from 'components/AnimalDefinitionLoader';
 import {asyncImport} from 'services/AsyncImport';
 import AnimalDefinition from "models/AnimalDefinition";
 import AttributeDefinitionReaderService from 'services/AttributeDefinitionReaderService';

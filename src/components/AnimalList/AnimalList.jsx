@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Link
 } from 'react-router-dom';
-import AttributeList from 'components/AttributeList';
+import AttributeList from 'components/AttributeList/index';
 import PropTypes from 'prop-types';
 
 function AnimalList(props) {
