@@ -7,16 +7,17 @@ function NewAttributeValue(props) {
   const onNewAttributeAdded = props.onNewAttributeAdded;
   const attributeType = props.attributeType;
   const newAttributeIndex = props.newAttributeIndex;
+  const INVALID_VALUE_CSS_CLASS = 'is-invalid';
   let input;
 
   function _addNewAttribute(attributeName) {
     if (!attributeName) {
-      // TODO make the field red
-      console.log('Empty attribute name');
+      input.classList.add(INVALID_VALUE_CSS_CLASS);
       return;
     }
 
     onNewAttributeAdded(new Attribute(attributeName, true));
+    input.classList.remove(INVALID_VALUE_CSS_CLASS);
     input.value = '';
   }
 
@@ -39,7 +40,11 @@ function NewAttributeValue(props) {
                className="form-control new-attribute-value-input"
                ref={ ref => input = ref }
                onKeyPress={ _handleKeyPress }
+               required
         />
+        <div className="invalid-feedback">
+          Please provide an <span className="all-caps">{attributeType}</span> attribute.
+        </div>
       </td>
       <td className="attribute-cell col-sm-6">
         <button className="btn btn-primary new-attribute-add-btn" onClick={ _onAddClicked }>Add</button>

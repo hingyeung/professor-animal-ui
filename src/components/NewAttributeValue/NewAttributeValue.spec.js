@@ -3,6 +3,7 @@ import renderer from 'react-test-renderer';
 import NewAttributeValue from "./NewAttributeValue";
 import {mount} from "enzyme/build/index";
 import Attribute from "../../models/Attribute";
+import toJson from 'enzyme-to-json';
 
 const MOCK_ON_NEW_ATTRIBUTE_ADDED = jest.fn();
 const ATTRIBUTE_TYPE = 'attribute_type';
@@ -48,6 +49,7 @@ describe('NewAttributeValue', function () {
     addButton.simulate('click', clickEvent);
 
     expect(MOCK_ON_NEW_ATTRIBUTE_ADDED).not.toHaveBeenCalled();
+    expect(toJson(wrapper)).toMatchSnapshot();
     // wrapper.unmount();
   });
 });
