@@ -36,14 +36,13 @@ function NewAttributeValue(props) {
     <tr className="attribute-row row">
       <td className="attribute-cell col-sm-6">
         <input type="text" name={ attributeType + '-' + newAttributeIndex }
-               className="form-control"
+               className="form-control new-attribute-value-input"
                ref={ ref => input = ref }
                onKeyPress={ _handleKeyPress }
-          // onChange={ (e) => this.setState({newAttributeName: e.target.value}) }
         />
       </td>
       <td className="attribute-cell col-sm-6">
-        <button className="btn btn-primary" onClick={ _onAddClicked }>Add</button>
+        <button className="btn btn-primary new-attribute-add-btn" onClick={ _onAddClicked }>Add</button>
       </td>
     </tr>
   )

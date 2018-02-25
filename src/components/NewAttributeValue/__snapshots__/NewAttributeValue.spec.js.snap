@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewAttributeValue should render properly 1`] = `
+<tr
+  className="attribute-row row"
+>
+  <td
+    className="attribute-cell col-sm-6"
+  >
+    <input
+      className="form-control new-attribute-value-input"
+      name="attribute_type-1"
+      onKeyPress={[Function]}
+      type="text"
+    />
+  </td>
+  <td
+    className="attribute-cell col-sm-6"
+  >
+    <button
+      className="btn btn-primary new-attribute-add-btn"
+      onClick={[Function]}
+    >
+      Add
+    </button>
+  </td>
+</tr>
+`;
