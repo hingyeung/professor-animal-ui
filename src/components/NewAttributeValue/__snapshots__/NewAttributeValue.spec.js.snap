@@ -1,5 +1,50 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`NewAttributeValue should not call onNewAttributeAdded in props when the input field is blank and Enter key is pressed 1`] = `
+<NewAttributeValue
+  attributeType="attribute_type"
+  newAttributeIndex={1}
+  onNewAttributeAdded={[Function]}
+>
+  <tr
+    className="attribute-row row"
+  >
+    <td
+      className="attribute-cell col-sm-6"
+    >
+      <input
+        className="form-control new-attribute-value-input"
+        name="attribute_type-1"
+        onKeyPress={[Function]}
+        required={true}
+        type="text"
+      />
+      <div
+        className="invalid-feedback"
+      >
+        Please provide an 
+        <span
+          className="all-caps"
+        >
+          attribute_type
+        </span>
+         attribute.
+      </div>
+    </td>
+    <td
+      className="attribute-cell col-sm-6"
+    >
+      <button
+        className="btn btn-primary new-attribute-add-btn"
+        onClick={[Function]}
+      >
+        Add
+      </button>
+    </td>
+  </tr>
+</NewAttributeValue>
+`;
+
 exports[`NewAttributeValue should not call onNewAttributeAdded in props when the input field value is blank and Add button is clicked 1`] = `
 <NewAttributeValue
   attributeType="attribute_type"
