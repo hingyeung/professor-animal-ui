@@ -8,18 +8,24 @@ describe('AnimalDefinition', function () {
       attributeMap: {
         physical: {
           legs: true,
-          tail: true
+          tail: true,
+          "a": false,
+          "b": false
         },
         types: {
           vertebrate: true,
           mammal: true
         },
         considerations: {
-          "friendly to human": true
+          "friendly to human": true,
+          "e": false,
+          "f": false
         },
         diet: {
           steak: true,
-          drumstick: true
+          drumstick: true,
+          "c": false,
+          "d": false
         },
         behaviours: {},
         possible_behaviours: {}
@@ -31,7 +37,9 @@ describe('AnimalDefinition', function () {
       attributeMap: {
         physical: {
           scales: true,
-          "long body": true
+          "long body": true,
+          "a": false,
+          "b": false
         },
         possible_behaviours: {
           "be poisonous": true
@@ -44,8 +52,14 @@ describe('AnimalDefinition', function () {
           "only eat meat": true,
           "climb tree": true
         },
-        considerations: {},
-        diet: {}
+        considerations: {
+          "e": false,
+          "f": false
+        },
+        diet: {
+          "c": false,
+          "d": false
+        }
       }
     }
   };
@@ -84,11 +98,26 @@ describe('AnimalDefinition', function () {
     diet: [],
     considerations: []
   }];
+  const ATTRIBUTE_DEFINITION = {
+    "physical": {
+      "a": false,
+      "b": false
+    },
+    "diet": {
+      "c": false,
+      "d": false
+    },
+    "considerations": {
+      "e": false,
+      "f": false
+    }
+  };
+
   it('convertFromFileModelToAppModel', function () {
-    expect(AnimalDefinition.convertFromFileModelToAppModel(FILE_MODEL_WITH_INCOMPLETE_ATTRIBUTE)).toEqual(APP_MODEL);
+    expect(AnimalDefinition.convertFromFileModelToAppModel(FILE_MODEL_WITH_INCOMPLETE_ATTRIBUTE, ATTRIBUTE_DEFINITION)).toEqual(APP_MODEL);
   });
 
-  it('convertFromAppModelToFileModel', function() {
+  it('convertFromAppModelToFileModel', function () {
     expect(AnimalDefinition.convertFromAppModelToFileModel(APP_MODEL)).toEqual(FILE_MODEL);
   });
 });

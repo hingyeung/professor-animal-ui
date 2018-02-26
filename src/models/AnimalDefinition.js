@@ -1,7 +1,7 @@
 class AnimalDefinition {
   // from: [{ name: "Lion", physical: ["legs", "tail"], ... }]
   // to: { Lion: { physical: { legs: true, tail: true } } }
-  static convertFromFileModelToAppModel(animalDefinitionFromFile) {
+  static convertFromFileModelToAppModel(animalDefinitionFromFile, attributeDefinition) {
     let animalDefinitionMap = {};
     animalDefinitionFromFile.forEach(animalFromFile => {
       animalDefinitionMap[animalFromFile.id] = {
@@ -18,7 +18,7 @@ class AnimalDefinition {
       };
     });
 
-    return animalDefinitionMap;
+    return AnimalDefinition.addUnusedAttributeToAnimals(animalDefinitionMap, attributeDefinition);
   }
 
   // from: { Lion: { physical: { legs: true, tail: true } } }
@@ -41,6 +41,35 @@ class AnimalDefinition {
     });
 
     return animalDefinitionListInFileModel;
+  }
+
+  // When the animal definition is loaded from file, each animal definition only contains attributes that it has,
+  // but not the attributes that it doesn't have, even for attributes that are defined as default attributes in attributes.json.
+  // This is done to save storage space. However, the AnimalForm should allow user to modify all attributes,
+  // regardless whether the attributes are currently selected for an animal for not.
+  // This function hydrates the animal definition loaded from file to make sure all animals have all attributes
+  // selectable on the form (added attributes are default to false).
+  static addUnusedAttributeToAnimals(oldAnimalDefinition, attributeDefinition) {
+    // let attributeDefinition = props.attributeDefinition;
+    // must do deep cloning for hydratedAnimalDefinition would just be a
+    // reference to oldAnimalDefinition
+    let hydratedAnimalDefinition = JSON.parse(JSON.stringify(oldAnimalDefinition));
+
+    if (attributeDefinition) {
+      Object.keys(attributeDefinition).forEach(attributeType => {
+        Object.keys(attributeDefinition[attributeType]).forEach(attributeName => {
+          Object.keys(hydratedAnimalDefinition).forEach(animalId => {
+            if (!oldAnimalDefinition[animalId]['attributeMap'][attributeType][attributeName]) {
+              hydratedAnimalDefinition[animalId]['attributeMap'][attributeType][attributeName] =
+                // default value is false from attributeDefinition
+                attributeDefinition[attributeType][attributeName];
+            }
+          });
+        });
+      });
+    }
+
+    return hydratedAnimalDefinition;
   }
 
   static convertFromMap(attributeMap) {

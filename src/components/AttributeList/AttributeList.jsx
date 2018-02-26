@@ -58,35 +58,6 @@ class AttributeList extends Component {
     this.renderAnimalDefinitionLoader = this.renderAnimalDefinitionLoader.bind(this);
   }
 
-  // When the animal definition is loaded from file, each animal definition only contains attributes that it has,
-  // but not the attributes that it doesn't have. This is done to save storage space. However, the AnimalForm
-  // that should allow user to modify all attributes, regardless whether the attributes are currently selected
-  // for an animal for not.
-  // This function hydrates the animal definition loaded from file to make sure all animals have all attributes
-  // selectable on the form (added attributes are default to false).
-  static addUnusedAttributeToAnimals(oldAnimalDefinition, attributeDefinition) {
-    // let attributeDefinition = props.attributeDefinition;
-    // must do deep cloning for hydratedAnimalDefinition would just be a
-    // reference to oldAnimalDefinition
-    let hydratedAnimalDefinition = JSON.parse(JSON.stringify(oldAnimalDefinition));
-
-    if (attributeDefinition) {
-      Object.keys(attributeDefinition).forEach(attributeType => {
-        Object.keys(attributeDefinition[attributeType]).forEach(attributeName => {
-          Object.keys(hydratedAnimalDefinition).forEach(animalId => {
-            if (!oldAnimalDefinition[animalId]['attributeMap'][attributeType][attributeName]) {
-              hydratedAnimalDefinition[animalId]['attributeMap'][attributeType][attributeName] =
-                // default value is false from attributeDefinition
-                attributeDefinition[attributeType][attributeName];
-            }
-          });
-        });
-      });
-    }
-
-    return hydratedAnimalDefinition;
-  }
-
   onFormSubmit(animal, routeHistory) {
     this.setState({
       animalDefinition: update(this.state.animalDefinition, this.updateObjectForAnimal(animal))
@@ -152,11 +123,13 @@ class AttributeList extends Component {
 
   onAnimalDefinitionLoaded(jsonStrLoadedFromFile) {
     this.setState({
-      // AttributeList.addUnusedAttributeToAnimals(props.animalDefinition, props.attributeDefinition)
-      animalDefinition: AttributeList.addUnusedAttributeToAnimals(
-        AnimalDefinition.convertFromFileModelToAppModel(JSON.parse(jsonStrLoadedFromFile)),
-        this.state.attributeDefinition)
-    })
+      // animalDefinition: AttributeList.addUnusedAttributeToAnimals(
+      //   AnimalDefinition.convertFromFileModelToAppModel(JSON.parse(jsonStrLoadedFromFile)),
+      //   this.state.attributeDefinition)
+      animalDefinition:
+        AnimalDefinition.convertFromFileModelToAppModel(JSON.parse(jsonStrLoadedFromFile),
+          this.state.attributeDefinition)
+    });
   }
 
   renderAnimalDefinitionLoader(routeProps) {
