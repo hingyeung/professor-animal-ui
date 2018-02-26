@@ -47,7 +47,7 @@ class AnimalDefinition {
     let attributeStringList = [];
     Object.keys(attributeMap).forEach(attributeName => {
       if (attributeMap[attributeName]) {
-        attributeStringList.push(attributeName)
+        attributeStringList.push(attributeName);
       }
     });
 

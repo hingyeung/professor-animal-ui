@@ -20,10 +20,21 @@ const AnimalList = asyncImport('AnimalList');
 const AnimalForm = asyncImport('AnimalForm');
 
 class AttributeList extends Component {
-  static HOME = "/";
-  static NEW = "/new";
-  static LOADFILE = "/load";
-  static ANIMAL_UPDATED = "/updated";
+  static get HOME() {
+    return "/";
+  }
+
+  static get NEW() {
+    return "/new";
+  }
+
+  static get LOADFILE() {
+    return "/load";
+  }
+
+  static get ANIMAL_UPDATED() {
+    return "/updated";
+  }
 
   constructor(props) {
     super(props);
@@ -69,7 +80,7 @@ class AttributeList extends Component {
                 attributeDefinition[attributeType][attributeName];
             }
           });
-        })
+        });
       });
     }
 
@@ -87,7 +98,7 @@ class AttributeList extends Component {
       [animal.id]: {
         $set: animal
       }
-    }
+    };
   }
 
   // populate animal object with attributeDefinition for new animal form
@@ -96,16 +107,18 @@ class AttributeList extends Component {
       name: undefined,
       id: guid(),
       attributeMap: this.state.attributeDefinition
-    }
-  };
+    };
+  }
 
   renderAttributeGroupsForNewAnimal(routeProps) {
     const routeHistory = routeProps.history;
-    return <AnimalForm
+    return (
+      <AnimalForm
       animal={ this.populateAnimalForNewAnimalForm() } // new animal
       routeHistory={ routeHistory }
       onFormSubmit={ this.onFormSubmit }
-    />
+      />
+    );
   }
 
   renderAttributeGroupsForThisAnimal(routeProps) {
@@ -147,7 +160,7 @@ class AttributeList extends Component {
   }
 
   renderAnimalDefinitionLoader(routeProps) {
-    return <AnimalDefinitionLoader onFileLoaded={this.onAnimalDefinitionLoaded}/>
+    return <AnimalDefinitionLoader onFileLoaded={ this.onAnimalDefinitionLoaded }/>
   }
 
   componentDidMount() {
@@ -164,7 +177,7 @@ class AttributeList extends Component {
         <div>
           <nav className="navbar navbar-expand-sm">
             <div className="navbar-nav d-flex flex-row">
-              <Link className="nav-item nav-link mx-2" to={AttributeList.LOADFILE}>Load</Link>
+              <Link className="nav-item nav-link mx-2" to={ AttributeList.LOADFILE }>Load</Link>
               <button className="nav-item btn btn-primary mx-2" onClick={ (e) => this.onExport(e) }>Export</button>
             </div>
           </nav>

@@ -40,7 +40,6 @@ function NewAttributeValue(props) {
                className="form-control new-attribute-value-input"
                ref={ ref => input = ref }
                onKeyPress={ _handleKeyPress }
-               required
         />
         <div className="invalid-feedback">
           Please provide an <span className="all-caps">{attributeType}</span> attribute.

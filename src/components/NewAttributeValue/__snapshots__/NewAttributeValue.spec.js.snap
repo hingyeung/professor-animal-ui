@@ -16,7 +16,6 @@ exports[`NewAttributeValue should not call onNewAttributeAdded in props when the
         className="form-control new-attribute-value-input"
         name="attribute_type-1"
         onKeyPress={[Function]}
-        required={true}
         type="text"
       />
       <div
@@ -61,7 +60,6 @@ exports[`NewAttributeValue should not call onNewAttributeAdded in props when the
         className="form-control new-attribute-value-input"
         name="attribute_type-1"
         onKeyPress={[Function]}
-        required={true}
         type="text"
       />
       <div
@@ -101,7 +99,6 @@ exports[`NewAttributeValue should render properly 1`] = `
       className="form-control new-attribute-value-input"
       name="attribute_type-1"
       onKeyPress={[Function]}
-      required={true}
       type="text"
     />
     <div
