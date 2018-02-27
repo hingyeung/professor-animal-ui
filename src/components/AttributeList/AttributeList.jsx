@@ -104,7 +104,7 @@ class AttributeList extends Component {
       return <Greeting/>;
     }
     return <AnimalForm
-      animal={ this.state.animalDefinition[animalId] }
+      animal={ animal }
       routeHistory={ routeHistory }
       onFormSubmit={ this.onFormSubmit }/>
   }

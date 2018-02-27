@@ -55,8 +55,8 @@ function AnimalList(props) {
   )
 }
 
-AttributeList.propTypes = {
-  animal: PropTypes.object.isRequired,
+AnimalList.propTypes = {
+  animals: PropTypes.object.isRequired,
   activeAnimalId: PropTypes.string.isRequired
 };
 

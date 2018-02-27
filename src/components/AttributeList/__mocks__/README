@@ -1,0 +1,13 @@
+https://medium.com/@antonybudianto/react-router-testing-with-jest-and-enzyme-17294fefd303
+
+Don’t forget to mock the BrowserRouter used by App.js by creating __mocks__/react-router-dom.js and here is how to mock it:
+
+{code}
+import React from 'react';
+const rrd = require('react-router-dom');
+// Just render plain div with its children
+rrd.BrowserRouter = ({children}) => <div>{children}</div>
+module.exports = rrd;
+{code}
+
+We need to mock it because it’ll overlap with our MemoryRouter and causing the initialEntries not working.
