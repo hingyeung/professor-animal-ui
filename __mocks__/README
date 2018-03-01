@@ -11,3 +11,5 @@ module.exports = rrd;
 {code}
 
 We need to mock it because it’ll overlap with our MemoryRouter and causing the initialEntries not working.
+
+More about where you should put the mock files: https://facebook.github.io/jest/docs/en/manual-mocks.html

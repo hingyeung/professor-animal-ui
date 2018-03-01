@@ -11,13 +11,11 @@ import {
 } from 'react-router-dom';
 import Greeting from 'components/Greeting';
 import AnimalDefinitionLoader from 'components/AnimalDefinitionLoader';
-import {asyncImport} from 'services/AsyncImport';
 import AnimalDefinition from "models/AnimalDefinition";
 import AttributeDefinitionReaderService from 'services/AttributeDefinitionReaderService';
 import PropTypes from 'prop-types';
-
-const AnimalList = asyncImport('AnimalList');
-const AnimalForm = asyncImport('AnimalForm');
+import LoadableAnimalList from 'components/Loadables/LoadableAnimalList';
+import LoadableAnimalForm from 'components/Loadables/LoadableAnimalForm';
 
 class AttributeList extends Component {
   static get HOME() {
@@ -84,7 +82,7 @@ class AttributeList extends Component {
   renderAttributeGroupsForNewAnimal(routeProps) {
     const routeHistory = routeProps.history;
     return (
-      <AnimalForm
+      <LoadableAnimalForm
       animal={ this.populateAnimalForNewAnimalForm() } // new animal
       routeHistory={ routeHistory }
       onFormSubmit={ this.onFormSubmit }
@@ -103,7 +101,7 @@ class AttributeList extends Component {
       // routeHistory.push(AttributeList.LOADFILE);
       return <Greeting/>;
     }
-    return <AnimalForm
+    return <LoadableAnimalForm
       animal={ animal }
       routeHistory={ routeHistory }
       onFormSubmit={ this.onFormSubmit }/>
@@ -118,7 +116,7 @@ class AttributeList extends Component {
     const activeAnimalId = routeProps.location.state && routeProps.location.state.activeAnimalId ?
       routeProps.location.state.activeAnimalId :
       undefined;
-    return <AnimalList activeAnimalId={ activeAnimalId } animals={ this.state.animalDefinition }/>
+    return <LoadableAnimalList activeAnimalId={ activeAnimalId } animals={ this.state.animalDefinition }/>
   }
 
   onAnimalDefinitionLoaded(jsonStrLoadedFromFile) {

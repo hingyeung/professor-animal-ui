@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Link
 } from 'react-router-dom';
-import AttributeList from 'components/AttributeList/index';
+import AttributeList from 'components/AttributeList';
 import PropTypes from 'prop-types';
 
 function AnimalList(props) {
@@ -57,7 +57,7 @@ function AnimalList(props) {
 
 AnimalList.propTypes = {
   animals: PropTypes.object.isRequired,
-  activeAnimalId: PropTypes.string.isRequired
+  activeAnimalId: PropTypes.string
 };
 
 export default AnimalList;

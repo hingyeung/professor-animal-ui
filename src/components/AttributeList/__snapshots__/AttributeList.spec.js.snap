@@ -1,0 +1,938 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AttributeList should render animal route with animal form when animal definition is loaded 1`] = `
+<MemoryRouter
+  initialEntries={
+    Array [
+      Object {
+        "key": "testKey",
+        "pathname": "/animal/animalId",
+        "state": Object {
+          "activeAnimalId": "animalId",
+        },
+      },
+    ]
+  }
+>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "key": "testKey",
+            "pathname": "/animal/animalId",
+            "search": "",
+            "state": Object {
+              "activeAnimalId": "animalId",
+            },
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "key": "testKey",
+          "pathname": "/animal/animalId",
+          "search": "",
+          "state": Object {
+            "activeAnimalId": "animalId",
+          },
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <AttributeList
+      onExport={[Function]}
+    >
+      <Component>
+        <div>
+          <div>
+            <nav
+              className="navbar navbar-expand-sm"
+            >
+              <div
+                className="navbar-nav d-flex flex-row"
+              >
+                <Link
+                  className="nav-item nav-link mx-2"
+                  replace={false}
+                  to="/load"
+                >
+                  <a
+                    className="nav-item nav-link mx-2"
+                    href="/load"
+                    onClick={[Function]}
+                  >
+                    Load
+                  </a>
+                </Link>
+                <button
+                  className="nav-item btn btn-primary mx-2"
+                  onClick={[Function]}
+                >
+                  Export
+                </button>
+              </div>
+            </nav>
+            <div
+              className="container"
+            >
+              <div
+                className="row"
+              >
+                <div
+                  className=" left-container col-3 d-flex"
+                >
+                  <Route
+                    path="/"
+                    render={[Function]}
+                  >
+                    <LoadableAnimalList
+                      activeAnimalId="animalId"
+                      animals={
+                        Object {
+                          "animalId": Object {
+                            "attributeMap": Object {
+                              "behaviours": Object {
+                                "bark": false,
+                                "climb tree": false,
+                                "eat both plants and animals": false,
+                                "fly": false,
+                                "hibernate in winter": false,
+                                "hunt in a group": false,
+                                "lay eggs": false,
+                                "live in a group": false,
+                                "live in a large group": false,
+                                "live in burrows": false,
+                                "meow": false,
+                                "only eat meat": false,
+                                "only eat plants": false,
+                                "only live in Australia": false,
+                                "roar": false,
+                                "slither across flat surfaces without legs": false,
+                                "sting": false,
+                              },
+                              "considerations": Object {
+                                "as dangerous to humans": false,
+                                "as helpful to humans": false,
+                                "as most dangerous animals in Africa": false,
+                                "to be friendly to humans": false,
+                                "to be very intelligent": false,
+                              },
+                              "diet": Object {
+                                "algae": false,
+                                "bird": false,
+                                "bone": false,
+                                "fish": false,
+                                "grass": false,
+                                "grass and plants": false,
+                                "insects": false,
+                                "jellyfish": false,
+                                "krill": false,
+                                "nectar from flowers": false,
+                                "pet food": false,
+                                "plankton": false,
+                                "sea grass and seaweed": false,
+                                "seals": false,
+                                "tiny fish and fish eggs": false,
+                              },
+                              "physical": Object {
+                                "a hard shell": false,
+                                "a pouch where their newborns live": false,
+                                "black stripes on its body": false,
+                                "dark hair": false,
+                                "fins": false,
+                                "hooves": false,
+                                "huge mouth": false,
+                                "large animal": false,
+                                "large ears": false,
+                                "large jaw": false,
+                                "legs": true,
+                                "long arms": false,
+                                "long body": false,
+                                "long legs": false,
+                                "long neck": false,
+                                "long tongue": false,
+                                "long trunk": false,
+                                "mane": false,
+                                "many sharp teeth": false,
+                                "no teeth": false,
+                                "pouch on its tummy": false,
+                                "scales": false,
+                                "sharp claws": false,
+                                "short legs": false,
+                                "six legs": false,
+                                "strong talon": false,
+                                "tail": true,
+                                "tentacles": false,
+                                "thick, armour-like skin": false,
+                                "thumbs like humans": false,
+                                "tusks": false,
+                                "two antenna": false,
+                                "wings": false,
+                              },
+                              "possible_behaviours": Object {
+                                "be poisonous": false,
+                                "domesticated": false,
+                                "enlarge its body by swallowing huge amount of water to scare off predators": false,
+                                "jump out of the water": false,
+                                "jump very high": false,
+                                "live in freshwater as well as salt water": false,
+                                "swim": false,
+                                "use tools": false,
+                              },
+                              "types": Object {
+                                "a highly intelligent animal": false,
+                                "ape": false,
+                                "big cat": false,
+                                "bird": false,
+                                "bird of prey": false,
+                                "cold-blooded animal": false,
+                                "fish": false,
+                                "insect": false,
+                                "invertebrate": false,
+                                "large bird": false,
+                                "mammal": false,
+                                "marsupial": false,
+                                "nocturnal animal": false,
+                                "pet": false,
+                                "predator": false,
+                                "reptile": false,
+                                "small animal": false,
+                                "social animal": false,
+                                "solitary animal": false,
+                                "territorial animal": false,
+                                "vertebrate": false,
+                              },
+                            },
+                            "id": "animalId",
+                            "name": "Lion",
+                          },
+                        }
+                      }
+                    >
+                      <div>
+                        LoadableAnimalList
+                      </div>
+                    </LoadableAnimalList>
+                  </Route>
+                </div>
+                <div
+                  className=" right-container col-9 d-flex"
+                >
+                  <Switch>
+                    <Route
+                      computedMatch={
+                        Object {
+                          "isExact": true,
+                          "params": Object {
+                            "id": "animalId",
+                          },
+                          "path": "/animal/:id",
+                          "url": "/animal/animalId",
+                        }
+                      }
+                      location={
+                        Object {
+                          "hash": "",
+                          "key": "testKey",
+                          "pathname": "/animal/animalId",
+                          "search": "",
+                          "state": Object {
+                            "activeAnimalId": "animalId",
+                          },
+                        }
+                      }
+                      path="/animal/:id"
+                      render={[Function]}
+                    >
+                      <LoadableAnimalForm
+                        animal={
+                          Object {
+                            "attributeMap": Object {
+                              "behaviours": Object {
+                                "bark": false,
+                                "climb tree": false,
+                                "eat both plants and animals": false,
+                                "fly": false,
+                                "hibernate in winter": false,
+                                "hunt in a group": false,
+                                "lay eggs": false,
+                                "live in a group": false,
+                                "live in a large group": false,
+                                "live in burrows": false,
+                                "meow": false,
+                                "only eat meat": false,
+                                "only eat plants": false,
+                                "only live in Australia": false,
+                                "roar": false,
+                                "slither across flat surfaces without legs": false,
+                                "sting": false,
+                              },
+                              "considerations": Object {
+                                "as dangerous to humans": false,
+                                "as helpful to humans": false,
+                                "as most dangerous animals in Africa": false,
+                                "to be friendly to humans": false,
+                                "to be very intelligent": false,
+                              },
+                              "diet": Object {
+                                "algae": false,
+                                "bird": false,
+                                "bone": false,
+                                "fish": false,
+                                "grass": false,
+                                "grass and plants": false,
+                                "insects": false,
+                                "jellyfish": false,
+                                "krill": false,
+                                "nectar from flowers": false,
+                                "pet food": false,
+                                "plankton": false,
+                                "sea grass and seaweed": false,
+                                "seals": false,
+                                "tiny fish and fish eggs": false,
+                              },
+                              "physical": Object {
+                                "a hard shell": false,
+                                "a pouch where their newborns live": false,
+                                "black stripes on its body": false,
+                                "dark hair": false,
+                                "fins": false,
+                                "hooves": false,
+                                "huge mouth": false,
+                                "large animal": false,
+                                "large ears": false,
+                                "large jaw": false,
+                                "legs": true,
+                                "long arms": false,
+                                "long body": false,
+                                "long legs": false,
+                                "long neck": false,
+                                "long tongue": false,
+                                "long trunk": false,
+                                "mane": false,
+                                "many sharp teeth": false,
+                                "no teeth": false,
+                                "pouch on its tummy": false,
+                                "scales": false,
+                                "sharp claws": false,
+                                "short legs": false,
+                                "six legs": false,
+                                "strong talon": false,
+                                "tail": true,
+                                "tentacles": false,
+                                "thick, armour-like skin": false,
+                                "thumbs like humans": false,
+                                "tusks": false,
+                                "two antenna": false,
+                                "wings": false,
+                              },
+                              "possible_behaviours": Object {
+                                "be poisonous": false,
+                                "domesticated": false,
+                                "enlarge its body by swallowing huge amount of water to scare off predators": false,
+                                "jump out of the water": false,
+                                "jump very high": false,
+                                "live in freshwater as well as salt water": false,
+                                "swim": false,
+                                "use tools": false,
+                              },
+                              "types": Object {
+                                "a highly intelligent animal": false,
+                                "ape": false,
+                                "big cat": false,
+                                "bird": false,
+                                "bird of prey": false,
+                                "cold-blooded animal": false,
+                                "fish": false,
+                                "insect": false,
+                                "invertebrate": false,
+                                "large bird": false,
+                                "mammal": false,
+                                "marsupial": false,
+                                "nocturnal animal": false,
+                                "pet": false,
+                                "predator": false,
+                                "reptile": false,
+                                "small animal": false,
+                                "social animal": false,
+                                "solitary animal": false,
+                                "territorial animal": false,
+                                "vertebrate": false,
+                              },
+                            },
+                            "id": "animalId",
+                            "name": "Lion",
+                          }
+                        }
+                        onFormSubmit={[Function]}
+                        routeHistory={
+                          Object {
+                            "action": "POP",
+                            "block": [Function],
+                            "canGo": [Function],
+                            "createHref": [Function],
+                            "entries": Array [
+                              Object {
+                                "hash": "",
+                                "key": "testKey",
+                                "pathname": "/animal/animalId",
+                                "search": "",
+                                "state": Object {
+                                  "activeAnimalId": "animalId",
+                                },
+                              },
+                            ],
+                            "go": [Function],
+                            "goBack": [Function],
+                            "goForward": [Function],
+                            "index": 0,
+                            "length": 1,
+                            "listen": [Function],
+                            "location": Object {
+                              "hash": "",
+                              "key": "testKey",
+                              "pathname": "/animal/animalId",
+                              "search": "",
+                              "state": Object {
+                                "activeAnimalId": "animalId",
+                              },
+                            },
+                            "push": [Function],
+                            "replace": [Function],
+                          }
+                        }
+                      >
+                        <div>
+                          LoadableAnimalForm
+                        </div>
+                      </LoadableAnimalForm>
+                    </Route>
+                  </Switch>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Component>
+    </AttributeList>
+  </Router>
+</MemoryRouter>
+`;
+
+exports[`AttributeList should render animal route with greeting when animal definition is not loaded 1`] = `
+<MemoryRouter
+  initialEntries={
+    Array [
+      Object {
+        "key": "testKey",
+        "pathname": "/animal/animalId",
+        "state": Object {
+          "activeAnimalId": "animalId",
+        },
+      },
+    ]
+  }
+>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "key": "testKey",
+            "pathname": "/animal/animalId",
+            "search": "",
+            "state": Object {
+              "activeAnimalId": "animalId",
+            },
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "key": "testKey",
+          "pathname": "/animal/animalId",
+          "search": "",
+          "state": Object {
+            "activeAnimalId": "animalId",
+          },
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <AttributeList
+      onExport={[Function]}
+    >
+      <Component>
+        <div>
+          <div>
+            <nav
+              className="navbar navbar-expand-sm"
+            >
+              <div
+                className="navbar-nav d-flex flex-row"
+              >
+                <Link
+                  className="nav-item nav-link mx-2"
+                  replace={false}
+                  to="/load"
+                >
+                  <a
+                    className="nav-item nav-link mx-2"
+                    href="/load"
+                    onClick={[Function]}
+                  >
+                    Load
+                  </a>
+                </Link>
+                <button
+                  className="nav-item btn btn-primary mx-2"
+                  onClick={[Function]}
+                >
+                  Export
+                </button>
+              </div>
+            </nav>
+            <div
+              className="container"
+            >
+              <div
+                className="row"
+              >
+                <div
+                  className=" left-container col-3 d-flex"
+                >
+                  <Route
+                    path="/"
+                    render={[Function]}
+                  >
+                    <LoadableAnimalList
+                      activeAnimalId="animalId"
+                      animals={Object {}}
+                    >
+                      <div>
+                        LoadableAnimalList
+                      </div>
+                    </LoadableAnimalList>
+                  </Route>
+                </div>
+                <div
+                  className=" right-container col-9 d-flex"
+                >
+                  <Switch>
+                    <Route
+                      computedMatch={
+                        Object {
+                          "isExact": true,
+                          "params": Object {
+                            "id": "animalId",
+                          },
+                          "path": "/animal/:id",
+                          "url": "/animal/animalId",
+                        }
+                      }
+                      location={
+                        Object {
+                          "hash": "",
+                          "key": "testKey",
+                          "pathname": "/animal/animalId",
+                          "search": "",
+                          "state": Object {
+                            "activeAnimalId": "animalId",
+                          },
+                        }
+                      }
+                      path="/animal/:id"
+                      render={[Function]}
+                    >
+                      <Greeting>
+                        <h1>
+                          Click Load to load an existing animal definition.
+                        </h1>
+                      </Greeting>
+                    </Route>
+                  </Switch>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Component>
+    </AttributeList>
+  </Router>
+</MemoryRouter>
+`;
+
+exports[`AttributeList should render home route 1`] = `
+<MemoryRouter
+  initialEntries={
+    Array [
+      Object {
+        "key": "testKey",
+        "pathname": "/",
+      },
+    ]
+  }
+>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "key": "testKey",
+            "pathname": "/",
+            "search": "",
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "key": "testKey",
+          "pathname": "/",
+          "search": "",
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <AttributeList
+      onExport={[Function]}
+    >
+      <Component>
+        <div>
+          <div>
+            <nav
+              className="navbar navbar-expand-sm"
+            >
+              <div
+                className="navbar-nav d-flex flex-row"
+              >
+                <Link
+                  className="nav-item nav-link mx-2"
+                  replace={false}
+                  to="/load"
+                >
+                  <a
+                    className="nav-item nav-link mx-2"
+                    href="/load"
+                    onClick={[Function]}
+                  >
+                    Load
+                  </a>
+                </Link>
+                <button
+                  className="nav-item btn btn-primary mx-2"
+                  onClick={[Function]}
+                >
+                  Export
+                </button>
+              </div>
+            </nav>
+            <div
+              className="container"
+            >
+              <div
+                className="row"
+              >
+                <div
+                  className=" left-container col-3 d-flex"
+                >
+                  <Route
+                    path="/"
+                    render={[Function]}
+                  >
+                    <LoadableAnimalList
+                      animals={Object {}}
+                    >
+                      <div>
+                        LoadableAnimalList
+                      </div>
+                    </LoadableAnimalList>
+                  </Route>
+                </div>
+                <div
+                  className=" right-container col-9 d-flex"
+                >
+                  <Switch>
+                    <Route
+                      component={[Function]}
+                      computedMatch={
+                        Object {
+                          "isExact": true,
+                          "params": Object {},
+                          "path": "/",
+                          "url": "/",
+                        }
+                      }
+                      exact={true}
+                      location={
+                        Object {
+                          "hash": "",
+                          "key": "testKey",
+                          "pathname": "/",
+                          "search": "",
+                        }
+                      }
+                      path="/"
+                    >
+                      <Greeting
+                        history={
+                          Object {
+                            "action": "POP",
+                            "block": [Function],
+                            "canGo": [Function],
+                            "createHref": [Function],
+                            "entries": Array [
+                              Object {
+                                "hash": "",
+                                "key": "testKey",
+                                "pathname": "/",
+                                "search": "",
+                              },
+                            ],
+                            "go": [Function],
+                            "goBack": [Function],
+                            "goForward": [Function],
+                            "index": 0,
+                            "length": 1,
+                            "listen": [Function],
+                            "location": Object {
+                              "hash": "",
+                              "key": "testKey",
+                              "pathname": "/",
+                              "search": "",
+                            },
+                            "push": [Function],
+                            "replace": [Function],
+                          }
+                        }
+                        location={
+                          Object {
+                            "hash": "",
+                            "key": "testKey",
+                            "pathname": "/",
+                            "search": "",
+                          }
+                        }
+                        match={
+                          Object {
+                            "isExact": true,
+                            "params": Object {},
+                            "path": "/",
+                            "url": "/",
+                          }
+                        }
+                      >
+                        <h1>
+                          Click Load to load an existing animal definition.
+                        </h1>
+                      </Greeting>
+                    </Route>
+                  </Switch>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Component>
+    </AttributeList>
+  </Router>
+</MemoryRouter>
+`;
+
+exports[`AttributeList should render load-page route 1`] = `
+<MemoryRouter
+  initialEntries={
+    Array [
+      Object {
+        "key": "testKey",
+        "pathname": "/load",
+        "state": Object {
+          "activeAnimalId": "id",
+        },
+      },
+    ]
+  }
+>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "key": "testKey",
+            "pathname": "/load",
+            "search": "",
+            "state": Object {
+              "activeAnimalId": "id",
+            },
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "key": "testKey",
+          "pathname": "/load",
+          "search": "",
+          "state": Object {
+            "activeAnimalId": "id",
+          },
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <AttributeList
+      onExport={[Function]}
+    >
+      <Component>
+        <div>
+          <div>
+            <nav
+              className="navbar navbar-expand-sm"
+            >
+              <div
+                className="navbar-nav d-flex flex-row"
+              >
+                <Link
+                  className="nav-item nav-link mx-2"
+                  replace={false}
+                  to="/load"
+                >
+                  <a
+                    className="nav-item nav-link mx-2"
+                    href="/load"
+                    onClick={[Function]}
+                  >
+                    Load
+                  </a>
+                </Link>
+                <button
+                  className="nav-item btn btn-primary mx-2"
+                  onClick={[Function]}
+                >
+                  Export
+                </button>
+              </div>
+            </nav>
+            <div
+              className="container"
+            >
+              <div
+                className="row"
+              >
+                <div
+                  className=" left-container col-3 d-flex"
+                >
+                  <Route
+                    path="/"
+                    render={[Function]}
+                  >
+                    <LoadableAnimalList
+                      activeAnimalId="id"
+                      animals={Object {}}
+                    >
+                      <div>
+                        LoadableAnimalList
+                      </div>
+                    </LoadableAnimalList>
+                  </Route>
+                </div>
+                <div
+                  className=" right-container col-9 d-flex"
+                >
+                  <Switch>
+                    <Route
+                      computedMatch={
+                        Object {
+                          "isExact": true,
+                          "params": Object {},
+                          "path": "/load",
+                          "url": "/load",
+                        }
+                      }
+                      exact={true}
+                      location={
+                        Object {
+                          "hash": "",
+                          "key": "testKey",
+                          "pathname": "/load",
+                          "search": "",
+                          "state": Object {
+                            "activeAnimalId": "id",
+                          },
+                        }
+                      }
+                      path="/load"
+                      render={[Function]}
+                    >
+                      <AnimalDefinitionLoader
+                        onFileLoaded={[Function]}
+                      >
+                        <div>
+                          <form>
+                            <input
+                              className="form-control"
+                              onChange={[Function]}
+                              type="file"
+                            />
+                          </form>
+                        </div>
+                      </AnimalDefinitionLoader>
+                    </Route>
+                  </Switch>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Component>
+    </AttributeList>
+  </Router>
+</MemoryRouter>
+`;
