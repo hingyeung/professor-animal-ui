@@ -84,8 +84,7 @@ class AttributeList extends Component {
     return (
       <LoadableAnimalForm
       animal={ this.populateAnimalForNewAnimalForm() } // new animal
-      routeHistory={ routeHistory }
-      onFormSubmit={ this.onFormSubmit }
+      onFormSubmit={(submittedAnimal) => this.onFormSubmit(submittedAnimal, routeHistory) }
       />
     );
   }
@@ -104,7 +103,7 @@ class AttributeList extends Component {
     return <LoadableAnimalForm
       animal={ animal }
       routeHistory={ routeHistory }
-      onFormSubmit={ this.onFormSubmit }/>
+      onFormSubmit={(submittedAnimal) => this.onFormSubmit(submittedAnimal, routeHistory) }/>
   }
 
   onExport(e) {

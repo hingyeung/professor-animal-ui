@@ -50,7 +50,7 @@ class AnimalForm extends Component {
       return;
     }
 
-    this.props.onFormSubmit(this.state.animal, this.props.routeHistory);
+    this.props.onFormSubmit(this.state.animal);
   }
 
   findInvalidFields(animal) {
@@ -124,7 +124,8 @@ class AnimalForm extends Component {
 }
 
 AnimalForm.propTypes = {
-  animal: PropTypes.object.isRequired
+  animal: PropTypes.object.isRequired,
+  onFormSubmit: PropTypes.func.isRequired
 };
 
 export default AnimalForm;
