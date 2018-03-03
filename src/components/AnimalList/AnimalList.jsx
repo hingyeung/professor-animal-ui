@@ -7,12 +7,12 @@ import PropTypes from 'prop-types';
 
 function AnimalList(props) {
   let compareAnimalName = (a, b) => {
-    let lowerCasedNameA = a.name.toLowerCase(),
+    const lowerCasedNameA = a.name.toLowerCase(),
       lowerCasedNameB = b.name.toLowerCase();
 
     if (lowerCasedNameA < lowerCasedNameB) {
       return -1;
-    } else if (lowerCasedNameB < lowerCasedNameA) {
+    } else if (lowerCasedNameA > lowerCasedNameB) {
       return 1;
     } else {
       return 0;
@@ -22,11 +22,9 @@ function AnimalList(props) {
   const animals = props.animals;
   const activeAnimalId = props.activeAnimalId;
 
-  let animalListSortedByName = [];
-  Object.keys(animals).forEach(animalId => {
-    animalListSortedByName.push(animals[animalId]);
-  });
-  animalListSortedByName.sort(compareAnimalName);
+  let animalListSortedByName = Object.keys(animals)
+    .map((animalId) => animals[animalId])
+    .sort(compareAnimalName);
 
   function isActive(animalId) {
     return animalId === activeAnimalId;
