@@ -12,6 +12,8 @@ jest.mock('components/Loadables/LoadableAnimalForm');
 
 describe('AttributeList', function () {
   const MOCK_ON_EXPORT = jest.fn();
+  const animalModel = [{ id: "animalId", name: "Lion", physical: ["legs", "tail"] }];
+  const animalFile = JSON.stringify(animalModel);
 
   beforeEach(function () {
     MOCK_ON_EXPORT.mockClear();
@@ -58,13 +60,11 @@ describe('AttributeList', function () {
   });
 
   it('should render animal route with animal form when animal definition is loaded', function () {
-    const animalFile = JSON.stringify([{ id: "animalId", name: "Lion", physical: ["legs", "tail"] }]);
     const wrapper = mount(
       <MemoryRouter initialEntries={ [{pathname: "/animal/animalId", key: 'testKey', state: {activeAnimalId: "animalId"}}] }>
         <AttributeList onExport={ MOCK_ON_EXPORT }/>
       </MemoryRouter>
     );
-
     const component = wrapper.find('AttributeList');
 
     component.instance().onAnimalDefinitionLoaded(animalFile);
@@ -76,5 +76,20 @@ describe('AttributeList', function () {
 
     // setTimeout(() => validateDOM(wrapper), 1000);
     wrapper.unmount();
+  });
+
+  it('should call onExport() in props with animalDefinition in current state when export button is clicked', function () {
+    const wrapper = mount(
+      <MemoryRouter initialEntries={ [{pathname: "/animal/animalId", key: 'testKey', state: {activeAnimalId: "animalId"}}] }>
+        <AttributeList onExport={ MOCK_ON_EXPORT }/>
+      </MemoryRouter>
+    );
+    const component = wrapper.find('AttributeList').instance();
+
+    component.onAnimalDefinitionLoaded(animalFile);
+    wrapper.find('button#export-btn').simulate('click');
+    expect(MOCK_ON_EXPORT).toHaveBeenCalledTimes(1);
+    // https://stackoverflow.com/a/47318973
+    expect(MOCK_ON_EXPORT).toHaveBeenCalledWith(component.state.animalDefinition);
   });
 });

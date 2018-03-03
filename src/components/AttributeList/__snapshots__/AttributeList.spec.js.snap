@@ -79,6 +79,7 @@ exports[`AttributeList should render animal route with animal form when animal d
                 </Link>
                 <button
                   className="nav-item btn btn-primary mx-2"
+                  id="export-btn"
                   onClick={[Function]}
                 >
                   Export
@@ -511,6 +512,7 @@ exports[`AttributeList should render animal route with greeting when animal defi
                 </Link>
                 <button
                   className="nav-item btn btn-primary mx-2"
+                  id="export-btn"
                   onClick={[Function]}
                 >
                   Export
@@ -657,6 +659,7 @@ exports[`AttributeList should render home route 1`] = `
                 </Link>
                 <button
                   className="nav-item btn btn-primary mx-2"
+                  id="export-btn"
                   onClick={[Function]}
                 >
                   Export
@@ -854,6 +857,7 @@ exports[`AttributeList should render load-page route 1`] = `
                 </Link>
                 <button
                   className="nav-item btn btn-primary mx-2"
+                  id="export-btn"
                   onClick={[Function]}
                 >
                   Export

@@ -110,12 +110,12 @@ class AnimalForm extends Component {
                    onChange={ this.onAnimalNameUpdate } value={ currentAnimal.name ? currentAnimal.name : '' }/>
           </div>
           <div className="col-sm-4">
-            <button className="btn btn-primary ml-5">Save</button>
+            <button type="submit" className="btn btn-primary ml-5">Save</button>
           </div>
         </div>
         { attributeGroupContent }
         <div>
-          <button className="btn btn-primary">Save</button>
+          <button type="submit" className="btn btn-primary">Save</button>
         </div>
       </form>
       </div>

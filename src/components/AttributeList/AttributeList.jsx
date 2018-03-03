@@ -148,7 +148,7 @@ class AttributeList extends Component {
           <nav className="navbar navbar-expand-sm">
             <div className="navbar-nav d-flex flex-row">
               <Link className="nav-item nav-link mx-2" to={ AttributeList.LOADFILE }>Load</Link>
-              <button className="nav-item btn btn-primary mx-2" onClick={ (e) => this.onExport(e) }>Export</button>
+              <button id="export-btn" className="nav-item btn btn-primary mx-2" onClick={ (e) => this.onExport(e) }>Export</button>
             </div>
           </nav>
           <div className="container">

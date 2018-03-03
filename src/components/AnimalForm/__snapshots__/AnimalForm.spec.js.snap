@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AnimalForm should render properly 1`] = `
+<div
+  className="animal-form-container container"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      className="form-group row"
+    >
+      <label
+        className="col-sm-2 col-form-label"
+        htmlFor="animal-name"
+      >
+        Animal name
+      </label>
+      <div
+        className="col-sm-6"
+      >
+        <input
+          className="form-control"
+          id="animal-name"
+          name="animalName"
+          onChange={[Function]}
+          type="text"
+          value="animal1"
+        />
+      </div>
+      <div
+        className="col-sm-4"
+      >
+        <button
+          className="btn btn-primary ml-5"
+          type="submit"
+        >
+          Save
+        </button>
+      </div>
+    </div>
+    <AttributeGroup
+      attributeType="physical"
+      attributes={
+        Object {
+          "attributeA": true,
+        }
+      }
+      key="physicalundefined"
+      onAttributeChange={[Function]}
+      onNewAttributeAdded={[Function]}
+    />
+    <AttributeGroup
+      attributeType="diet"
+      attributes={
+        Object {
+          "attributeB": true,
+        }
+      }
+      key="dietundefined"
+      onAttributeChange={[Function]}
+      onNewAttributeAdded={[Function]}
+    />
+    <div>
+      <button
+        className="btn btn-primary"
+        type="submit"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+</div>
+`;
