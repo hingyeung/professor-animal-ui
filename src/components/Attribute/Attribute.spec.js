@@ -27,6 +27,6 @@ describe('Attribute', function () {
     const noRadioButton = wrapper.find('input[value="no"]');
     const event = {target: {value: 'no'}};
     noRadioButton.simulate('change', event);
-    expect(MOCK_ON_ATTRIBUTE_CHANGE_CB).toBeCalledWith('type', 'name', 'no');
+    expect(MOCK_ON_ATTRIBUTE_CHANGE_CB).toBeCalledWith('type', 'name', false);
   })
 });

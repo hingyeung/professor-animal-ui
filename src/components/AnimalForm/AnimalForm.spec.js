@@ -48,7 +48,7 @@ describe('AnimalForm', function () {
   it('should update animal in state on attribute value change', function () {
     const wrapper = mount(<AnimalForm animal={ animal } onFormSubmit={ mockOnFormSubmit }/>);
 
-    wrapper.instance().onAttributeChange('physical', 'attributeA', "no");
+    wrapper.instance().onAttributeChange('physical', 'attributeA', false);
     expect(wrapper.state().animal.attributeMap.physical.attributeA).toBe(false);
   });
 

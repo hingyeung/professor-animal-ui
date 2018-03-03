@@ -21,7 +21,7 @@ class AnimalForm extends Component {
     this.setState({
       animal: update(this.state.animal,
         this.updateObjectForAttribute(attributeType,
-          attributeName, ('yes' === attributeValue.toLowerCase())))
+          attributeName, attributeValue))
     })
   }
 

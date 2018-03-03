@@ -16,7 +16,8 @@ function Attribute(props) {
     yesIsChecked = props.attribute.value ? props.attribute.value : false;
 
   function onChange(e) {
-    onAttributeChange(type, attribute.name, e.target.value);
+    let value = e.target.value.toLowerCase() === 'yes';
+    onAttributeChange(type, attribute.name, value);
   }
 
   return (
