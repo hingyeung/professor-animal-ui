@@ -46,7 +46,7 @@ exports[`AnimalForm should render properly 1`] = `
           "attributeA": true,
         }
       }
-      key="physicalundefined"
+      key="physicalanimalId"
       onAttributeChange={[Function]}
       onNewAttributeAdded={[Function]}
     />
@@ -57,7 +57,7 @@ exports[`AnimalForm should render properly 1`] = `
           "attributeB": true,
         }
       }
-      key="dietundefined"
+      key="dietanimalId"
       onAttributeChange={[Function]}
       onNewAttributeAdded={[Function]}
     />

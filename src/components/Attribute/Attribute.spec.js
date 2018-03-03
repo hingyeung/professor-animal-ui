@@ -28,5 +28,5 @@ describe('Attribute', function () {
     const event = {target: {value: 'no'}};
     noRadioButton.simulate('change', event);
     expect(MOCK_ON_ATTRIBUTE_CHANGE_CB).toBeCalledWith('type', 'name', false);
-  })
+  });
 });

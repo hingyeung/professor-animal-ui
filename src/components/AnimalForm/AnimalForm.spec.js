@@ -4,7 +4,9 @@ import AnimalForm from "./AnimalForm";
 import Attribute from 'models/Attribute';
 
 describe('AnimalForm', function () {
+  const animalId = "animalId";
   const animal = {
+    id: animalId,
     name: "animal1",
     attributeMap: {
       physical: {"attributeA": true},
@@ -56,5 +58,19 @@ describe('AnimalForm', function () {
     const wrapper = mount(<AnimalForm animal={ animal } onFormSubmit={ mockOnFormSubmit }/>);
     wrapper.instance().onNewAttributeAdded('physical', new Attribute('attributeC', true));
     expect(wrapper.state().animal.attributeMap.physical.attributeC).toBe(true);
-  })
+  });
+
+  it('should set animal in state when new animal received from props and the new animal has a different ID', function () {
+    const wrapper = shallow(<AnimalForm animal={ animal } onFormSubmit={ mockOnFormSubmit }/>);
+    const newAnimal = {name: 'new animal', id: 'new id', attributeMap: {}};
+    wrapper.setProps({animal: newAnimal});
+    expect(wrapper.instance().state.animal).toEqual(newAnimal);
+  });
+
+  it('should not set animal in state when new animal received from props and the new animal has the same ID', function () {
+    const wrapper = shallow(<AnimalForm animal={ animal } onFormSubmit={ mockOnFormSubmit }/>);
+    const newAnimal = {name: 'new animal', id: animalId, attributeMap: {}};
+    wrapper.setProps({animal: newAnimal});
+    expect(wrapper.instance().state.animal).toEqual(animal);
+  });
 });
