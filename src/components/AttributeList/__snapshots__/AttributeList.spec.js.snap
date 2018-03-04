@@ -7,9 +7,6 @@ exports[`AttributeList should render animal route with animal form when animal d
       Object {
         "key": "testKey",
         "pathname": "/animal/animalId",
-        "state": Object {
-          "activeAnimalId": "animalId",
-        },
       },
     ]
   }
@@ -27,9 +24,6 @@ exports[`AttributeList should render animal route with animal form when animal d
             "key": "testKey",
             "pathname": "/animal/animalId",
             "search": "",
-            "state": Object {
-              "activeAnimalId": "animalId",
-            },
           },
         ],
         "go": [Function],
@@ -43,9 +37,6 @@ exports[`AttributeList should render animal route with animal form when animal d
           "key": "testKey",
           "pathname": "/animal/animalId",
           "search": "",
-          "state": Object {
-            "activeAnimalId": "animalId",
-          },
         },
         "push": [Function],
         "replace": [Function],
@@ -100,7 +91,6 @@ exports[`AttributeList should render animal route with animal form when animal d
                     render={[Function]}
                   >
                     <LoadableAnimalList
-                      activeAnimalId="animalId"
                       animals={
                         Object {
                           "animalId": Object {
@@ -250,9 +240,6 @@ exports[`AttributeList should render animal route with animal form when animal d
                           "key": "testKey",
                           "pathname": "/animal/animalId",
                           "search": "",
-                          "state": Object {
-                            "activeAnimalId": "animalId",
-                          },
                         }
                       }
                       path="/animal/:id"
@@ -391,9 +378,6 @@ exports[`AttributeList should render animal route with animal form when animal d
                                 "key": "testKey",
                                 "pathname": "/animal/animalId",
                                 "search": "",
-                                "state": Object {
-                                  "activeAnimalId": "animalId",
-                                },
                               },
                             ],
                             "go": [Function],
@@ -407,9 +391,6 @@ exports[`AttributeList should render animal route with animal form when animal d
                               "key": "testKey",
                               "pathname": "/animal/animalId",
                               "search": "",
-                              "state": Object {
-                                "activeAnimalId": "animalId",
-                              },
                             },
                             "push": [Function],
                             "replace": [Function],
