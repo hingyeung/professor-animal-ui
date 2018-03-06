@@ -101,6 +101,7 @@ describe('AttributeList', function () {
     );
 
     expect(wrapper.find(LoadableAnimalList)).toHaveLength(1);
+    expect(wrapper.find(LoadableAnimalForm)).toHaveLength(1);
   });
 
   it('should call onExport function in props when onExport is called', function () {

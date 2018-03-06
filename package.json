@@ -37,6 +37,9 @@
   },
   "eslintConfig": {
     "parser": "babel-eslint",
+    "globals": {
+      "window": true
+    },
     "extends": [
       "eslint:recommended",
       "plugin:react/recommended",
