@@ -7,7 +7,9 @@ exports[`AnimalList should highlight the active animal 1`] = `
   <ul
     className="nav nav-pills flex-column"
   >
-    <li>
+    <li
+      className="nav-item"
+    >
       <Link
         className="nav-link"
         replace={false}
@@ -84,7 +86,9 @@ exports[`AnimalList should render properly with sorted animal names 1`] = `
   <ul
     className="nav nav-pills flex-column"
   >
-    <li>
+    <li
+      className="nav-item"
+    >
       <Link
         className="nav-link"
         replace={false}

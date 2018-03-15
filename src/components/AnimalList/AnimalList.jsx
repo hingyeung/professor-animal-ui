@@ -33,7 +33,7 @@ function AnimalList(props) {
   return (
     <div className="col-12 animal-list-container">
       <ul className="nav nav-pills flex-column">
-        <li>
+        <li className="nav-item">
           <Link className="nav-link" to={AttributeList.NEW}>+ Add a new animal</Link>
         </li>
         {

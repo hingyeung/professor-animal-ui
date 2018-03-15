@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Lion",
+    "types": [
+      "vertebrate",
+      "mammal",
+      "big cat",
+      "large animal"
+    ],
+    "behaviours": [
+      "only eat meat",
+      "hunt in a group",
+      "live in a group called pride",
+      "roar",
+      "live in Africa",
+      "rest for around 20 hours a day"
+    ],
+    "physical": [
+      "mane",
+      "tail",
+      "legs"
+    ],
+    "diet": [
+      "zebra, buffalo, wildebeest, giraffes and antelopes"
+    ],
+    "id": "30fe0728-0a50-c06e-4f6f-874a845b423a"
+  },
+  {
+    "name": "Cheetah",
+    "types": [
+      "vertebrate",
+      "mammal",
+      "big cat",
+      "fastest land animal in the world"
+    ],
+    "behaviours": [
+      "only eat meat",
+      "run very fast"
+    ],
+    "possible_behaviours": [
+      "run at top speed of 113 km per hour"
+    ],
+    "physical": [
+      "tail",
+      "excellent eyesight",
+      "long, black lines which run from the inside of each eye to the mouth",
+      "legs"
+    ],
+    "diet": [
+      "gazelles, impalas and wildebeest"
+    ],
+    "id": "d4a46610-bb75-4748-ca12-80a66583b10d"
+  },
+  {
+    "name": "Elephant",
+    "types": [
+      "vertebrate",
+      "mammal",
+      "large animal",
+      "largest land-living mammal"
+    ],
+    "behaviours": [
+      "only eat plants",
+      "live in a groups called herds",
+      "live in Africa or Asia"
+    ],
+    "possible_behaviours": [
+      "swim"
+    ],
+    "physical": [
+      "tusks",
+      "tail",
+      "long trunk",
+      "large, thin ears",
+      "legs"
+    ],
+    "diet": [
+      "grass, leaves, fruits and small plants"
+    ],
+    "id": "36275bd7-4784-c460-c578-a132f808c2c0"
+  }
+]

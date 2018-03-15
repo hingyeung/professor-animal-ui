@@ -553,9 +553,13 @@ exports[`AttributeList should render animal route with greeting when animal defi
                       render={[Function]}
                     >
                       <Greeting>
-                        <h1>
-                          Click Load to load an existing animal definition.
-                        </h1>
+                        <div
+                          className="greeting-container"
+                        >
+                          <h1>
+                            Click Load to load an existing animal definition.
+                          </h1>
+                        </div>
                       </Greeting>
                     </Route>
                   </Switch>
@@ -742,9 +746,13 @@ exports[`AttributeList should render home route 1`] = `
                           }
                         }
                       >
-                        <h1>
-                          Click Load to load an existing animal definition.
-                        </h1>
+                        <div
+                          className="greeting-container"
+                        >
+                          <h1>
+                            Click Load to load an existing animal definition.
+                          </h1>
+                        </div>
                       </Greeting>
                     </Route>
                   </Switch>

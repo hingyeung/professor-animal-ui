@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 
 const AnimalDefinitionLoader = (props) => {
   function onChange(event) {
-    const fileToOpen = event.target.files[0];
+    // event.nativeEvent.testFile is used in cypress functional test to simulate file-type input
+    // https://github.com/cypress-io/cypress-example-recipes/blob/master/examples/file-upload-react/index.html
+    const fileToOpen = (event.nativeEvent && event.nativeEvent.testFile) || event.target.files[0];
 
     if (fileToOpen && fileToOpen.type === 'application/json') {
       let fileReader = new FileReader();

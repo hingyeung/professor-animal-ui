@@ -2,6 +2,6 @@
 <project version="4">
   <component name="JavaScriptLibraryMappings">
     <file url="file://$PROJECT_DIR$" libraries="{animal-genie-ui/node_modules}" />
-    <file url="PROJECT" libraries="{@types/jest, animal-genie-ui/node_modules}" />
+    <file url="PROJECT" libraries="{@types/jest, @types/mocha, animal-genie-ui/node_modules}" />
   </component>
 </project>
