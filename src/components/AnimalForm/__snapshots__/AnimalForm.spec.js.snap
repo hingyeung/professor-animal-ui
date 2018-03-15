@@ -5,6 +5,7 @@ exports[`AnimalForm should render properly 1`] = `
   className="animal-form-container container"
 >
   <form
+    className="animal-form"
     onSubmit={[Function]}
   >
     <div
@@ -32,7 +33,7 @@ exports[`AnimalForm should render properly 1`] = `
         className="col-sm-4"
       >
         <button
-          className="btn btn-primary ml-5"
+          className="save-animal-btn btn btn-primary ml-5"
           type="submit"
         >
           Save
@@ -63,7 +64,7 @@ exports[`AnimalForm should render properly 1`] = `
     />
     <div>
       <button
-        className="btn btn-primary"
+        className="save-animal-btn btn btn-primary"
         type="submit"
       >
         Save

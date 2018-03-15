@@ -7,7 +7,7 @@ exports[`NewAttributeValue should not call onNewAttributeAdded in props when the
   onNewAttributeAdded={[Function]}
 >
   <tr
-    className="attribute-row row"
+    className="attribute-row row attribute-group attribute-group-attribute_type"
   >
     <td
       className="attribute-cell col-sm-6"
@@ -51,7 +51,7 @@ exports[`NewAttributeValue should not call onNewAttributeAdded in props when the
   onNewAttributeAdded={[Function]}
 >
   <tr
-    className="attribute-row row"
+    className="attribute-row row attribute-group attribute-group-attribute_type"
   >
     <td
       className="attribute-cell col-sm-6"
@@ -90,7 +90,7 @@ exports[`NewAttributeValue should not call onNewAttributeAdded in props when the
 
 exports[`NewAttributeValue should render properly 1`] = `
 <tr
-  className="attribute-row row"
+  className="attribute-row row attribute-group attribute-group-attribute_type"
 >
   <td
     className="attribute-cell col-sm-6"

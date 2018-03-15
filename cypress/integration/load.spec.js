@@ -1,19 +1,9 @@
 describe('Load page', function () {
   beforeEach(function () {
-    cy.visit('/load')
+    cy.loadAnimalDefinition();
   });
 
-  it('should have a file input field', function() {
-    cy.get('input[type="file"]').as('fileInput')
-      .should('have.length', 1);
-
-    cy.fixture('animals')
-      .then((json) => {
-        const testFile = new File([JSON.stringify(json)], 'animals.json', {type : 'application/json'});
-        cy.get('@fileInput')
-          .trigger('change', {testFile});
-      });
-
+  it('should have a file input field for loading animal definition', function() {
     cy.get('.animal-list-container li.nav-item').as('animalList')
       .should('have.length', 4)
       .first()

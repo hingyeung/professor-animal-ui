@@ -11,7 +11,7 @@ exports[`AnimalList should highlight the active animal 1`] = `
       className="nav-item"
     >
       <Link
-        className="nav-link"
+        className="new-animal-link nav-link"
         replace={false}
         to="/new"
       >
@@ -90,7 +90,7 @@ exports[`AnimalList should render properly with sorted animal names 1`] = `
       className="nav-item"
     >
       <Link
-        className="nav-link"
+        className="new-animal-link nav-link"
         replace={false}
         to="/new"
       >

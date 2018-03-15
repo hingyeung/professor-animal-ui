@@ -5,7 +5,7 @@ exports[`Attribute should render properly 1`] = `
   className="attribute-row row"
 >
   <td
-    className="attribute-cell col-sm-6"
+    className="attribute-cell attribute-name col-sm-6"
   >
     name
   </td>
@@ -14,7 +14,7 @@ exports[`Attribute should render properly 1`] = `
   >
     <input
       checked={true}
-      className="form-check-label"
+      className="form-check-label attribute-value-yes"
       id="type-name-yes"
       name="type-name"
       onChange={[Function]}
@@ -33,7 +33,7 @@ exports[`Attribute should render properly 1`] = `
   >
     <input
       checked={false}
-      className="form-check-label"
+      className="form-check-label attribute-value-no"
       id="type-name-no"
       name="type-name"
       onChange={[Function]}

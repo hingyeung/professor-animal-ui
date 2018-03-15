@@ -23,3 +23,17 @@
 //
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('loadAnimalDefinition', () => {
+  cy.visit('/load');
+
+  cy.get('input[type="file"]').as('fileInput')
+    .should('have.length', 1);
+
+  cy.fixture('animals')
+    .then((json) => {
+      const testFile = new File([JSON.stringify(json)], 'animals.json', {type : 'application/json'});
+      cy.get('@fileInput')
+        .trigger('change', {testFile});
+    });
+});

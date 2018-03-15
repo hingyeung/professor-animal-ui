@@ -9,7 +9,7 @@ exports[`AttributeGroup should render properly 1`] = `
       className="row"
     >
       <th
-        className="col-sm-12"
+        className="attribute-type col-sm-12"
         colSpan="3"
       >
         attributeType

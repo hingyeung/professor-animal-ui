@@ -34,7 +34,7 @@ function NewAttributeValue(props) {
   }
 
   return (
-    <tr className="attribute-row row">
+    <tr className={"attribute-row row attribute-group attribute-group-" + attributeType}>
       <td className="attribute-cell col-sm-6">
         <input type="text" name={ attributeType + '-' + newAttributeIndex }
                className="form-control new-attribute-value-input"

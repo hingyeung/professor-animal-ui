@@ -34,7 +34,7 @@ function AnimalList(props) {
     <div className="col-12 animal-list-container">
       <ul className="nav nav-pills flex-column">
         <li className="nav-item">
-          <Link className="nav-link" to={AttributeList.NEW}>+ Add a new animal</Link>
+          <Link className="new-animal-link nav-link" to={AttributeList.NEW}>+ Add a new animal</Link>
         </li>
         {
           animalListSortedByName.map(animal => {

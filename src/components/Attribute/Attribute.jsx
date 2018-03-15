@@ -22,18 +22,18 @@ function Attribute(props) {
 
   return (
     <tr className="attribute-row row">
-      <td className="attribute-cell col-sm-6">
+      <td className="attribute-cell attribute-name col-sm-6">
         { attribute.name }
       </td>
       <td className="attribute-cell col-sm-3">
-        <input className="form-check-label" type="radio" name={ type + '-' + attribute.name } value="yes"
+        <input className="form-check-label attribute-value-yes" type="radio" name={ type + '-' + attribute.name } value="yes"
                id={ yesId }
                onChange={ onChange }
                checked={ yesIsChecked }/>
         <label className="form-check-label" htmlFor={ yesId }>YES</label>
       </td>
       <td className="attribute-cell col-sm-3">
-        <input className="form-check-label" type="radio" name={ type + '-' + attribute.name } value="no"
+        <input className="form-check-label attribute-value-no" type="radio" name={ type + '-' + attribute.name } value="no"
                id={ noId } onChange={ onChange }
                checked={ !yesIsChecked }/>
         <label className="form-check-label" htmlFor={ noId }>NO</label>

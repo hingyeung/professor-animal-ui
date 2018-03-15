@@ -25,7 +25,7 @@ function AttributeGroup(props) {
     <table className="table table-striped">
       <thead>
       <tr className="row">
-        <th colSpan="3" className="col-sm-12">{ attributeType }</th>
+        <th colSpan="3" className="attribute-type col-sm-12">{ attributeType }</th>
       </tr>
       </thead>
       <tbody>
