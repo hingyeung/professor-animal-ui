@@ -1,6 +1,6 @@
 describe('Animal form', function () {
-  const defaultNumberOfAttributes = 99;
-  const numberOfAttributesForCheetah = 109;
+  const defaultNumberOfAttributes = 77;
+  const numberOfAttributesForCheetah = 87;
   beforeEach(() => {
     cy.loadAnimalDefinition();
 

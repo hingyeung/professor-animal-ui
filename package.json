@@ -1,7 +1,9 @@
 {
-  "name": "animal-genie-ui",
+  "name": "professor-animal-ui",
   "version": "0.1.0",
   "private": true,
+  "author": "Samuel Li <samli@samuelli.net>",
+  "license": "ISC",
   "dependencies": {
     "@types/react-dom": "^16.0.3",
     "immutability-helper": "^2.6.4",

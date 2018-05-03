@@ -104,7 +104,6 @@ exports[`AttributeList should render animal route with animal form when animal d
                                 "hunt in a group": false,
                                 "lay eggs": false,
                                 "live in a group": false,
-                                "live in a large group": false,
                                 "live in burrows": false,
                                 "meow": false,
                                 "only eat meat": false,
@@ -124,38 +123,20 @@ exports[`AttributeList should render animal route with animal form when animal d
                               "diet": Object {
                                 "algae": false,
                                 "bird": false,
-                                "bone": false,
                                 "fish": false,
                                 "grass": false,
                                 "grass and plants": false,
                                 "insects": false,
                                 "jellyfish": false,
-                                "krill": false,
-                                "nectar from flowers": false,
                                 "pet food": false,
                                 "plankton": false,
-                                "sea grass and seaweed": false,
-                                "seals": false,
-                                "tiny fish and fish eggs": false,
                               },
                               "physical": Object {
                                 "a hard shell": false,
-                                "a pouch where their newborns live": false,
-                                "black stripes on its body": false,
-                                "dark hair": false,
                                 "fins": false,
                                 "hooves": false,
-                                "huge mouth": false,
                                 "large animal": false,
-                                "large ears": false,
-                                "large jaw": false,
                                 "legs": true,
-                                "long arms": false,
-                                "long body": false,
-                                "long legs": false,
-                                "long neck": false,
-                                "long tongue": false,
-                                "long trunk": false,
                                 "mane": false,
                                 "many sharp teeth": false,
                                 "no teeth": false,
@@ -176,7 +157,6 @@ exports[`AttributeList should render animal route with animal form when animal d
                               "possible_behaviours": Object {
                                 "be poisonous": false,
                                 "domesticated": false,
-                                "enlarge its body by swallowing huge amount of water to scare off predators": false,
                                 "jump out of the water": false,
                                 "jump very high": false,
                                 "live in freshwater as well as salt water": false,
@@ -184,7 +164,6 @@ exports[`AttributeList should render animal route with animal form when animal d
                                 "use tools": false,
                               },
                               "types": Object {
-                                "a highly intelligent animal": false,
                                 "ape": false,
                                 "big cat": false,
                                 "bird": false,
@@ -200,7 +179,6 @@ exports[`AttributeList should render animal route with animal form when animal d
                                 "pet": false,
                                 "predator": false,
                                 "reptile": false,
-                                "small animal": false,
                                 "social animal": false,
                                 "solitary animal": false,
                                 "territorial animal": false,
@@ -258,7 +236,6 @@ exports[`AttributeList should render animal route with animal form when animal d
                                 "hunt in a group": false,
                                 "lay eggs": false,
                                 "live in a group": false,
-                                "live in a large group": false,
                                 "live in burrows": false,
                                 "meow": false,
                                 "only eat meat": false,
@@ -278,38 +255,20 @@ exports[`AttributeList should render animal route with animal form when animal d
                               "diet": Object {
                                 "algae": false,
                                 "bird": false,
-                                "bone": false,
                                 "fish": false,
                                 "grass": false,
                                 "grass and plants": false,
                                 "insects": false,
                                 "jellyfish": false,
-                                "krill": false,
-                                "nectar from flowers": false,
                                 "pet food": false,
                                 "plankton": false,
-                                "sea grass and seaweed": false,
-                                "seals": false,
-                                "tiny fish and fish eggs": false,
                               },
                               "physical": Object {
                                 "a hard shell": false,
-                                "a pouch where their newborns live": false,
-                                "black stripes on its body": false,
-                                "dark hair": false,
                                 "fins": false,
                                 "hooves": false,
-                                "huge mouth": false,
                                 "large animal": false,
-                                "large ears": false,
-                                "large jaw": false,
                                 "legs": true,
-                                "long arms": false,
-                                "long body": false,
-                                "long legs": false,
-                                "long neck": false,
-                                "long tongue": false,
-                                "long trunk": false,
                                 "mane": false,
                                 "many sharp teeth": false,
                                 "no teeth": false,
@@ -330,7 +289,6 @@ exports[`AttributeList should render animal route with animal form when animal d
                               "possible_behaviours": Object {
                                 "be poisonous": false,
                                 "domesticated": false,
-                                "enlarge its body by swallowing huge amount of water to scare off predators": false,
                                 "jump out of the water": false,
                                 "jump very high": false,
                                 "live in freshwater as well as salt water": false,
@@ -338,7 +296,6 @@ exports[`AttributeList should render animal route with animal form when animal d
                                 "use tools": false,
                               },
                               "types": Object {
-                                "a highly intelligent animal": false,
                                 "ape": false,
                                 "big cat": false,
                                 "bird": false,
@@ -354,7 +311,6 @@ exports[`AttributeList should render animal route with animal form when animal d
                                 "pet": false,
                                 "predator": false,
                                 "reptile": false,
-                                "small animal": false,
                                 "social animal": false,
                                 "solitary animal": false,
                                 "territorial animal": false,
@@ -556,9 +512,23 @@ exports[`AttributeList should render animal route with greeting when animal defi
                         <div
                           className="greeting-container"
                         >
-                          <h1>
-                            Click Load to load an existing animal definition.
-                          </h1>
+                          <div
+                            className="alert alert-light"
+                            role="alert"
+                          >
+                            <Link
+                              replace={false}
+                              to="/load"
+                            >
+                              <a
+                                href="/load"
+                                onClick={[Function]}
+                              >
+                                Load
+                              </a>
+                            </Link>
+                             an existing animal definition.
+                          </div>
                         </div>
                       </Greeting>
                     </Route>
@@ -749,9 +719,23 @@ exports[`AttributeList should render home route 1`] = `
                         <div
                           className="greeting-container"
                         >
-                          <h1>
-                            Click Load to load an existing animal definition.
-                          </h1>
+                          <div
+                            className="alert alert-light"
+                            role="alert"
+                          >
+                            <Link
+                              replace={false}
+                              to="/load"
+                            >
+                              <a
+                                href="/load"
+                                onClick={[Function]}
+                              >
+                                Load
+                              </a>
+                            </Link>
+                             an existing animal definition.
+                          </div>
                         </div>
                       </Greeting>
                     </Route>
