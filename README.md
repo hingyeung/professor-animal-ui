@@ -1,7 +1,7 @@
 # Animal Definition Editor for Professor Animal
 
 ## What is it?
-This is an editor for editing animal defintion used by [Professor Animal](), a Google Action game designed for young children.
+This is an editor for editing animal defintion used by [Professor Animal](https://github.com/hingyeung/professor-animal-js), a Google Action game designed for young children.
 
 ## How to use it?
 This web app is written with React and operates entirely in browser and only needs access to filesystem. There is no server side dependencies.
