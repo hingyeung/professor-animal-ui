@@ -20,6 +20,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "coverage": "react-scripts test --env=jsdom --coverage",
+    "//": "TARGET_BUCKET=s3://somebucketname/ npm run upload-to-s3",
+    "upload-to-s3": "TARGET_BUCKET=${TARGET_BUCKET:-bucket-url} && aws s3 cp --recursive build ${TARGET_BUCKET}",
     "eject": "react-scripts eject",
     "cypress:open": "export Cypress_homedir=$HOME && cypress open",
     "cypress:run": "export Cypress_homedir=$HOME && cypress run"
