@@ -82,10 +82,11 @@
     "bird": false
   },
   "considerations": {
-    "as helpful to humans": false,
+    "as helpful or useful to humans": false,
     "as dangerous to humans": false,
     "as most dangerous animals in Africa": false,
     "to be very intelligent": false,
-    "to be friendly to humans": false
+    "to be friendly to humans": false,
+    "to be food for humans": false
   }
 }
