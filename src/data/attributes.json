@@ -50,6 +50,7 @@
     "roar": false,
     "bark": false,
     "climb tree": false,
+    "swim": false,
     "meow": false,
     "hibernate in winter": false,
     "lay eggs": false,
@@ -67,7 +68,6 @@
     "jump very high": false,
     "use tools": false,
     "jump out of the water": false,
-    "swim": false,
     "be poisonous": false
   },
   "diet": {
