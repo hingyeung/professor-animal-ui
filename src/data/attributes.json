@@ -58,6 +58,7 @@
     "sting": false,
     "live in a group": false,
     "live in burrows": false,
+    "live in the sea": false,
     "only live in Australia": false
   },
   "possible_behaviours": {
