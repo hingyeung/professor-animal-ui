@@ -18,7 +18,7 @@
     "two antenna": false,
     "thick, armour-like skin": false,
     "pouch on its tummy": false,
-    "many sharp teeth": false,
+    "large sharp teeth": false,
     "thumbs like humans": false,
     "short legs": false
   },
@@ -27,7 +27,7 @@
     "mammal": false,
     "big cat": false,
     "pet": false,
-    "predator": false,
+    "large predator": false,
     "solitary animal": false,
     "reptile": false,
     "cold-blooded animal": false,
@@ -39,7 +39,6 @@
     "insect": false,
     "territorial animal": false,
     "marsupial": false,
-    "social animal": false,
     "ape": false,
     "nocturnal animal": false
   },
