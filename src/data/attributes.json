@@ -1,6 +1,7 @@
 {
   "physical": {
     "fins": false,
+    "flippers": false,
     "mane": false,
     "tail": false,
     "legs": false,
@@ -26,7 +27,6 @@
     "vertebrate": false,
     "mammal": false,
     "big cat": false,
-    "pet": false,
     "large predator": false,
     "solitary animal": false,
     "reptile": false,
@@ -63,12 +63,13 @@
     "only live in Australia": false
   },
   "possible_behaviours": {
-    "domesticated": false,
+    "be domesticated": false,
     "live in freshwater as well as salt water": false,
     "jump very high": false,
     "use tools": false,
     "jump out of the water": false,
-    "be poisonous": false
+    "be poisonous": false,
+    "be kept as pet": false
   },
   "diet": {
     "fish": false,
@@ -78,7 +79,7 @@
     "grass": false,
     "jellyfish": false,
     "algae": false,
-    "grass and plants": false,
+    "plants": false,
     "bird": false
   },
   "considerations": {
