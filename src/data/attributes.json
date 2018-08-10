@@ -25,6 +25,7 @@
   },
   "types": {
     "vertebrate": false,
+    "amphibian": false,
     "mammal": false,
     "big cat": false,
     "large predator": false,
@@ -60,6 +61,7 @@
     "live in a group": false,
     "live in burrows": false,
     "live in the sea": false,
+    "live around water": false,
     "only live in Australia": false
   },
   "possible_behaviours": {
